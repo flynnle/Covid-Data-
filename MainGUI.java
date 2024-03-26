@@ -81,8 +81,6 @@ public class MainGUI extends Application
             errorLabel.setText("set valid date dummy");
         }
     }
-    
-    
 
     //SWITCH METHODS
     public void switchToMap() throws java.io.IOException {
