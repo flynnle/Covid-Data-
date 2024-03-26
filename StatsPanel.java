@@ -35,7 +35,8 @@ public class StatsPanel extends Application
     
     private ArrayList <String> statNames = new ArrayList<>();
     private ArrayList <Integer> statNumbers = new ArrayList<>();
-    
+    //private String[] statNames = {"Total Deaths", "Average Cases per Day", "Average Transit GMR", "Average Park GMR"};
+    //private Integer [] statNumbers = {dm.getTotalDeaths(), dm.getAvgCases(), dm.getAvgTransitGMR(), dm.getAvgParksGMR()};
     @FXML
     public void initialize(){
         statNames.add("Total Deaths");
