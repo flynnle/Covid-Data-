@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.Duration;
 import java.time.Period;
 import java.time.LocalDateTime;
+import javafx.collections.ObservableList;
+import javafx.collections.FXCollections;
 
 /**
  * Write a description of class DataManipulator here.
@@ -48,8 +50,8 @@ public class DataManipulator
         }
     }
     
-    public ArrayList<CovidData> filterBorough(String borough){
-        ArrayList<CovidData> selected = new ArrayList<>();
+    public ObservableList<CovidData> filterBorough(String borough){
+        ObservableList<CovidData> selected = FXCollections.observableArrayList();
         for (CovidData i : data){
             String name = i.getBorough();
             if(name.equals(borough)){
