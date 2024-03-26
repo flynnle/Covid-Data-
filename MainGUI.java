@@ -38,7 +38,8 @@ public class MainGUI extends Application
     }
     
     public void switchToMap(){
-        map.start();
+        Stage stage = new Stage();
+        map.start(stage);
     }
     
 }
