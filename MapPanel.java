@@ -127,7 +127,12 @@ public class MapPanel extends Application
         {
             e.printStackTrace();
             System.out.println("Can't load new window");
-        }
+        } 
+    }
+    @FXML 
+    public void deathColour(){
+        
+        
     }
     
 }

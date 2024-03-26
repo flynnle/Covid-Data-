@@ -6,6 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.FXML;
 import java.net.URL;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
+import javafx.collections.ObservableList;
+import javafx.collections.FXCollections;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -31,6 +34,7 @@ public class MainGUI extends Application
     @FXML private DatePicker endDate;
     @FXML private Button goButton;
     @FXML private Label errorLabel;
+    @FXML private TableView dataTable;
     
     private static boolean introPass = false;
 
@@ -50,6 +54,7 @@ public class MainGUI extends Application
         first.show();
     }
     
+    //intro
     @FXML
     public void goMethod(){
         LocalDate start = startDate.getValue();
