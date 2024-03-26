@@ -9,6 +9,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
+import java.awt.event.ActionEvent;
+import javafx.scene.Parent;
+import java.util.Map;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -108,6 +111,28 @@ public class MainGUI extends Application
     public void switchToIntro() throws java.io.IOException {
         Stage stage = new Stage();
         start(stage);
+    }
+    
+    @FXML 
+    public void popupButton(ActionEvent event) {
+        Map<Button, String> boroughNameMap = map.getBoroughNames();
+        try {
+            Button button = (Button)event.getSource();
+            String borough = boroughNameMap.get(button);
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("borough.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+            BoroughData controller = fxmlLoader.getController();
+            controller.setBoroughName(borough);
+            Stage stage = new Stage();
+            stage.setTitle("Borough Data");
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            System.out.println("Can't load new window");
+        }
     }
     
 }

@@ -157,4 +157,8 @@ public class MapPanel extends Application
         }
     }
     
+    public Map<Button, String> getBoroughNames(){
+        return boroughNameMap;
+    }
+    
 }
