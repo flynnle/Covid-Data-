@@ -116,4 +116,8 @@ public class DataManipulator
         }
         return total/count;
     }
+    
+    public ArrayList<CovidData> getData(){
+        return data;
+    }
 }
