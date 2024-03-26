@@ -60,7 +60,7 @@ public class CovidDataLoader {
         if(doubleString != null && !doubleString.trim().equals("")){
             return Double.parseDouble(doubleString);
         }
-        return 0;
+        return -1.0;
     }
 
     /**
