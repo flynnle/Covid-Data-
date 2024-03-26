@@ -41,11 +41,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainGUI">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainGUI">
    <bottom>
       <HBox prefHeight="27.0" prefWidth="600.0" style="-fx-border-color: #aaaaaa;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="leftArrow" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToGraph" prefHeight="20.0" prefWidth="50.0" text="&lt;">
+            <Button fx:id="leftArrow" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="50.0" text="&lt;">
                <HBox.margin>
                   <Insets left="10.0" top="2.5" />
                </HBox.margin>
@@ -53,7 +53,7 @@
                   <Font size="10.0" />
                </font>
             </Button>
-            <Button fx:id="rightArrow" disable="true" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToMap" prefHeight="20.0" prefWidth="50.0" text="&gt;">
+            <Button fx:id="rightArrow" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToMap" prefHeight="20.0" prefWidth="50.0" text="&gt;">
                <HBox.margin>
                   <Insets left="477.0" top="2.5" />
                </HBox.margin>
@@ -87,7 +87,7 @@
                   <Insets top="1.5" />
                </HBox.margin>
             </DatePicker>
-            <Button fx:id="goButton" mnemonicParsing="false" onAction="#dateConfirm" prefHeight="26.0" prefWidth="50.0" text="go">
+            <Button fx:id="goButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="50.0" text="go">
                <HBox.margin>
                   <Insets left="22.0" top="1.5" />
                </HBox.margin>
@@ -124,4 +124,3 @@
       </VBox>
    </center>
 </BorderPane>
-
