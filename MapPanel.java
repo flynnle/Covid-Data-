@@ -98,10 +98,7 @@ public class MapPanel extends Application
     }
     
     @FXML
-    public void start(Stage stage){
-
-        try
-        {
+    public void start(Stage stage) throws IOException{
             URL url = getClass().getResource("MapPanel.fxml"); 
             Pane root = FXMLLoader.load(url);
             Scene scene = new Scene(root);
@@ -111,12 +108,9 @@ public class MapPanel extends Application
     
             stage.show(); 
         }
-        catch (IOException ioe)
-        {
-            ioe.printStackTrace();
-        } 
+        
       
-    }
+    
     
     @FXML
     public void switchToCovid(ActionEvent event) throws IOException{

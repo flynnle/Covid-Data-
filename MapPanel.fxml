@@ -1,49 +1,576 @@
-import javafx.fxml.FXML;
-import javafx.application.Application;
-import javafx.scene.control.ChoiceBox;
-import javafx.stage.Stage;
-import java.net.URL;
-import javafx.scene.layout.Pane;
-import javafx.scene.Scene;
-import javafx.fxml.FXMLLoader;
-import javafx.collections.ObservableList;
-import javafx.collections.FXCollections;
-import javafx.scene.control.Label;
-import javafx.event.ActionEvent;
+<?xml version="1.0" encoding="UTF-8"?>
 
-public class BoroughData extends Application {
-    @FXML ChoiceBox<String> choicebox;
-    @FXML Label display;
-    @FXML Label borough;
-    private ObservableList<String> orderedBy;
-    private String order;
-    @FXML
-    public void start(Stage stage) throws Exception{
-        URL url = getClass().getResource("popup.fxml"); 
-        Pane root = FXMLLoader.load(url); 
-        Scene scene = new Scene(root); 
-        stage.setTitle("Borough Data"); 
-        stage.setScene(scene);
-        stage.show(); 
-    }
-    
-    @FXML 
-    public void initialize() {
-        orderedBy = FXCollections.observableArrayList("Date", "Google Mobility Data", "New COVID cases", "Total COVID Cases", "New COVID Deaths");
-        choicebox.setItems(orderedBy);
-        choicebox.setValue("Date");
-        order = "Date";
-        display.setText(order);
-        choicebox.setOnAction(event -> getOutput(event));
-    }
-    
-    @FXML 
-    public void getOutput(ActionEvent event) {
-        order = choicebox.getValue();
-        display.setText(order);
-    }
-    
-    public void setBoroughName(String name) {
-        borough.setText("Borough Name: " + name);
-    }
-}
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+  This file is available and licensed under the following license:
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MapPanel">
+   <bottom>
+      <HBox prefHeight="27.0" prefWidth="600.0" style="-fx-border-color: #aaaaaa;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="leftArrow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToCovid" prefHeight="20.0" prefWidth="50.0" text="&lt;">
+               <HBox.margin>
+                  <Insets left="10.0" top="2.5" />
+               </HBox.margin>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="rightArrow" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToStats" prefHeight="20.0" prefWidth="50.0" text="&gt;">
+               <HBox.margin>
+                  <Insets left="477.0" top="2.5" />
+               </HBox.margin>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="34.0" prefWidth="600.0">
+               <children>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5f7" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </Circle>
+                        <Button fx:id="ENFI" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="ENFI">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="310.0" right="5.0" top="30.0" />
+                     </HBox.margin>
+                  </StackPane>
+               </children>
+            </HBox>
+            <HBox prefHeight="34.0" prefWidth="600.0">
+               <children>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </Circle>
+                        <Button fx:id="BARN" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="BARN">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="240.0" right="5.0" />
+                     </HBox.margin>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Button fx:id="HRGY" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="HRGY">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </Circle>
+                        <Button fx:id="WALT" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="WALT">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </StackPane>
+               </children>
+            </HBox>
+            <HBox prefHeight="34.0" prefWidth="600.0">
+               <children>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </Circle>
+                        <Button fx:id="HRRW" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="HRRW">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="168.0" />
+                     </HBox.margin>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Button fx:id="BREN" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="BREN">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Button fx:id="CAMD" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="CAMD">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </Circle>
+                        <Button fx:id="ISLI" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="ISLI">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Button fx:id="HACK" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="HACK">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </Circle>
+                        <Button fx:id="REDB" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="REDB">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </Circle>
+                        <Button fx:id="HAVE" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="HAVE">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </StackPane>
+               </children>
+            </HBox>
+            <HBox prefHeight="34.0" prefWidth="600.0">
+               <children>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </Circle>
+                        <Button fx:id="HILL" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="HILL">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="143.0" />
+                     </HBox.margin>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Button fx:id="EALI" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="EALI">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Button fx:id="KENS" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="KENS">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </Circle>
+                        <Button fx:id="WSTM" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="WSTM">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Button fx:id="TOWH" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="TOWH">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </Circle>
+                        <Button fx:id="NEWH" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="NEWH">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </Circle>
+                        <Button fx:id="BARK" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="BARK">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </StackPane>
+               </children>
+            </HBox>
+            <HBox prefHeight="34.0" prefWidth="600.0">
+               <children>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </Circle>
+                        <Button fx:id="HOUN" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="HOUN">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="167.0" />
+                     </HBox.margin>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Button fx:id="HAMM" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="HAMM">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Button fx:id="WAND" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="WAND">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </Circle>
+                        <Button fx:id="CITY" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="CITY">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" mouseTransparent="true" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5a6" mouseTransparent="true" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Button fx:id="GWCH" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="GWCH">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </Circle>
+                        <Button fx:id="BEXL" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="BEXL">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </StackPane>
+               </children>
+            </HBox>
+            <HBox prefHeight="34.0" prefWidth="600.0">
+               <children>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </Circle>
+                        <Button fx:id="RICH" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="RICH">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="190.0" />
+                     </HBox.margin>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Button fx:id="MERT" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="MERT">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Button fx:id="LAMB" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="LAMB">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </Circle>
+                        <Button fx:id="STHW" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="STHW">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Button fx:id="LEWS" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="LEWS">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </StackPane>
+               </children>
+            </HBox>
+            <HBox prefHeight="34.0" prefWidth="600.0">
+               <children>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Button fx:id="KING" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="KING">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="213.0" right="5.0" />
+                     </HBox.margin>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Button fx:id="SUTT" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="SUTT">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </Circle>
+                        <Button fx:id="CROY" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="CROY">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </StackPane>
+                  <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
+                     <children>
+                        <Circle accessibleRole="BUTTON" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Button fx:id="BROM" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="BROM">
+                           <font>
+                              <Font size="9.5" />
+                           </font>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </StackPane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

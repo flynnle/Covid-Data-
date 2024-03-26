@@ -37,9 +37,10 @@ public class MainGUI extends Application
         first.show();
     }
     
-    public void switchToMap(){
+    public void switchToMap() throws java.io.IOException {
         Stage stage = new Stage();
         map.start(stage);
     }
+    
     
 }
