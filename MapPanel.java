@@ -156,7 +156,6 @@ public class MapPanel extends Application
         }
     }
 
-    
     @FXML 
     public void deathColour(){
         
