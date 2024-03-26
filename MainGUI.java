@@ -69,7 +69,7 @@ public class MainGUI extends Application
             errorLabel.setVisible(introPass);
             dm.filterDate(start, end); //load and select data for other classes (static list)
         }else if(dm.validDate(start, end) == -1){
-            introPass = false;
+            introPass = true;
             leftArrow.setDisable(introPass);
             rightArrow.setDisable(introPass);
             errorLabel.setVisible(introPass);

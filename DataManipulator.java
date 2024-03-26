@@ -49,6 +49,14 @@ public class DataManipulator
         data = selected;
     }
     
+    public void filterBorough(String borough){
+        ArrayList<CovidData> selected = new ArrayList<>();
+        for (CovidData i : records){
+            String name = i.getBorough();
+            
+        }
+    }
+    
     public int validDate(LocalDate start, LocalDate end){
         if (start == null || end == null){
             return 0; //missing date
