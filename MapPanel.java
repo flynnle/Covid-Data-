@@ -111,7 +111,7 @@ public class MapPanel extends Application
         
     @FXML
     public void switchToCovid(ActionEvent event) throws IOException{
-        URL url = getClass().getResource("covidScene.fxml"); 
+        URL url = getClass().getResource("introPanel.fxml"); 
         Pane root = FXMLLoader.load(url); 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("Covid Scene"); 
