@@ -19,7 +19,7 @@ public class BoroughData extends Application {
     private String order;
     @FXML
     public void start(Stage stage) throws Exception{
-        URL url = getClass().getResource("popup.fxml"); 
+        URL url = getClass().getResource("borough.fxml"); 
         Pane root = FXMLLoader.load(url); 
         Scene scene = new Scene(root); 
         stage.setTitle("Borough Data"); 
