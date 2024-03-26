@@ -155,6 +155,7 @@ public class MapPanel extends Application
             e.printStackTrace();
         }
     }
+
     
     @FXML 
     public void deathColour(){
