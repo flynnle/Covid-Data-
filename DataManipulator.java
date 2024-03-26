@@ -48,12 +48,15 @@ public class DataManipulator
         }
     }
     
-    public void filterBorough(String borough){
+    public ArrayList<CovidData> filterBorough(String borough){
         ArrayList<CovidData> selected = new ArrayList<>();
-        for (CovidData i : records){
+        for (CovidData i : data){
             String name = i.getBorough();
-            
+            if(name.equals(borough)){
+                selected.add(i);
+            }
         }
+        return selected;
     }
     
     public int validDate(LocalDate start, LocalDate end){
