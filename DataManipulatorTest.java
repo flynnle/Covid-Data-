@@ -63,6 +63,26 @@ public class DataManipulatorTest
         assertEquals(94,test.getDateDiff(LocalDate.of(2022,11,5), LocalDate.of(2023,2,7)));
     }
     
+    @Test
+    public void testTotalDeaths(){
+        assertEquals(500,test.getTotalDeaths());
+    }
+    
+    @Test
+    public void testAvgTransitGMR(){
+        assertEquals(2,test.getAvgTransitGMR());
+    }
+
+    @Test
+    public void testAvgParksGMR(){
+        assertEquals(7,test.getAvgParksGMR());
+    }
+    
+    @Test
+    public void testAvgCases(){
+        assertEquals(2,test.getAvgCases());
+    }
+    
     /**
      * Tears down the test fixture.
      *

@@ -45,7 +45,7 @@ public class IntroPanel extends Application
     
     @FXML
     public void start(Stage stage) throws Exception{
-        URL url = getClass().getResource("covidScene.fxml"); 
+        URL url = getClass().getResource("IntroPanel.fxml"); 
         Pane root = FXMLLoader.load(url); 
         Scene scene = new Scene(root); 
         stage.setTitle("Covid Scene"); 
@@ -58,26 +58,29 @@ public class IntroPanel extends Application
         start = startDate.getValue();
         end = endDate.getValue();
         if (dm.validDate(start, end) == 0){
-            leftArrow.setDisable(true);
-            rightArrow.setDisable(true);
-            errorLabel.setVisible(true);
+            valid = true;
+            leftArrow.setDisable(valid);
+            rightArrow.setDisable(valid);
+            errorLabel.setVisible(valid);
             errorLabel.setText("put BOTH dates in silly billy");
         }else if(dm.validDate(start, end) == 1){
-            leftArrow.setDisable(false);
-            rightArrow.setDisable(false);
-            errorLabel.setVisible(false); 
-            valid = true;
-            errorLabel.setVisible(false);
+            valid = false;
+            leftArrow.setDisable(valid);
+            rightArrow.setDisable(valid);
+            errorLabel.setVisible(valid); 
+            errorLabel.setVisible(valid);
             dm.filterDate(start, end); //load and select data for other classes (static list)
         }else if(dm.validDate(start, end) == -1){
-            leftArrow.setDisable(true);
-            rightArrow.setDisable(true);
-            errorLabel.setVisible(true);
+            valid = false;
+            leftArrow.setDisable(valid);
+            rightArrow.setDisable(valid);
+            errorLabel.setVisible(valid);
             errorLabel.setText("put BOTH dates in silly billy");
         }else{
-            leftArrow.setDisable(true);
-            rightArrow.setDisable(true);
-            errorLabel.setVisible(true);
+            valid = true;
+            leftArrow.setDisable(valid);
+            rightArrow.setDisable(valid);
+            errorLabel.setVisible(valid);
             errorLabel.setText("set valid date dummy");
         }
     }
@@ -96,7 +99,7 @@ public class IntroPanel extends Application
     
     @FXML
     public void switchToMap(ActionEvent event) throws IOException{
-        URL url = getClass().getResource("map.fxml"); 
+        URL url = getClass().getResource("MapPanel.fxml"); 
         Pane root = FXMLLoader.load(url); 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("Map"); 
@@ -118,7 +121,7 @@ public class IntroPanel extends Application
     
     @FXML
     public void switchToGraph(ActionEvent event) throws IOException{
-        URL url = getClass().getResource("graphPanel.fxml");
+        URL url = getClass().getResource("graph.fxml");
         Pane root = FXMLLoader.load(url);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("Graph"); 

@@ -109,12 +109,9 @@ public class MapPanel extends Application
             stage.show(); 
         }
         
-      
-    
-    
     @FXML
     public void switchToCovid(ActionEvent event) throws IOException{
-        URL url = getClass().getResource("covidScene.fxml"); 
+        URL url = getClass().getResource("introPanel.fxml"); 
         Pane root = FXMLLoader.load(url); 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("Covid Scene"); 
@@ -126,7 +123,7 @@ public class MapPanel extends Application
     @FXML
     public void switchToStats(ActionEvent event) throws IOException{
         try{
-            URL url = getClass().getResource("statisticsPanel.fxml"); 
+            URL url = getClass().getResource("statsPanel.fxml"); 
             Pane root = FXMLLoader.load(url); 
         
             Scene scene = new Scene(root);
@@ -144,7 +141,7 @@ public class MapPanel extends Application
         try {
             Button button = (Button)event.getSource();
             String borough = boroughNameMap.get(button);
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("popup.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("borough.fxml"));
             Parent root = (Parent) fxmlLoader.load();
             BoroughData controller = fxmlLoader.getController();
             controller.setBoroughName(borough);
