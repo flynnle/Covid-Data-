@@ -123,7 +123,7 @@ public class MapPanel extends Application
     @FXML
     public void switchToStats(ActionEvent event) throws IOException{
         try{
-            URL url = getClass().getResource("statisticsPanel.fxml"); 
+            URL url = getClass().getResource("statsPanel.fxml"); 
             Pane root = FXMLLoader.load(url); 
         
             Scene scene = new Scene(root);
