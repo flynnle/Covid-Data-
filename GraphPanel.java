@@ -1,33 +1,62 @@
+import javafx.application.Application;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
+import java.net.URL;
+import javafx.scene.layout.Pane;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import java.awt.event.ActionEvent;
+import java.io.IOException;
+import javafx.scene.Node;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ChoiceBox;
+import javafx.collections.FXCollections;
 
-/**
- * Write a description of class GraphPanel here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public class GraphPanel
-{
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class GraphPanel
-     */
-    public GraphPanel()
-    {
-        // initialise instance variables
-        x = 0;
+public class GraphPanel extends Application {
+    
+    @FXML private ChoiceBox<String> graphChoice;
+    @FXML private Button leftButton;
+    @FXML private Button rightButton;
+    private ObservableList<String> orderedBy;
+    private String order;
+    
+    @FXML 
+    public void initialize() {
+        orderedBy = FXCollections.observableArrayList("Date", "Google Mobility Data", "New COVID cases", "Total COVID Cases", "New COVID Deaths");
+        graphChoice.setItems(orderedBy);
+        graphChoice.setValue("Date");
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    
+    @FXML
+    public void start(Stage stage) throws Exception{
+        URL url = getClass().getResource("graphPanel.fxml"); 
+        Pane root = FXMLLoader.load(url); 
+        Scene scene = new Scene(root); 
+        stage.setTitle("Graph"); 
+        stage.setScene(scene);
+        stage.show(); 
+    }
+    
+    @FXML
+    public void switchToStats(ActionEvent event) throws IOException{
+        URL url = getClass().getResource("statistics.fxml"); 
+        Pane root = FXMLLoader.load(url); 
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Statistics"); 
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    
+    @FXML
+    public void switchToCovid(ActionEvent event) throws IOException{
+        URL url = getClass().getResource("covidScene.fxml"); 
+        Pane root = FXMLLoader.load(url); 
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Covid Scene"); 
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }
