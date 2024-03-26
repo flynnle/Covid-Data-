@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 import java.util.Map;
 import java.util.HashMap;
+import javafx.scene.control.Label;
 
 /**
  * Write a description of class MapPanel here.
@@ -23,6 +24,7 @@ public class MapPanel extends Application
 {
     @FXML private Button leftArrow;
     @FXML private Button rightArrow;
+    @FXML private Label borough;
     @FXML private Button ISLI;
     @FXML private Button ENFI;
     @FXML private Button BARN;
@@ -57,6 +59,11 @@ public class MapPanel extends Application
     @FXML private Button CROY;
     @FXML private Button BROM;
     private Map<Button, String> boroughNameMap = new HashMap<>();
+    
+    public MapPanel() {
+        boroughNameMap = new HashMap<>();
+        initialize();
+    }
     
     /**
      * Constructor for objects of class MapPanel
@@ -156,9 +163,4 @@ public class MapPanel extends Application
             System.out.println("Can't load new window");
         }
     }
-    
-    public Map<Button, String> getBoroughNames(){
-        return boroughNameMap;
-    }
-    
 }
