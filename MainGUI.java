@@ -93,10 +93,12 @@ public class MainGUI extends Application
         map.start(stage);
     }
     
+    
     public void switchToStats() throws java.io.IOException {
         Stage stage = new Stage();
         stats.start(stage);
     }
+    
     
     /*public void switchToGraph() throws java.io.IOException {
         Stage stage = new Stage();

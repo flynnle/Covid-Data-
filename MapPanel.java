@@ -108,7 +108,7 @@ public class MapPanel extends Application
     
             stage.show(); 
         }
-        
+    
     @FXML
      public void popupButton(ActionEvent event) {
         try {
@@ -129,7 +129,7 @@ public class MapPanel extends Application
             System.out.println("Can't load new window");
         } 
     }
-    
+
     @FXML
     public void switchToCovid(ActionEvent event) throws IOException{
         URL url = getClass().getResource("introPanel.fxml"); 
@@ -144,7 +144,7 @@ public class MapPanel extends Application
     @FXML
     public void switchToStats(ActionEvent event) throws IOException{
         try{
-            URL url = getClass().getResource("statisticsPanel.fxml"); 
+            URL url = getClass().getResource("statsPanel.fxml"); 
             Pane root = FXMLLoader.load(url); 
         
             Scene scene = new Scene(root);
@@ -155,7 +155,7 @@ public class MapPanel extends Application
             e.printStackTrace();
         }
     }
-
+    
     @FXML 
     public void deathColour(){
         
