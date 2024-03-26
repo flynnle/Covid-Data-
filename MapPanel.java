@@ -108,7 +108,7 @@ public class MapPanel extends Application
     
             stage.show(); 
         }
-        
+    
     @FXML
     public void switchToCovid(ActionEvent event) throws IOException{
         URL url = getClass().getResource("introPanel.fxml"); 
@@ -152,17 +152,10 @@ public class MapPanel extends Application
         }
         catch (Exception e)
         {
-            e.printStackTrace();
-            System.out.println("Can't load new window");
+            
 
         }
 
-        }
 
-    @FXML 
-    public void deathColour(){
-        
-   
+        } 
     }
-    
-}
