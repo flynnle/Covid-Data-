@@ -10,6 +10,8 @@ import javafx.scene.control.TableView;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import java.util.ArrayList;
+import java.io.IOException;
 
 import javafx.scene.Parent;
 import java.util.Map;
@@ -41,13 +43,22 @@ public class MainGUI extends Application
     @FXML private TableView dataTable;
     
     private static boolean introPass = false;
+    
+    private ArrayList<CovidData> data;
+    
+    private int statsCounter;
+    private ArrayList <String> statNames = new ArrayList<>();
+    private ArrayList <Integer> statNumbers = new ArrayList<>();
+    @FXML private Label statisticName;
+    @FXML private Label statisticInfo;
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
+    public void initialize(){
+        statNames.add("Total Deaths");
+        statNames.add("Average Cases per Day");
+        statNames.add("Average Transit GMR");
+        statNames.add("Average Park GMR");
+    }
+    
     public void start(Stage first) throws java.io.IOException
     {
         URL url = getClass().getResource("IntroPanel.fxml");
@@ -55,7 +66,7 @@ public class MainGUI extends Application
         Scene scene = new Scene(root);
         first.setTitle("Covid Data Viewer");
         first.setScene(scene);
-        first.show();
+        first.show();    
     }
     
     //intro
@@ -76,6 +87,13 @@ public class MainGUI extends Application
             errorLabel.setVisible(introPass); 
             errorLabel.setVisible(introPass);
             dm.filterDate(start, end); //load and select data for other classes (static list)
+            
+            data = dm.getData();
+            statNumbers.add(dm.getTotalDeaths());
+            statNumbers.add(dm.getAvgCases());
+            statNumbers.add(dm.getAvgTransitGMR());
+            statNumbers.add(dm.getAvgParksGMR());
+            
         }else if(dm.validDate(start, end) == -1){
             introPass = true;
             leftArrow.setDisable(introPass);
@@ -90,7 +108,30 @@ public class MainGUI extends Application
             errorLabel.setText("set valid date dummy");
         }
     }
-
+    
+    
+    //stats
+    @FXML
+    public void leftStat(ActionEvent event) throws IOException{
+        statsCounter = statsCounter + 1;
+        if (statsCounter > 3){
+            statsCounter = 0;
+        }
+        statisticName.setText(statNames.get(statsCounter));
+        statisticInfo.setText(String.valueOf(statNumbers.get(statsCounter)));
+    }
+    
+    @FXML
+    public void rightStat(ActionEvent event) throws IOException{
+        statsCounter = statsCounter - 1;
+        if (statsCounter < 0){
+            statsCounter = 3;
+        }
+        statisticName.setText(statNames.get(statsCounter));
+        statisticInfo.setText(String.valueOf(statNumbers.get(statsCounter)));
+    }
+    
+    
     //SWITCH METHODS
     @FXML
     public void switchToMap() throws java.io.IOException {
