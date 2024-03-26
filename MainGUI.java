@@ -1,4 +1,4 @@
- import javafx.application.Application;
+import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -40,6 +40,21 @@ public class MainGUI extends Application
     public void switchToMap() throws java.io.IOException {
         Stage stage = new Stage();
         map.start(stage);
+    }
+    
+    /*public void switchToStats() throws java.io.IOException {
+        Stage stage = new Stage();
+        stats.start(stage);
+    }*/
+    
+    /*public void switchToGraph() throws java.io.IOException {
+        Stage stage = new Stage();
+        stats.start(stage);
+    }*/
+    
+    public void switchToIntro() throws java.io.IOException {
+        Stage stage = new Stage();
+        start(stage);
     }
     
     
