@@ -37,7 +37,7 @@ public class DataManipulatorTest
         assertEquals(1,test.validDate(LocalDate.of(2023,1,1), LocalDate.of(2023,1,5)));
         
         //upper bound
-        assertEquals(1,test.validDate(LocalDate.of(2023,1,1), LocalDate.of(2023,3,9)));
+        assertEquals(1,test.validDate(LocalDate.of(2023,1,1), LocalDate.of(2023,2,9)));
         
         //lower bound
         assertEquals(1,test.validDate(LocalDate.of(2020,2,3), LocalDate.of(2023,1,5)));

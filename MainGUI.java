@@ -83,10 +83,6 @@ public class MainGUI extends Application
         }
     }
 
-    
-    
-    
-    
     //SWITCH METHODS
     public void switchToMap() throws java.io.IOException {
         Stage stage = new Stage();
