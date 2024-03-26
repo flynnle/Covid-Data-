@@ -13,7 +13,7 @@
             <Insets />
          </BorderPane.margin>
          <children>
-            <Label fx:id="borough" alignment="CENTER" />
+            <Label fx:id="borough" />
          </children></HBox>
    </bottom>
    <top>
