@@ -3,6 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
@@ -19,6 +21,7 @@
    <top>
       <HBox prefHeight="30.0" prefWidth="600.0" style="-fx-border-color: #aaaaaa;" BorderPane.alignment="CENTER">
          <children>
+            <Label fx:id="display" />
             <ChoiceBox fx:id="choicebox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0">
                <HBox.margin>
                   <Insets left="445.0" top="1.5" />
@@ -28,6 +31,18 @@
       </HBox>
    </top>
    <center>
-      <Label fx:id="display" BorderPane.alignment="CENTER" />
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView prefHeight="348.0" prefWidth="626.0">
+              <columns>
+                <TableColumn prefWidth="70.0" text="Date" />
+                <TableColumn prefWidth="130.0" text="Google Mobility Data" />
+                  <TableColumn prefWidth="130.0" text="New COVID Cases" />
+                  <TableColumn prefWidth="130.0" text="Total COVID cases" />
+                  <TableColumn prefWidth="140.0" text="Total COVID Deaths" />
+              </columns>
+            </TableView>
+         </children>
+      </HBox>
    </center>
 </BorderPane>

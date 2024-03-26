@@ -37,17 +37,17 @@ public class DataManipulatorTest
         assertEquals(1,test.validDate(LocalDate.of(2023,1,1), LocalDate.of(2023,1,5)));
         
         //upper bound
-        assertEquals(1,test.validDate(LocalDate.of(2023,1,1), LocalDate.of(2023,2,9)));
+        assertEquals(1,test.validDate(LocalDate.of(2023,1,1), LocalDate.of(2023,3,9)));
         
         //lower bound
-        assertEquals(1,test.validDate(LocalDate.of(2022,10,25), LocalDate.of(2023,1,5)));
+        assertEquals(1,test.validDate(LocalDate.of(2020,2,3), LocalDate.of(2023,1,5)));
     }
     
     @Test
     public void testInvalidDate()
     {
         //out of range, lower bound
-        assertEquals(-2,test.validDate(LocalDate.of(2022,10,14), LocalDate.of(2023,1,5)));
+        assertEquals(-2,test.validDate(LocalDate.of(2020,02,02), LocalDate.of(2023,1,5)));
         
         //out of range, upper bound
         assertEquals(-2,test.validDate(LocalDate.of(2022,11,26), LocalDate.of(2023,2,10)));
@@ -58,29 +58,32 @@ public class DataManipulatorTest
 
     @Test
     public void testDateDiff(){
-        assertEquals(4,test.getDateDiff(LocalDate.of(2023,1,1), LocalDate.of(2023,1,5)));
-        
+        assertEquals(4,test.getDateDiff(LocalDate.of(2023,1,1), LocalDate.of(2023,1,5)));        
         assertEquals(94,test.getDateDiff(LocalDate.of(2022,11,5), LocalDate.of(2023,2,7)));
     }
     
     @Test
     public void testTotalDeaths(){
-        assertEquals(500,test.getTotalDeaths());
+        test.filterDate(LocalDate.of(2022,11,1), LocalDate.of(2023,1,5));
+        assertEquals(670,test.getTotalDeaths());
     }
     
     @Test
     public void testAvgTransitGMR(){
-        assertEquals(2,test.getAvgTransitGMR());
+        test.filterDate(LocalDate.of(2022,11,1), LocalDate.of(2023,1,5));
+        assertEquals(0,test.getAvgTransitGMR());
     }
 
     @Test
     public void testAvgParksGMR(){
-        assertEquals(7,test.getAvgParksGMR());
+        test.filterDate(LocalDate.of(2022,11,1), LocalDate.of(2023,1,5));
+        assertEquals(0,test.getAvgParksGMR());
     }
     
     @Test
     public void testAvgCases(){
-        assertEquals(2,test.getAvgCases());
+        test.filterDate(LocalDate.of(2022,11,1), LocalDate.of(2023,1,5));
+        assertEquals(96997,test.getAvgCases());
     }
     
     /**
