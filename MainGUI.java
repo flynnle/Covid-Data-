@@ -5,6 +5,11 @@ import javafx.scene.layout.Pane;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.FXML;
 import java.net.URL;
+import javafx.scene.control.Label;
+
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import java.time.LocalDate;
 
 /**
  * Write a description of class MainGUI here.
@@ -20,6 +25,15 @@ public class MainGUI extends Application
     MapPanel map = new MapPanel();
     StatsPanel stats = new StatsPanel();
     GraphPanel graph = new GraphPanel();
+    
+    @FXML private Button leftArrow;
+    @FXML private Button rightArrow;
+    @FXML private DatePicker startDate;
+    @FXML private DatePicker endDate;
+    @FXML private Button goButton;
+    @FXML private Label errorLabel;
+    
+    private static boolean introPass = false;
 
     /**
      * An example of a method - replace this comment with your own
@@ -37,6 +51,43 @@ public class MainGUI extends Application
         first.show();
     }
     
+    @FXML
+    public void goMethod(){
+        LocalDate start = startDate.getValue();
+        LocalDate end = endDate.getValue();
+        if (dm.validDate(start, end) == 0){
+            introPass = true;
+            leftArrow.setDisable(introPass);
+            rightArrow.setDisable(introPass);
+            errorLabel.setVisible(introPass);
+            errorLabel.setText("put BOTH dates in silly billy");
+        }else if(dm.validDate(start, end) == 1){
+            introPass = false;
+            leftArrow.setDisable(introPass);
+            rightArrow.setDisable(introPass);
+            errorLabel.setVisible(introPass); 
+            errorLabel.setVisible(introPass);
+            dm.filterDate(start, end); //load and select data for other classes (static list)
+        }else if(dm.validDate(start, end) == -1){
+            introPass = false;
+            leftArrow.setDisable(introPass);
+            rightArrow.setDisable(introPass);
+            errorLabel.setVisible(introPass);
+            errorLabel.setText("put BOTH dates in silly billy");
+        }else{
+            introPass = true;
+            leftArrow.setDisable(introPass);
+            rightArrow.setDisable(introPass);
+            errorLabel.setVisible(introPass);
+            errorLabel.setText("set valid date dummy");
+        }
+    }
+
+    
+    
+    
+    
+    //SWITCH METHODS
     public void switchToMap() throws java.io.IOException {
         Stage stage = new Stage();
         map.start(stage);
