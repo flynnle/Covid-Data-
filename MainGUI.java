@@ -22,7 +22,6 @@ import java.time.LocalDate;
  */
 public class MainGUI extends Application
 {
-    // instance variables - replace the example below with your own
     DataManipulator dm = new DataManipulator();
     IntroPanel intro = new IntroPanel();
     MapPanel map = new MapPanel();
@@ -88,11 +87,7 @@ public class MainGUI extends Application
         }
     }
     
-    //map
-    //borough
-    public void display(observableArrayList data){
-        
-    }
+
 
     //SWITCH METHODS
     public void switchToMap() throws java.io.IOException {
@@ -100,10 +95,10 @@ public class MainGUI extends Application
         map.start(stage);
     }
     
-    /*public void switchToStats() throws java.io.IOException {
+    public void switchToStats() throws java.io.IOException {
         Stage stage = new Stage();
         stats.start(stage);
-    }*/
+    }
     
     /*public void switchToGraph() throws java.io.IOException {
         Stage stage = new Stage();
@@ -114,6 +109,5 @@ public class MainGUI extends Application
         Stage stage = new Stage();
         start(stage);
     }
-    
     
 }
