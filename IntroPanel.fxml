@@ -53,7 +53,7 @@
                   <Font size="10.0" />
                </font>
             </Button>
-            <Button fx:id="rightArrow" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToMap" prefHeight="20.0" prefWidth="50.0" text="&gt;">
+            <Button fx:id="rightArrow" disable="true" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToMap" prefHeight="20.0" prefWidth="50.0" text="&gt;">
                <HBox.margin>
                   <Insets left="477.0" top="2.5" />
                </HBox.margin>
@@ -87,7 +87,7 @@
                   <Insets top="1.5" />
                </HBox.margin>
             </DatePicker>
-            <Button fx:id="goButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="50.0" text="go">
+            <Button fx:id="goButton" mnemonicParsing="false" onAction="#goMethod" prefHeight="26.0" prefWidth="50.0" text="go">
                <HBox.margin>
                   <Insets left="22.0" top="1.5" />
                </HBox.margin>
