@@ -33,7 +33,7 @@
    <center>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView prefHeight="348.0" prefWidth="626.0">
+            <TableView fx:id="dataTable" prefHeight="315.0" prefWidth="600.0">
               <columns>
                 <TableColumn prefWidth="70.0" text="Date" />
                 <TableColumn prefWidth="130.0" text="Google Mobility Data" />
