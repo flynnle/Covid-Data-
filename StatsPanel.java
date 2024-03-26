@@ -45,6 +45,7 @@ public class StatsPanel extends Application
             
             try{
                 statNumbers.add(dm.getTotalDeaths());
+                System.out.println(dm.getTotalDeaths());
                 statNumbers.add(dm.getAvgCases());
                 statNumbers.add(dm.getAvgTransitGMR());
                 statNumbers.add(dm.getAvgParksGMR());
