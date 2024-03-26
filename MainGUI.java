@@ -12,6 +12,7 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import java.util.ArrayList;
 import java.io.IOException;
+import javafx.scene.Node;
 
 import javafx.scene.Parent;
 import java.util.Map;
@@ -48,7 +49,7 @@ public class MainGUI extends Application
     
     private int statsCounter;
     private ArrayList <String> statNames = new ArrayList<>();
-    private ArrayList <Integer> statNumbers = new ArrayList<>();
+    private static ArrayList <Integer> statNumbers = new ArrayList<>();
     @FXML private Label statisticName;
     @FXML private Label statisticInfo;
 
@@ -89,10 +90,10 @@ public class MainGUI extends Application
             dm.filterDate(start, end); //load and select data for other classes (static list)
             
             data = dm.getData();
-            statNumbers.add(dm.getTotalDeaths());
-            statNumbers.add(dm.getAvgCases());
-            statNumbers.add(dm.getAvgTransitGMR());
-            statNumbers.add(dm.getAvgParksGMR());
+            statNumbers.add(getTotalDeaths());
+            statNumbers.add(getAvgCases());
+            statNumbers.add(getAvgTransitGMR());
+            statNumbers.add(getAvgParksGMR());
             
         }else if(dm.validDate(start, end) == -1){
             introPass = true;
@@ -140,7 +141,7 @@ public class MainGUI extends Application
     }
     
     @FXML
-    public void switchToStats() throws java.io.IOException {
+    public void switchToStats(ActionEvent event) throws java.io.IOException {
         Stage stage = new Stage();
         stats.start(stage);
     }
@@ -156,9 +157,46 @@ public class MainGUI extends Application
         start(stage);
     }
     
-    @FXML 
-    public void popupButton(ActionEvent event) {
-        map.popupButton(event);
+    //calculation
+    public int getTotalDeaths(){
+        int total = 0;
+        for (CovidData i : data){
+            total += i.getNewDeaths();
+        }
+        return total;
     }
     
+    public int getAvgTransitGMR(){
+        int total = 0;
+        int count = 0;
+        for(CovidData i : data){
+            total += i.getTransitGMR();
+            count++;
+        }
+        return total/count;
+    }
+    
+    public int getAvgParksGMR(){
+        int total = 0;
+        int count = 0;
+        for (CovidData i : data){
+            total += i.getParksGMR();
+            count++;
+        } 
+        return total/count;
+    }
+
+    public int getAvgCases(){
+        int total = 0;
+        int count = 0;
+        for (CovidData i : data){
+            total += i.getTotalCases();
+            count++;
+        }
+        return total/count;
+    }
+    
+    public void popupButton(ActionEvent event){
+        map.popupButton(event);
+    }
 }
