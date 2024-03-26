@@ -104,11 +104,11 @@ public class MainGUI extends Application
         stats.start(stage);
     }
     
-    
-    /*public void switchToGraph() throws java.io.IOException {
+    public void switchToGraph() throws java.io.IOException {
         Stage stage = new Stage();
         stats.start(stage);
-    }*/
+    }
+    
     @FXML
     public void switchToIntro() throws java.io.IOException {
         Stage stage = new Stage();
