@@ -64,7 +64,7 @@ public class DataManipulator
             return 0; //missing date
         }else if(start.compareTo(end) > 0){
             return -1;  //end before start
-        }else if (start.compareTo(LocalDate.of(2020,2,0)) >= 0 && end.compareTo(LocalDate.of(2023,2,9)) <= 0){
+        }else if (start.compareTo(LocalDate.of(2020,2,3)) >= 0 && end.compareTo(LocalDate.of(2023,2,9)) <= 0){
             return 1;    //good date
         }else{
             return -2; //not in range
