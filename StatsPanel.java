@@ -38,6 +38,26 @@ public class StatsPanel extends Application
     //private String[] statNames = {"Total Deaths", "Average Cases per Day", "Average Transit GMR", "Average Park GMR"};
     //private Integer [] statNumbers = {dm.getTotalDeaths(), dm.getAvgCases(), dm.getAvgTransitGMR(), dm.getAvgParksGMR()};
     @FXML
+    public void initialize(){
+        statNames.add("Total Deaths");
+        statNames.add("Average Cases per Day");
+        statNames.add("Average Transit GMR");
+        statNames.add("Average Park GMR");
+            
+            try{
+                statNumbers.add(dm.getTotalDeaths());
+                statNumbers.add(dm.getAvgCases());
+                statNumbers.add(dm.getAvgTransitGMR());
+                statNumbers.add(dm.getAvgParksGMR());
+            }
+            catch(ArithmeticException ae){
+                statisticInfo.setText("No available data");
+            }
+        statisticName.setText(statNames.get(0));
+        statisticInfo.setText(String.valueOf(statNumbers.get(0)));
+    }
+    
+    @FXML
     public void start(Stage stage){
         try{
             URL url = getClass().getResource("statsPanel.fxml"); 
@@ -49,22 +69,7 @@ public class StatsPanel extends Application
             stage.setScene(scene);
             stage.show();
             
-            statNames.add("Total Deaths");
-            statNames.add("Average Cases per Day");
-            statNames.add("Average Transit GMR");
-            statNames.add("Average Park GMR");
             
-            try{
-                statNumbers.add(dm.getTotalDeaths());
-                statNumbers.add(dm.getAvgCases());
-                statNumbers.add(dm.getAvgTransitGMR());
-                statNumbers.add(dm.getAvgParksGMR());
-            }
-            catch(ArithmeticException ae){
-                statisticInfo.setText("No available data");
-            }
-            statisticName.setText(statNames.get(0));
-            statisticInfo.setText(String.valueOf(statNumbers.get(0)));
         }
         
         catch(Exception e){
