@@ -21,6 +21,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import java.time.LocalDate;
 
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
+
 /**
  * Write a description of class MainGUI here.
  *
@@ -41,8 +44,10 @@ public class MainGUI extends Application
     @FXML private DatePicker endDate;
     @FXML private Button goButton;
     @FXML private Label errorLabel;
-    @FXML private TableView dataTable;
-    
+    @FXML private TableView dataTable;   
+    @FXML private Button statsLoad;
+    @FXML private Button statsLeftButton;
+    @FXML private Button statsRightButton;
     private static boolean introPass = false;
     
     private ArrayList<CovidData> data;
@@ -131,6 +136,17 @@ public class MainGUI extends Application
         statisticInfo.setText(String.valueOf(statNumbers.get(statsCounter)));
     }
     
+    @FXML 
+    public void statsLoading() {
+        statsLoad.setVisible(false); 
+        statsLeftButton.setDisable(false);
+        statsLeftButton.setVisible(true);
+        statsRightButton.setDisable(false);
+        statsRightButton.setVisible(true);
+        statisticName.setText(statNames.get(0));
+        statisticInfo.setText(String.valueOf(statNumbers.get(0)));
+    }
+    
     //SWITCH METHODS
     @FXML
     public void switchToMap(ActionEvent event) throws java.io.IOException {
@@ -145,24 +161,35 @@ public class MainGUI extends Application
     
     @FXML
     public void switchToStats(ActionEvent event) throws java.io.IOException {
-        URL url = getClass().getResource("StatsPanel.fxml"); 
+        URL url = getClass().getResource("statsPanel.fxml"); 
         Pane root = FXMLLoader.load(url); 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("Map"); 
+        stage.setTitle("Statistics"); 
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
     
-    public void switchToGraph() throws java.io.IOException {
-        Stage stage = new Stage();
-        stats.start(stage);
+    public void switchToGraph(ActionEvent event) throws java.io.IOException {
+        //graph.initialize();
+        URL url = getClass().getResource("graph.fxml"); 
+        Pane root = FXMLLoader.load(url); 
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Graph"); 
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     
     @FXML
-    public void switchToIntro() throws java.io.IOException {
-        Stage stage = new Stage();
-        start(stage);
+    public void switchToIntro(ActionEvent event) throws java.io.IOException {
+        URL url = getClass().getResource("IntroPanel.fxml"); 
+        Pane root = FXMLLoader.load(url); 
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Welcome"); 
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     
     @FXML

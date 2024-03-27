@@ -15,30 +15,28 @@ import javafx.collections.FXCollections;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import java.util.ArrayList;
+import java.time.LocalDate;
 
 public class GraphPanel extends Application  {
     
     @FXML private ChoiceBox<String> graphChoice;
-    @FXML private BarChart<Integer, Integer>  barChart;
+    @FXML private BarChart<Integer, LocalDate> barChart;
     @FXML private Button leftButton;
     @FXML private Button rightButton;
-    private ObservableList<String> orderedBy;
-    private String order;
+    //private ObservableList<String> orderedBy;
+    //private String order;
     
-    ArrayList<CovidData> data = new ArrayList<>();
     DataManipulator dm = new DataManipulator();
-    
+    ArrayList<CovidData> data = dm.getData();
+    XYChart.Series<Integer, LocalDate> series1 = new XYChart.Series();
+    XYChart.Series<Integer, LocalDate> series2 = new XYChart.Series();
     @FXML 
     public void initialize() {
-        orderedBy = FXCollections.observableArrayList("Date", "Google Mobility Data", "New COVID cases", "Total COVID Cases", "New COVID Deaths");
-        graphChoice.setItems(orderedBy);
-        graphChoice.setValue("Date");
+        //orderedBy = FXCollections.observableArrayList("Date", "Google Mobility Data", "New COVID cases", "Total COVID Cases", "New COVID Deaths");
+        //graphChoice.setItems(orderedBy);
+        //graphChoice.setValue("Date");
         
-        XYChart.Series series1 = new XYChart.Series();
-        series1.setName("Trends");
-        series1.getData().add(new XYChart.Data(dm.getTotalDeaths(), 2022));
-        series1.getData().add(new XYChart.Data(dm.getTotalDeaths(), 2022));
-        series1.getData().add(new XYChart.Data(dm.getTotalDeaths(), 2022));
+        
         
     }
     
@@ -49,15 +47,27 @@ public class GraphPanel extends Application  {
         Scene scene = new Scene(root); 
         stage.setTitle("Graph"); 
         stage.setScene(scene);
+        series1.setName("New deaths");
+        series2.setName("New cases");
+        
+        for (CovidData i : data){
+            series1.getData().add(new XYChart.Data(i.getNewDeaths(), dm.getStart()));
+        }
+        
+        for (CovidData i : data){
+            series2.getData().add(new XYChart.Data(i.getNewCases(), dm.getStart()));
+        }
+        
+        barChart.getData().addAll(series1,series2);
         stage.show(); 
     }
     
     @FXML
-    public void switchToStats(ActionEvent event) throws IOException{
-        URL url = getClass().getResource("statsPanel.fxml"); 
+    public void switchToStats(ActionEvent event) throws java.io.IOException {
+        URL url = getClass().getResource("StatsPanel.fxml"); 
         Pane root = FXMLLoader.load(url); 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("Statistics"); 
+        stage.setTitle("Map"); 
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -65,12 +75,24 @@ public class GraphPanel extends Application  {
     
     @FXML
     public void switchToCovid(ActionEvent event) throws IOException{
-        URL url = getClass().getResource("introPanel.fxml"); 
+        URL url = getClass().getResource("IntroPanel.fxml"); 
         Pane root = FXMLLoader.load(url); 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("Covid Scene"); 
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+    
+    public XYChart.Series<Integer, LocalDate> getSeriesOne(){
+        return series1;
+    }
+    
+    public XYChart.Series<Integer, LocalDate> getSeriesTwo(){
+        return series2;
+    }
+    
+    public BarChart<Integer, LocalDate> getBarChart(){
+        return barChart;
     }
 }
