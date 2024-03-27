@@ -17,7 +17,7 @@
                <buttons>
                   <VBox prefHeight="344.0" prefWidth="90.0">
                      <children>
-                      <Button fx:id="statsLeftButton" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#leftStat" prefHeight="250.0" prefWidth="90.0" text="&lt;">
+                      <Button fx:id="statsLeftButton" alignment="CENTER" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#leftStat" prefHeight="250.0" prefWidth="90.0" text="&lt;" visible="false">
                            <VBox.margin>
                               <Insets top="45.0" />
                            </VBox.margin>
@@ -36,7 +36,7 @@
                <buttons>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Button fx:id="statsRightButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#rightStat" prefHeight="250.0" prefWidth="90.0" text="&gt;">
+                        <Button fx:id="statsRightButton" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#rightStat" prefHeight="250.0" prefWidth="90.0" text="&gt;" visible="false">
                            <padding>
                               <Insets right="2.5" />
                            </padding>
@@ -62,6 +62,11 @@
                   <Insets bottom="25.0" left="150.0" top="120.0" />
                </VBox.margin>
             </Label>
+            <Button fx:id="statsLoad" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#statsGo" prefWidth="50.0" text="Load">
+               <VBox.margin>
+                  <Insets left="175.0" />
+               </VBox.margin>
+            </Button>
             <Label fx:id="statisticInfo" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="80.0">
                <VBox.margin>
                   <Insets left="150.0" />

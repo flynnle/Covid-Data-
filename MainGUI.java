@@ -41,8 +41,10 @@ public class MainGUI extends Application
     @FXML private DatePicker endDate;
     @FXML private Button goButton;
     @FXML private Label errorLabel;
-    @FXML private TableView dataTable;
-    
+    @FXML private TableView dataTable;   
+    @FXML private Button statsLoad;
+    @FXML private Button statsLeftButton;
+    @FXML private Button statsRightButton;
     private static boolean introPass = false;
     
     private ArrayList<CovidData> data;
@@ -129,6 +131,17 @@ public class MainGUI extends Application
         }
         statisticName.setText(statNames.get(statsCounter));
         statisticInfo.setText(String.valueOf(statNumbers.get(statsCounter)));
+    }
+    
+    @FXML 
+    public void statsLoading() {
+        statsLoad.setVisible(false); 
+        statsLeftButton.setDisable(false);
+        statsLeftButton.setVisible(true);
+        statsRightButton.setDisable(false);
+        statsRightButton.setVisible(true);
+        statisticName.setText(statNames.get(0));
+        statisticInfo.setText(String.valueOf(statNumbers.get(0)));
     }
     
     //SWITCH METHODS
