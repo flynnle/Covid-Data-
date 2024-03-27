@@ -13,6 +13,9 @@ import javafx.event.ActionEvent;
 import java.util.ArrayList;
 import java.io.IOException;
 import javafx.scene.Node;
+import javafx.scene.shape.*;
+import java.util.ArrayList;
+import javafx.scene.paint.*;
 
 import javafx.scene.Parent;
 import java.util.Map;
@@ -49,6 +52,8 @@ public class MainGUI extends Application
     @FXML private Button statsLeftButton;
     @FXML private Button statsRightButton;
     private static boolean introPass = false;
+    private ArrayList<Circle> circles = new ArrayList<Circle>();
+
     
     private ArrayList<CovidData> data;
     
@@ -155,6 +160,70 @@ public class MainGUI extends Application
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("Map"); 
         Scene scene = new Scene(root);
+        Circle cirENFI = (Circle) root.lookup("#cirENFI");
+        circles.add(cirENFI); 
+        Circle cirBARN = (Circle) root.lookup("#cirBARN");
+        circles.add(cirBARN); 
+        Circle cirHRGY = (Circle) root.lookup("#cirHRGY");
+        circles.add(cirHRGY); 
+        Circle cirWALT = (Circle) root.lookup("#cirWALT");
+        circles.add(cirWALT);         
+        Circle cirHRRW = (Circle) root.lookup("#cirHRRW");
+        circles.add(cirHRRW); 
+        Circle cirBREN = (Circle) root.lookup("#cirBREN");
+        circles.add(cirBREN); 
+        Circle cirCAMD = (Circle) root.lookup("#cirCAMD");
+        circles.add(cirCAMD); 
+        Circle cirISLI = (Circle) root.lookup("#cirISLI");
+        circles.add(cirISLI); 
+        Circle cirHACK = (Circle) root.lookup("#cirHACK");
+        circles.add(cirHACK); 
+        Circle cirREDB = (Circle) root.lookup("#cirREDB");
+        circles.add(cirREDB); 
+        Circle cirHAVE= (Circle) root.lookup("#cirHAVE");
+        circles.add(cirHAVE);
+        Circle cirHILL= (Circle) root.lookup("#cirHILL");
+        circles.add(cirHILL);
+        Circle cirEALI= (Circle) root.lookup("#cirEALI");
+        circles.add(cirEALI);
+        Circle cirKENS= (Circle) root.lookup("#cirKENS");
+        circles.add(cirKENS);
+        Circle cirWSTM= (Circle) root.lookup("#cirWSTM");
+        circles.add(cirWSTM);
+        Circle cirTOWH= (Circle) root.lookup("#cirTOWH");
+        circles.add(cirTOWH);
+        Circle cirNEWH= (Circle) root.lookup("#cirNEWH");
+        circles.add(cirNEWH);
+        Circle cirBARK= (Circle) root.lookup("#cirBARK");
+        circles.add(cirBARK);
+        Circle cirHOUN= (Circle) root.lookup("#cirHOUN");
+        circles.add(cirHOUN);
+        Circle cirHAMM= (Circle) root.lookup("#cirHAMM");
+        circles.add(cirHAMM);
+        Circle cirWAND= (Circle) root.lookup("#cirWAND");
+        circles.add(cirWAND);
+        Circle cirCITY= (Circle) root.lookup("#cirCITY");
+        circles.add(cirCITY);
+        Circle cirGWCH= (Circle) root.lookup("#cirGWCH");
+        circles.add(cirGWCH);
+        Circle cirBEXL= (Circle) root.lookup("#cirBEXL");
+        circles.add(cirBEXL);
+
+
+        // Change the fill color;
+        for(Circle i : circles){
+            i.setFill(Color.LIGHTGREEN);
+            System.out.println(1);
+            if(DataManipulator.getTotalDeaths()> 10){
+                Color originalColor = Color.LIGHTGREEN;
+                double darkenFactor = 0.5; // adjust this value to control darkness
+                Color darkerColor = originalColor.darker();// applying the darker method multiple times for significant darkening
+
+                // Filling the circle with the darker color
+                i.setFill(darkerColor);
+    
+            }
+        }
         stage.setScene(scene);
         stage.show();
     }

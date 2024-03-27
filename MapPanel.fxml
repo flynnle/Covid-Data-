@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MapPanel">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MapPanel">
    <bottom>
       <HBox prefHeight="27.0" prefWidth="600.0" style="-fx-border-color: #aaaaaa;" BorderPane.alignment="CENTER">
          <children>
@@ -39,12 +39,12 @@
                <children>
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
-                        <Circle id="cirENFI" fill="#c1d8c5f7" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                        <Circle id="cirENFI" fx:id="CirENFI" fill="#c1d8c5f7" radius="21.0" stroke="BLACK" strokeType="INSIDE">
                            <StackPane.margin>
                               <Insets />
                            </StackPane.margin>
                         </Circle>
-                        <Button fx:id="ENFI" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="ENFI">
+                        <Button fx:id="ENFI" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="ENFI">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -65,7 +65,7 @@
                               <Insets />
                            </StackPane.margin>
                         </Circle>
-                        <Button fx:id="BARN" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="BARN">
+                        <Button fx:id="BARN" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="BARN">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -78,7 +78,7 @@
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
                         <Circle id="cirHRGY" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Button fx:id="HRGY" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="HRGY">
+                        <Button fx:id="HRGY" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="HRGY">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -92,7 +92,7 @@
                               <Insets />
                            </StackPane.margin>
                         </Circle>
-                        <Button fx:id="WALT" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="WALT">
+                        <Button fx:id="WALT" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="WALT">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -113,7 +113,7 @@
                               <Insets />
                            </StackPane.margin>
                         </Circle>
-                        <Button fx:id="HRRW" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="HRRW">
+                        <Button fx:id="HRRW" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="HRRW">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -126,7 +126,7 @@
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
                         <Circle id="cirBREN" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Button fx:id="BREN" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="BREN">
+                        <Button fx:id="BREN" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="BREN">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -139,7 +139,7 @@
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
                         <Circle id="cirCAMD" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Button fx:id="CAMD" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="CAMD">
+                        <Button fx:id="CAMD" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="CAMD">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -153,7 +153,7 @@
                               <Insets />
                            </StackPane.margin>
                         </Circle>
-                        <Button fx:id="ISLI" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="ISLI">
+                        <Button fx:id="ISLI" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="ISLI">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -166,7 +166,7 @@
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
                         <Circle id="cirHACK" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Button fx:id="HACK" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="HACK">
+                        <Button fx:id="HACK" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="HACK">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -183,7 +183,7 @@
                               <Insets />
                            </StackPane.margin>
                         </Circle>
-                        <Button fx:id="REDB" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="REDB">
+                        <Button fx:id="REDB" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="REDB">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -200,7 +200,7 @@
                               <Insets />
                            </StackPane.margin>
                         </Circle>
-                        <Button fx:id="HAVE" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="HAVE">
+                        <Button fx:id="HAVE" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="HAVE">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -221,7 +221,7 @@
                               <Insets />
                            </StackPane.margin>
                         </Circle>
-                        <Button fx:id="HILL" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="HILL">
+                        <Button fx:id="HILL" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="HILL">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -234,7 +234,7 @@
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
                         <Circle id="cirEALI" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Button fx:id="EALI" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="EALI">
+                        <Button fx:id="EALI" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="EALI">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -247,7 +247,7 @@
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
                         <Circle id="cirKENS" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Button fx:id="KENS" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="KENS">
+                        <Button fx:id="KENS" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="KENS">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -261,7 +261,7 @@
                               <Insets />
                            </StackPane.margin>
                         </Circle>
-                        <Button fx:id="WSTM" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="WSTM">
+                        <Button fx:id="WSTM" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="WSTM">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -274,7 +274,7 @@
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
                         <Circle id="cirTOWH" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Button fx:id="TOWH" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="TOWH">
+                        <Button fx:id="TOWH" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="TOWH">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -291,7 +291,7 @@
                               <Insets />
                            </StackPane.margin>
                         </Circle>
-                        <Button fx:id="NEWH" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="NEWH">
+                        <Button fx:id="NEWH" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="NEWH">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -308,7 +308,7 @@
                               <Insets />
                            </StackPane.margin>
                         </Circle>
-                        <Button fx:id="BARK" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="BARK">
+                        <Button fx:id="BARK" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="BARK">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -329,7 +329,7 @@
                               <Insets />
                            </StackPane.margin>
                         </Circle>
-                        <Button fx:id="HOUN" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="HOUN">
+                        <Button fx:id="HOUN" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="HOUN">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -342,7 +342,7 @@
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
                         <Circle id="cirHAMM" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Button fx:id="HAMM" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="HAMM">
+                        <Button fx:id="HAMM" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="HAMM">
                            <font>
                               <Font size="9.0" />
                            </font>
@@ -355,7 +355,7 @@
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
                         <Circle id="cirWAND" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Button fx:id="WAND" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="WAND">
+                        <Button fx:id="WAND" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="WAND">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -369,7 +369,7 @@
                               <Insets />
                            </StackPane.margin>
                         </Circle>
-                        <Button fx:id="CITY" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="CITY">
+                        <Button fx:id="CITY" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="CITY">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -386,7 +386,7 @@
                               <Insets />
                            </StackPane.margin>
                         </Circle>                       
-			<Button fx:id="GWCH" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="GWCH">
+			<Button fx:id="GWCH" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="GWCH">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -403,7 +403,7 @@
                               <Insets />
                            </StackPane.margin>
                         </Circle>
-                        <Button fx:id="BEXL" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="BEXL">
+                        <Button fx:id="BEXL" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="BEXL">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -424,7 +424,7 @@
                               <Insets />
                            </StackPane.margin>
                         </Circle>
-                        <Button fx:id="RICH" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="RICH">
+                        <Button fx:id="RICH" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="RICH">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -437,7 +437,7 @@
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
                         <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Button fx:id="MERT" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="MERT">
+                        <Button fx:id="MERT" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="MERT">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -450,7 +450,7 @@
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
                         <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Button fx:id="LAMB" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="LAMB">
+                        <Button fx:id="LAMB" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="LAMB">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -464,7 +464,7 @@
                               <Insets />
                            </StackPane.margin>
                         </Circle>
-                        <Button fx:id="STHW" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="STHW">
+                        <Button fx:id="STHW" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="STHW">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -477,7 +477,7 @@
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
                         <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Button fx:id="LEWS" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="LEWS">
+                        <Button fx:id="LEWS" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="LEWS">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -494,7 +494,7 @@
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
                         <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Button fx:id="KING" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="KING">
+                        <Button fx:id="KING" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="KING">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -507,7 +507,7 @@
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
                         <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Button fx:id="SUTT" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="SUTT">
+                        <Button fx:id="SUTT" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="SUTT">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -521,7 +521,7 @@
                               <Insets />
                            </StackPane.margin>
                         </Circle>
-                        <Button fx:id="CROY" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="CROY">
+                        <Button fx:id="CROY" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="CROY">
                            <font>
                               <Font size="9.5" />
                            </font>
@@ -534,7 +534,7 @@
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
                         <Circle accessibleRole="BUTTON" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Button fx:id="BROM" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="BROM">
+                        <Button fx:id="BROM" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: transparent;" text="BROM">
                            <font>
                               <Font size="9.5" />
                            </font>
