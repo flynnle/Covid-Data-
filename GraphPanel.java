@@ -28,15 +28,15 @@ public class GraphPanel extends Application  {
     
     DataManipulator dm = new DataManipulator();
     ArrayList<CovidData> data = dm.getData();
-    
+    XYChart.Series<Integer, LocalDate> series1 = new XYChart.Series();
+    XYChart.Series<Integer, LocalDate> series2 = new XYChart.Series();
     @FXML 
     public void initialize() {
         //orderedBy = FXCollections.observableArrayList("Date", "Google Mobility Data", "New COVID cases", "Total COVID Cases", "New COVID Deaths");
         //graphChoice.setItems(orderedBy);
         //graphChoice.setValue("Date");
         
-        XYChart.Series<Integer, LocalDate> series1 = new XYChart.Series();
-        XYChart.Series<Integer, LocalDate> series2 = new XYChart.Series();
+        
         series1.setName("New deaths");
         series2.setName("New cases");
         
@@ -81,5 +81,17 @@ public class GraphPanel extends Application  {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+    
+    public XYChart.Series<Integer, LocalDate> getSeriesOne(){
+        return series1;
+    }
+    
+    public XYChart.Series<Integer, LocalDate> getSeriesTwo(){
+        return series2;
+    }
+    
+    public BarChart<Integer, LocalDate> getBarChart(){
+        return barChart;
     }
 }

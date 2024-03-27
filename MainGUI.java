@@ -21,6 +21,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import java.time.LocalDate;
 
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
+
 /**
  * Write a description of class MainGUI here.
  *
@@ -168,6 +171,22 @@ public class MainGUI extends Application
     }
     
     public void switchToGraph(ActionEvent event) throws java.io.IOException {
+        
+        XYChart.Series<Integer, LocalDate> series1 = graph.getSeriesOne();
+        XYChart.Series<Integer, LocalDate> series2 = graph.getSeriesTwo();
+        series1.setName("New deaths");
+        series2.setName("New cases");
+        
+        for (CovidData i : data){
+            series1.getData().add(new XYChart.Data(i.getNewDeaths(), dm.getStart()));
+        }
+        
+        for (CovidData i : data){
+            series2.getData().add(new XYChart.Data(i.getNewCases(), dm.getStart()));
+        }
+        
+        graph.getBarChart().getData().addAll(series1,series2);
+        
         URL url = getClass().getResource("graph.fxml"); 
         Pane root = FXMLLoader.load(url); 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -178,9 +197,14 @@ public class MainGUI extends Application
     }
     
     @FXML
-    public void switchToIntro() throws java.io.IOException {
-        Stage stage = new Stage();
-        start(stage);
+    public void switchToIntro(ActionEvent event) throws java.io.IOException {
+        URL url = getClass().getResource("IntroPanel.fxml"); 
+        Pane root = FXMLLoader.load(url); 
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Welcome"); 
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     
     @FXML
