@@ -171,11 +171,12 @@ public class MainGUI extends Application
     }
     
     public void switchToGraph(ActionEvent event) throws java.io.IOException {
-        
         XYChart.Series<Integer, LocalDate> series1 = graph.getSeriesOne();
         XYChart.Series<Integer, LocalDate> series2 = graph.getSeriesTwo();
         series1.setName("New deaths");
         series2.setName("New cases");
+        
+        data = dm.getData();
         
         for (CovidData i : data){
             series1.getData().add(new XYChart.Data(i.getNewDeaths(), dm.getStart()));
@@ -185,7 +186,8 @@ public class MainGUI extends Application
             series2.getData().add(new XYChart.Data(i.getNewCases(), dm.getStart()));
         }
         
-        graph.getBarChart().getData().addAll(series1,series2);
+        BarChart bar = graph.getBarChart();
+        bar.getData().addAll(series1,series2);
         
         URL url = getClass().getResource("graph.fxml"); 
         Pane root = FXMLLoader.load(url); 
