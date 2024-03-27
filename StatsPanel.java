@@ -69,7 +69,6 @@ public class StatsPanel extends Application
             stage.setScene(scene);
             stage.show();
             
-            
         }
         
         catch(Exception e){
@@ -101,23 +100,4 @@ public class StatsPanel extends Application
         //statisticInfo.setText(String.valueOf(dm.getTotalDeaths(data)));
     }
     
-    @FXML
-    public void leftStat(ActionEvent event) throws IOException{
-        statsCounter = statsCounter + 1;
-        if (statsCounter > 3){
-            statsCounter = 0;
-        }
-        statisticName.setText(statNames.get(statsCounter));
-        statisticInfo.setText(String.valueOf(statNumbers.get(statsCounter)));
-    }
-    
-    @FXML
-    public void rightStat(ActionEvent event) throws IOException{
-        statsCounter = statsCounter - 1;
-        if (statsCounter < 0){
-            statsCounter = 3;
-        }
-        statisticName.setText(statNames.get(statsCounter));
-        statisticInfo.setText(String.valueOf(statNumbers.get(statsCounter)));
-    }
 }
