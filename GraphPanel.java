@@ -25,20 +25,22 @@ public class GraphPanel extends Application  {
     private ObservableList<String> orderedBy;
     private String order;
     
-    ArrayList<CovidData> data = new ArrayList<>();
     DataManipulator dm = new DataManipulator();
+    ArrayList<CovidData> data = dm.getData();
     
     @FXML 
     public void initialize() {
+        int total = 0;
         orderedBy = FXCollections.observableArrayList("Date", "Google Mobility Data", "New COVID cases", "Total COVID Cases", "New COVID Deaths");
         graphChoice.setItems(orderedBy);
         graphChoice.setValue("Date");
         
         XYChart.Series series1 = new XYChart.Series();
         series1.setName("Trends");
-        series1.getData().add(new XYChart.Data(dm.getTotalDeaths(), 2022));
-        series1.getData().add(new XYChart.Data(dm.getTotalDeaths(), 2022));
-        series1.getData().add(new XYChart.Data(dm.getTotalDeaths(), 2022));
+        
+        for (CovidData i : data){
+            series1.getData().add(new XYChart.Data(i.getNewDeaths(), dm.getStart()));
+        }
         
     }
     

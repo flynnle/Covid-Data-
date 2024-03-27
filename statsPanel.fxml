@@ -57,19 +57,23 @@
    <center>
       <VBox prefHeight="355.0" prefWidth="396.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="statisticName" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="80.0">
+            <Label fx:id="statisticName" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="135.0" text="Statistic ">
                <VBox.margin>
-                  <Insets bottom="25.0" left="150.0" top="120.0" />
+                  <Insets bottom="25.0" left="135.0" top="120.0" />
                </VBox.margin>
             </Label>
+<<<<<<< HEAD
             <Button fx:id="statsLoad" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#statsGo" prefWidth="50.0" text="Load">
                <VBox.margin>
                   <Insets left="175.0" />
                </VBox.margin>
             </Button>
             <Label fx:id="statisticInfo" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="80.0">
+=======
+            <Label fx:id="statisticInfo" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="123.0" text="Info">
+>>>>>>> a7bb60567cf764ee97b96119f81cfad6246feaec
                <VBox.margin>
-                  <Insets left="150.0" />
+                  <Insets left="140.0" />
                </VBox.margin>
             </Label>
          </children>
