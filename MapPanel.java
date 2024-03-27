@@ -106,14 +106,14 @@ public class MapPanel extends Application
     
     @FXML
     public void start(Stage stage) throws IOException{
-            URL url = getClass().getResource("MapPanel.fxml"); 
-            Pane root = FXMLLoader.load(url);
-            Scene scene = new Scene(root);
-              
-            stage.setTitle("Map"); 
-            stage.setScene(scene); 
-    
-            stage.show(); 
+        URL url = getClass().getResource("MapPanel.fxml"); 
+        Pane root = FXMLLoader.load(url);
+        Scene scene = new Scene(root);
+          
+        stage.setTitle("Map"); 
+        stage.setScene(scene); 
+
+        stage.show(); 
         }
         
     @FXML
