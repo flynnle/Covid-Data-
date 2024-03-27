@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
+import java.util.ArrayList;
 
 public class BoroughData extends Application {
     @FXML ChoiceBox<String> choicebox;
@@ -23,7 +24,7 @@ public class BoroughData extends Application {
     @FXML TableColumn<CovidData, String> newCovid;
     @FXML TableColumn<CovidData, String> totalCovid;
     @FXML TableColumn<CovidData, String> totalDeaths;
-    private ObservableList<String> orderedBy;
+    private ArrayList<String> orderedBy;
     private String order;
     @FXML
     public void start(Stage stage) throws Exception{
@@ -37,12 +38,15 @@ public class BoroughData extends Application {
     
     @FXML 
     public void initialize() {
-        orderedBy = FXCollections.observableArrayList("Date", "Google Mobility Data", "New COVID cases", "Total COVID Cases", "New COVID Deaths");
-        choicebox.setItems(orderedBy);
+        orderedBy = new ArrayList<>();
+        orderedBy.add("Date");
+        orderedBy.add("Google Mobility Data");
+        orderedBy.add("New COVID cases");
+        orderedBy.add("Total COVID cases");
+        orderedBy.add("New COVID Cases");
+        
+        choicebox.getItems().addAll(orderedBy);
         choicebox.setValue("Date");
-        order = "Date";
-        display.setText(order);
-        choicebox.setOnAction(event -> getOutput(event));
     }
     
     @FXML 
@@ -53,6 +57,12 @@ public class BoroughData extends Application {
     
     public void setBoroughName(String name) {
         borough.setText("Borough Name: " + name);
+    }
+    
+    @FXML
+    public void populate(ArrayList<CovidData> data){
+        dataTable.getItems().clear();
+        dataTable.getItems().addAll(data);
     }
 
 }
