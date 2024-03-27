@@ -23,8 +23,8 @@ public class GraphPanel extends Application  {
     @FXML private BarChart<Integer, LocalDate> barChart;
     @FXML private Button leftButton;
     @FXML private Button rightButton;
-    private ObservableList<String> orderedBy;
-    private String order;
+    //private ObservableList<String> orderedBy;
+    //private String order;
     
     DataManipulator dm = new DataManipulator();
     ArrayList<CovidData> data = dm.getData();
@@ -74,7 +74,7 @@ public class GraphPanel extends Application  {
     
     @FXML
     public void switchToCovid(ActionEvent event) throws IOException{
-        URL url = getClass().getResource("introPanel.fxml"); 
+        URL url = getClass().getResource("IntroPanel.fxml"); 
         Pane root = FXMLLoader.load(url); 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("Covid Scene"); 
