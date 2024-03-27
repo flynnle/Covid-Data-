@@ -53,8 +53,6 @@ public class StatsPanel extends Application
         catch(ArithmeticException ae){
             statisticInfo.setText("No available data");
         }
-        statisticName.setText(statNames.get(0));
-        statisticInfo.setText(String.valueOf(statNumbers.get(0)));
     }
     
     @FXML
@@ -74,6 +72,8 @@ public class StatsPanel extends Application
         catch(Exception e){
             e.printStackTrace();
         }
+        statisticName.setText(statNames.get(0));
+        statisticInfo.setText(String.valueOf(statNumbers.get(0)));
     }
     
     @FXML
