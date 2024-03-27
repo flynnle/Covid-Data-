@@ -135,15 +135,25 @@ public class MainGUI extends Application
     
     //SWITCH METHODS
     @FXML
-    public void switchToMap() throws java.io.IOException {
-        Stage stage = new Stage();
-        map.start(stage);
+    public void switchToMap(ActionEvent event) throws java.io.IOException {
+        URL url = getClass().getResource("MapPanel.fxml"); 
+        Pane root = FXMLLoader.load(url); 
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Map"); 
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     
     @FXML
     public void switchToStats(ActionEvent event) throws java.io.IOException {
-        Stage stage = new Stage();
-        stats.start(stage);
+        URL url = getClass().getResource("StatsPanel.fxml"); 
+        Pane root = FXMLLoader.load(url); 
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Map"); 
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     
     public void switchToGraph() throws java.io.IOException {
