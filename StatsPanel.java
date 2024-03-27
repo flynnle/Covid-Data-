@@ -44,15 +44,15 @@ public class StatsPanel extends Application
         statNames.add("Average Transit GMR");
         statNames.add("Average Park GMR");
             
-            try{
-                statNumbers.add(dm.getTotalDeaths());
-                statNumbers.add(dm.getAvgCases());
-                statNumbers.add(dm.getAvgTransitGMR());
-                statNumbers.add(dm.getAvgParksGMR());
-            }
-            catch(ArithmeticException ae){
-                statisticInfo.setText("No available data");
-            }
+        try{
+            statNumbers.add(dm.getTotalDeaths());
+            statNumbers.add(dm.getAvgCases());
+            statNumbers.add(dm.getAvgTransitGMR());
+            statNumbers.add(dm.getAvgParksGMR());
+        }
+        catch(ArithmeticException ae){
+            statisticInfo.setText("No available data");
+        }
         statisticName.setText(statNames.get(0));
         statisticInfo.setText(String.valueOf(statNumbers.get(0)));
     }
