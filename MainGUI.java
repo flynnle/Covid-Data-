@@ -161,7 +161,7 @@ public class MainGUI extends Application
     
     @FXML
     public void switchToStats(ActionEvent event) throws java.io.IOException {
-        URL url = getClass().getResource("StatsPanel.fxml"); 
+        URL url = getClass().getResource("statsPanel.fxml"); 
         Pane root = FXMLLoader.load(url); 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("Statistics"); 
@@ -171,24 +171,7 @@ public class MainGUI extends Application
     }
     
     public void switchToGraph(ActionEvent event) throws java.io.IOException {
-        XYChart.Series<Integer, LocalDate> series1 = graph.getSeriesOne();
-        XYChart.Series<Integer, LocalDate> series2 = graph.getSeriesTwo();
-        series1.setName("New deaths");
-        series2.setName("New cases");
-        
-        data = dm.getData();
-        
-        for (CovidData i : data){
-            series1.getData().add(new XYChart.Data(i.getNewDeaths(), dm.getStart()));
-        }
-        
-        for (CovidData i : data){
-            series2.getData().add(new XYChart.Data(i.getNewCases(), dm.getStart()));
-        }
-        
-        BarChart bar = graph.getBarChart();
-        bar.getData().addAll(series1,series2);
-        
+        //graph.initialize();
         URL url = getClass().getResource("graph.fxml"); 
         Pane root = FXMLLoader.load(url); 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();

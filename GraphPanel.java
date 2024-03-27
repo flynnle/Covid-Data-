@@ -37,6 +37,16 @@ public class GraphPanel extends Application  {
         //graphChoice.setValue("Date");
         
         
+        
+    }
+    
+    @FXML
+    public void start(Stage stage) throws Exception{
+        URL url = getClass().getResource("graph.fxml"); 
+        Pane root = FXMLLoader.load(url); 
+        Scene scene = new Scene(root); 
+        stage.setTitle("Graph"); 
+        stage.setScene(scene);
         series1.setName("New deaths");
         series2.setName("New cases");
         
@@ -49,15 +59,6 @@ public class GraphPanel extends Application  {
         }
         
         barChart.getData().addAll(series1,series2);
-    }
-    
-    @FXML
-    public void start(Stage stage) throws Exception{
-        URL url = getClass().getResource("graph.fxml"); 
-        Pane root = FXMLLoader.load(url); 
-        Scene scene = new Scene(root); 
-        stage.setTitle("Graph"); 
-        stage.setScene(scene);
         stage.show(); 
     }
     
