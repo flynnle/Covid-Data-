@@ -161,7 +161,7 @@ public class MainGUI extends Application
         URL url = getClass().getResource("StatsPanel.fxml"); 
         Pane root = FXMLLoader.load(url); 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("Map"); 
+        stage.setTitle("Statistics"); 
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -171,7 +171,7 @@ public class MainGUI extends Application
         URL url = getClass().getResource("graph.fxml"); 
         Pane root = FXMLLoader.load(url); 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("Map"); 
+        stage.setTitle("Graph"); 
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
