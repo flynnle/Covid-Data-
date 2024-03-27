@@ -143,6 +143,7 @@ public class MapPanel extends Application
     public void popupButton(ActionEvent event) {
         try {
             Button button = (Button)event.getSource();
+            System.out.println(button.getId());
             String borough = boroughNameMap.get(button);
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("borough.fxml"));
             Parent root = (Parent) fxmlLoader.load();

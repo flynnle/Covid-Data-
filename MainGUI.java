@@ -196,6 +196,7 @@ public class MainGUI extends Application
         return total/count;
     }
     
+    @FXML
     public void popupButton(ActionEvent event){
         map.popupButton(event);
     }
