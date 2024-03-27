@@ -58,7 +58,11 @@
       <VBox prefHeight="355.0" prefWidth="396.0" BorderPane.alignment="CENTER">
          <children>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <Label fx:id="statisticName" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="141.0" text="Statistic">
+=======
+            <Label fx:id="statisticName" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="80.0">
+>>>>>>> 69f63c043d5a57dd4bc5ae4aed73da8be32c2a93
 =======
             <Label fx:id="statisticName" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="80.0">
 >>>>>>> 69f63c043d5a57dd4bc5ae4aed73da8be32c2a93
@@ -67,9 +71,18 @@
                </VBox.margin>
             </Label>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <Label fx:id="statisticInfo" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="149.0" text="Information">
 =======
             <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" text="Go">
+=======
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" text="Go">
+               <VBox.margin>
+                  <Insets left="175.0" />
+               </VBox.margin>
+            </Button>
+            <Label fx:id="statisticInfo" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="80.0">
+>>>>>>> 69f63c043d5a57dd4bc5ae4aed73da8be32c2a93
                <VBox.margin>
                   <Insets left="175.0" />
                </VBox.margin>
