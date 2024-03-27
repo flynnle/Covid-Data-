@@ -54,50 +54,16 @@ public class MainGUI extends Application
     @FXML private Button statsRightButton;
     private static boolean introPass = false;
     private ArrayList<Circle> circles = new ArrayList<Circle>();
-
     
     private ArrayList<CovidData> data;
     
-    private HashMap<Circle, String> circleNames = new HashMap<>();
     
     private int statsCounter;
     private ArrayList <String> statNames = new ArrayList<>();
     private static ArrayList <Integer> statNumbers = new ArrayList<>();
     @FXML private Label statisticName;
     @FXML private Label statisticInfo;
-    @FXML private Circle CirISLI;
-    @FXML private Circle CirENFI;
-    @FXML private Circle CirBARN;
-    @FXML private Circle CirHRGY;
-    @FXML private Circle CirWALT;
-    @FXML private Circle CirHRRW;
-    @FXML private Circle CirBREN;
-    @FXML private Circle CirCAMD;
-    @FXML private Circle CirHACK;
-    @FXML private Circle CirREDB;
-    @FXML private Circle CirHAVE;
-    @FXML private Circle CirHILL;
-    @FXML private Circle CirEALI;
-    @FXML private Circle CirKENS;
-    @FXML private Circle CirWSTM;
-    @FXML private Circle CirTOWH;
-    @FXML private Circle CirNEWH;
-    @FXML private Circle CirBARK;
-    @FXML private Circle CirHOUN;
-    @FXML private Circle CirHAMM;
-    @FXML private Circle CirWAND;
-    @FXML private Circle CirCITY;
-    @FXML private Circle CirGWCH;
-    @FXML private Circle CirBEXL;
-    @FXML private Circle CirRICH;
-    @FXML private Circle CirMERT;
-    @FXML private Circle CirLAMB;
-    @FXML private Circle CirSTHW;
-    @FXML private Circle CirLEWS;
-    @FXML private Circle CirKING;
-    @FXML private Circle CirSUTT;
-    @FXML private Circle CirCROY;
-    @FXML private Circle CirBROM;
+    
     public void initialize(){
         statNames.add("Total Deaths");
         statNames.add("Average Cases per Day");
@@ -195,7 +161,7 @@ public class MainGUI extends Application
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("Map"); 
         Scene scene = new Scene(root);
-        /*Circle cirENFI = (Circle) root.lookup("#cirENFI");
+        Circle cirENFI = (Circle) root.lookup("#cirENFI");
         circles.add(cirENFI); 
         Circle cirBARN = (Circle) root.lookup("#cirBARN");
         circles.add(cirBARN); 
@@ -260,9 +226,8 @@ public class MainGUI extends Application
         Circle cirCROY= (Circle) root.lookup("#cirCROY");
         circles.add(cirCROY);
          Circle cirBROM= (Circle) root.lookup("#cirBROM");
-        circles.add(cirBROM); */
+        circles.add(cirBROM); 
            
-        circleName();
     
         stage.setScene(scene);
         stage.show();
@@ -306,58 +271,5 @@ public class MainGUI extends Application
         map.popupButton(event);
     }
     
-    @FXML
-    public void circleName(){
-        circleNames.put(CirENFI, "Enfield");
-        circleNames.put(CirBARN, "Barnet");
-        circleNames.put(CirHRGY, "Haringey");
-        circleNames.put(CirWALT, "Waltham Forest");
-        circleNames.put(CirHRRW, "Harrow");
-        circleNames.put(CirBREN, "Brent");
-        circleNames.put(CirCAMD, "Camden");
-        circleNames.put(CirISLI, "Islington");
-        circleNames.put(CirHACK, "Hackney");
-        circleNames.put(CirREDB, "Redbridge");
-        circleNames.put(CirHAVE, "Havering");
-        circleNames.put(CirHILL, "Hillingdon");
-        circleNames.put(CirEALI, "Ealing");
-        circleNames.put(CirKENS, "Kensington and Chelsea");
-        circleNames.put(CirWSTM, "Westminster");
-        circleNames.put(CirTOWH, "Tower Hamlets");
-        circleNames.put(CirNEWH, "Newham");
-        circleNames.put(CirBARK, "Barking and Dgaenham");
-        circleNames.put(CirHOUN, "Hounslow");
-        circleNames.put(CirHAMM, "Hammersmith and Fulham");
-        circleNames.put(CirWAND, "Wandsworth");
-        circleNames.put(CirCITY, "City of London");
-        circleNames.put(CirGWCH, "Greenwich");
-        circleNames.put(CirBEXL, "Bexley");
-        circleNames.put(CirRICH, "Richmond Upon Thames");
-        circleNames.put(CirMERT, "Merton");
-        circleNames.put(CirLAMB, "Lambeth");
-        circleNames.put(CirSTHW, "Southwark");
-        circleNames.put(CirLEWS, "Lewisham");
-        circleNames.put(CirKING, "Kingston Upon Thames");
-        circleNames.put(CirSUTT, "Sutton");
-        circleNames.put(CirCROY, "Croydon");
-        circleNames.put(CirBROM, "Bromley");
-        
-        circleNames.forEach((circle, name) ->{
-           circle.setFill(Color.RED); 
-        });
-        
-        // Change the fill color;
-        /*for(Circle i : circleNames){
-            i.setFill(Color.LIGHTGREEN);
-            if(DataManipulator.getTotalDeaths()> 300){
-                Color originalColor = Color.LIGHTGREEN;
-                double darkenFactor = 0.5; // adjust this value to control darkness
-                Color darkerColor = originalColor.darker();// applying the darker method multiple times for significant darkening
-
-                // Filling the circle with the darker color
-                i.setFill(darkerColor);
     
-            }
-        }*/
-    }
 }

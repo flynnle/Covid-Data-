@@ -26,15 +26,7 @@ public class BoroughData extends Application {
     @FXML TableColumn<CovidData, String> totalDeaths;
     private ArrayList<String> orderedBy;
     private String order;
-    @FXML
-    public void start(Stage stage) throws Exception{
-        URL url = getClass().getResource("borough.fxml"); 
-        Pane root = FXMLLoader.load(url); 
-        Scene scene = new Scene(root); 
-        stage.setTitle("Borough Data"); 
-        stage.setScene(scene);
-        stage.show(); 
-    }
+    MapPanel mp = new MapPanel();
     
     @FXML 
     public void initialize() {
@@ -44,9 +36,20 @@ public class BoroughData extends Application {
         orderedBy.add("New COVID cases");
         orderedBy.add("Total COVID cases");
         orderedBy.add("New COVID Cases");
-        
         choicebox.getItems().addAll(orderedBy);
         choicebox.setValue("Date");
+        dataTable.setItems(mp.populateBorough());
+        //date.setCellValueFactory(CovidData -> CovidData.getValue().getDate());
+    }
+    
+    @FXML
+    public void start(Stage stage) throws Exception{
+        URL url = getClass().getResource("borough.fxml"); 
+        Pane root = FXMLLoader.load(url); 
+        Scene scene = new Scene(root); 
+        stage.setTitle("Borough Data"); 
+        stage.setScene(scene);
+        stage.show(); 
     }
     
     @FXML 
@@ -60,9 +63,7 @@ public class BoroughData extends Application {
     }
     
     @FXML
-    public void populate(ArrayList<CovidData> data){
-        dataTable.getItems().clear();
-        dataTable.getItems().addAll(data);
+    public void populate(){
     }
 
 }
