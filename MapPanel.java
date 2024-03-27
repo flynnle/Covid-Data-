@@ -16,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.shape.*;
 import java.util.ArrayList;
 import javafx.scene.paint.*;
+import javafx.collections.ObservableList;
 
 /**
  * Write a description of class MapPanel here.
@@ -61,10 +62,45 @@ public class MapPanel extends Application
     @FXML private Button SUTT;
     @FXML private Button CROY;
     @FXML private Button BROM;
+    @FXML private Circle CirISLI;
+    @FXML private Circle CirENFI;
+    @FXML private Circle CirBARN;
+    @FXML private Circle CirHRGY;
+    @FXML private Circle CirWALT;
+    @FXML private Circle CirHRRW;
+    @FXML private Circle CirBREN;
+    @FXML private Circle CirCAMD;
+    @FXML private Circle CirHACK;
+    @FXML private Circle CirREDB;
+    @FXML private Circle CirHAVE;
+    @FXML private Circle CirHILL;
+    @FXML private Circle CirEALI;
+    @FXML private Circle CirKENS;
+    @FXML private Circle CirWSTM;
+    @FXML private Circle CirTOWH;
+    @FXML private Circle CirNEWH;
+    @FXML private Circle CirBARK;
+    @FXML private Circle CirHOUN;
+    @FXML private Circle CirHAMM;
+    @FXML private Circle CirWAND;
+    @FXML private Circle CirCITY;
+    @FXML private Circle CirGWCH;
+    @FXML private Circle CirBEXL;
+    @FXML private Circle CirRICH;
+    @FXML private Circle CirMERT;
+    @FXML private Circle CirLAMB;
+    @FXML private Circle CirSTHW;
+    @FXML private Circle CirLEWS;
+    @FXML private Circle CirKING;
+    @FXML private Circle CirSUTT;
+    @FXML private Circle CirCROY;
+    @FXML private Circle CirBROM;
+    //@FXML private Circle CirENFI;
     private Map<Button, String> boroughNameMap = new HashMap<>();
     private ArrayList<Circle> circles = new ArrayList<Circle>();
-
-    
+    private HashMap<Circle, String> circleNames = new HashMap<>();
+    private ObservableList<CovidData> data;
+    DataManipulator dm = new DataManipulator();
     public MapPanel() {
         boroughNameMap = new HashMap<>();
         circles = new ArrayList<Circle>();
@@ -109,8 +145,9 @@ public class MapPanel extends Application
         boroughNameMap.put(SUTT, "Sutton");
         boroughNameMap.put(CROY, "Croydon");
         boroughNameMap.put(BROM, "Bromley");
-
+        //updateColour();
     }
+
 
     @FXML
     public void start(Stage stage) throws IOException{
@@ -119,74 +156,8 @@ public class MapPanel extends Application
         initialize();
 
         Scene scene = new Scene(root);
-        Circle cirENFI = (Circle) root.lookup("#cirENFI");
-        circles.add(cirENFI); 
-        Circle cirBARN = (Circle) root.lookup("#cirBARN");
-        circles.add(cirBARN); 
-        Circle cirHRGY = (Circle) root.lookup("#cirHRGY");
-        circles.add(cirHRGY); 
-        Circle cirWALT = (Circle) root.lookup("#cirWALT");
-        circles.add(cirWALT);         
-        Circle cirHRRW = (Circle) root.lookup("#cirHRRW");
-        circles.add(cirHRRW); 
-        Circle cirBREN = (Circle) root.lookup("#cirBREN");
-        circles.add(cirBREN); 
-        Circle cirCAMD = (Circle) root.lookup("#cirCAMD");
-        circles.add(cirCAMD); 
-        Circle cirISLI = (Circle) root.lookup("#cirISLI");
-        circles.add(cirISLI); 
-        Circle cirHACK = (Circle) root.lookup("#cirHACK");
-        circles.add(cirHACK); 
-        Circle cirREDB = (Circle) root.lookup("#cirREDB");
-        circles.add(cirREDB); 
-        Circle cirHAVE= (Circle) root.lookup("#cirHAVE");
-        circles.add(cirHAVE);
-        Circle cirHILL= (Circle) root.lookup("#cirHILL");
-        circles.add(cirHILL);
-        Circle cirEALI= (Circle) root.lookup("#cirEALI");
-        circles.add(cirEALI);
-        Circle cirKENS= (Circle) root.lookup("#cirKENS");
-        circles.add(cirKENS);
-        Circle cirWSTM= (Circle) root.lookup("#cirWSTM");
-        circles.add(cirWSTM);
-        Circle cirTOWH= (Circle) root.lookup("#cirTOWH");
-        circles.add(cirTOWH);
-        Circle cirNEWH= (Circle) root.lookup("#cirNEWH");
-        circles.add(cirNEWH);
-        Circle cirBARK= (Circle) root.lookup("#cirBARK");
-        circles.add(cirBARK);
-        Circle cirHOUN= (Circle) root.lookup("#cirHOUN");
-        circles.add(cirHOUN);
-        Circle cirHAMM= (Circle) root.lookup("#cirHAMM");
-        circles.add(cirHAMM);
-        Circle cirWAND= (Circle) root.lookup("#cirWAND");
-        circles.add(cirWAND);
-        Circle cirCITY= (Circle) root.lookup("#cirCITY");
-        circles.add(cirCITY);
-        Circle cirGWCH= (Circle) root.lookup("#cirGWCH");
-        circles.add(cirGWCH);
-        Circle cirBEXL= (Circle) root.lookup("#cirBEXL");
-        circles.add(cirBEXL);
-
-
-        // Change the fill color;
-        for(Circle i : circles){
-            i.setFill(Color.LIGHTGREEN);
-
-            if(DataManipulator.getTotalDeaths()> 2){
-                Color originalColor = Color.LIGHTGREEN;
-                double darkenFactor = 0.5; // adjust this value to control darkness
-                Color darkerColor = originalColor.darker().darker().darker().darker(); // applying the darker method multiple times for significant darkening
-
-                // Filling the circle with the darker color
-                i.setFill(darkerColor);
-
-            };
-        }
-
         stage.setTitle("Map"); 
         stage.setScene(scene); 
-
         stage.show(); 
     }
 
@@ -223,6 +194,7 @@ public class MapPanel extends Application
             Parent root = (Parent) fxmlLoader.load();
             BoroughData controller = fxmlLoader.getController();
             controller.setBoroughName(borough);
+            data = dm.filterBorough(borough);
             Stage stage = new Stage();
             stage.setTitle("Borough Data");
             stage.setScene(new Scene(root));
@@ -234,6 +206,51 @@ public class MapPanel extends Application
             System.out.println("Can't load new window");
         }
     }
-
     
+    @FXML 
+    public ObservableList<CovidData> populateBorough() {
+        return data;
+    }
+
+    @FXML
+    public void circleName(){
+        circleNames.put(CirENFI, "Enfield");
+        circleNames.put(CirBARN, "Barnet");
+        circleNames.put(CirHRGY, "Haringey");
+        circleNames.put(CirWALT, "Waltham Forest");
+        circleNames.put(CirHRRW, "Harrow");
+        circleNames.put(CirBREN, "Brent");
+        circleNames.put(CirCAMD, "Camden");
+        circleNames.put(CirISLI, "Islington");
+        circleNames.put(CirHACK, "Hackney");
+        circleNames.put(CirREDB, "Redbridge");
+        circleNames.put(CirHAVE, "Havering");
+        circleNames.put(CirHILL, "Hillingdon");
+        circleNames.put(CirEALI, "Ealing");
+        circleNames.put(CirKENS, "Kensington and Chelsea");
+        circleNames.put(CirWSTM, "Westminster");
+        circleNames.put(CirTOWH, "Tower Hamlets");
+        circleNames.put(CirNEWH, "Newham");
+        circleNames.put(CirBARK, "Barking and Dgaenham");
+        circleNames.put(CirHOUN, "Hounslow");
+        circleNames.put(CirHAMM, "Hammersmith and Fulham");
+        circleNames.put(CirWAND, "Wandsworth");
+        circleNames.put(CirCITY, "City of London");
+        circleNames.put(CirGWCH, "Greenwich");
+        circleNames.put(CirBEXL, "Bexley");
+        circleNames.put(CirRICH, "Richmond Upon Thames");
+        circleNames.put(CirMERT, "Merton");
+        circleNames.put(CirLAMB, "Lambeth");
+        circleNames.put(CirSTHW, "Southwark");
+        circleNames.put(CirLEWS, "Lewisham");
+        circleNames.put(CirKING, "Kingston Upon Thames");
+        circleNames.put(CirSUTT, "Sutton");
+        circleNames.put(CirCROY, "Croydon");
+        circleNames.put(CirBROM, "Bromley");
+        
+        circleNames.forEach((circle, name) ->{
+           circle.setFill(Color.RED); 
+        });
+        
+    }
 }
