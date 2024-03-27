@@ -13,6 +13,9 @@ import javafx.scene.Parent;
 import java.util.Map;
 import java.util.HashMap;
 import javafx.scene.control.Label;
+import javafx.scene.shape.*;
+import java.util.ArrayList;
+import javafx.scene.paint.*;
 
 /**
  * Write a description of class MapPanel here.
@@ -59,12 +62,16 @@ public class MapPanel extends Application
     @FXML private Button CROY;
     @FXML private Button BROM;
     private Map<Button, String> boroughNameMap = new HashMap<>();
+    private ArrayList<Circle> circles = new ArrayList<Circle>();
+
     
     public MapPanel() {
         boroughNameMap = new HashMap<>();
+        circles = new ArrayList<Circle>();
         initialize();
+
     }
-    
+
     /**
      * Constructor for objects of class MapPanel
      */
@@ -102,20 +109,87 @@ public class MapPanel extends Application
         boroughNameMap.put(SUTT, "Sutton");
         boroughNameMap.put(CROY, "Croydon");
         boroughNameMap.put(BROM, "Bromley");
+
     }
-    
+
     @FXML
     public void start(Stage stage) throws IOException{
         URL url = getClass().getResource("MapPanel.fxml"); 
         Pane root = FXMLLoader.load(url);
+        initialize();
+
         Scene scene = new Scene(root);
-          
+        Circle cirENFI = (Circle) root.lookup("#cirENFI");
+        circles.add(cirENFI); 
+        Circle cirBARN = (Circle) root.lookup("#cirBARN");
+        circles.add(cirBARN); 
+        Circle cirHRGY = (Circle) root.lookup("#cirHRGY");
+        circles.add(cirHRGY); 
+        Circle cirWALT = (Circle) root.lookup("#cirWALT");
+        circles.add(cirWALT);         
+        Circle cirHRRW = (Circle) root.lookup("#cirHRRW");
+        circles.add(cirHRRW); 
+        Circle cirBREN = (Circle) root.lookup("#cirBREN");
+        circles.add(cirBREN); 
+        Circle cirCAMD = (Circle) root.lookup("#cirCAMD");
+        circles.add(cirCAMD); 
+        Circle cirISLI = (Circle) root.lookup("#cirISLI");
+        circles.add(cirISLI); 
+        Circle cirHACK = (Circle) root.lookup("#cirHACK");
+        circles.add(cirHACK); 
+        Circle cirREDB = (Circle) root.lookup("#cirREDB");
+        circles.add(cirREDB); 
+        Circle cirHAVE= (Circle) root.lookup("#cirHAVE");
+        circles.add(cirHAVE);
+        Circle cirHILL= (Circle) root.lookup("#cirHILL");
+        circles.add(cirHILL);
+        Circle cirEALI= (Circle) root.lookup("#cirEALI");
+        circles.add(cirEALI);
+        Circle cirKENS= (Circle) root.lookup("#cirKENS");
+        circles.add(cirKENS);
+        Circle cirWSTM= (Circle) root.lookup("#cirWSTM");
+        circles.add(cirWSTM);
+        Circle cirTOWH= (Circle) root.lookup("#cirTOWH");
+        circles.add(cirTOWH);
+        Circle cirNEWH= (Circle) root.lookup("#cirNEWH");
+        circles.add(cirNEWH);
+        Circle cirBARK= (Circle) root.lookup("#cirBARK");
+        circles.add(cirBARK);
+        Circle cirHOUN= (Circle) root.lookup("#cirHOUN");
+        circles.add(cirHOUN);
+        Circle cirHAMM= (Circle) root.lookup("#cirHAMM");
+        circles.add(cirHAMM);
+        Circle cirWAND= (Circle) root.lookup("#cirWAND");
+        circles.add(cirWAND);
+        Circle cirCITY= (Circle) root.lookup("#cirCITY");
+        circles.add(cirCITY);
+        Circle cirGWCH= (Circle) root.lookup("#cirGWCH");
+        circles.add(cirGWCH);
+        Circle cirBEXL= (Circle) root.lookup("#cirBEXL");
+        circles.add(cirBEXL);
+
+
+        // Change the fill color;
+        for(Circle i : circles){
+            i.setFill(Color.LIGHTGREEN);
+
+            if(DataManipulator.getTotalDeaths()> 3){
+                Color originalColor = Color.LIGHTGREEN;
+                double darkenFactor = 0.5; // adjust this value to control darkness
+                Color darkerColor = originalColor.darker().darker().darker().darker(); // applying the darker method multiple times for significant darkening
+
+                // Filling the circle with the darker color
+                i.setFill(darkerColor);
+
+            };
+        }
+
         stage.setTitle("Map"); 
         stage.setScene(scene); 
 
         stage.show(); 
-        }
-        
+    }
+
     @FXML
     public void switchToCovid(ActionEvent event) throws IOException{
         URL url = getClass().getResource("introPanel.fxml"); 
@@ -126,7 +200,7 @@ public class MapPanel extends Application
         stage.setScene(scene);
         stage.show();
     }
-    
+
     @FXML
     public void switchToStats(ActionEvent event) throws IOException{
         URL url = getClass().getResource("statsPanel.fxml"); 
@@ -137,7 +211,7 @@ public class MapPanel extends Application
         stage.setScene(scene);
         stage.show();
     }
-    
+
     //general method to create new window for boroughs
     @FXML 
     public void popupButton(ActionEvent event) {
@@ -160,6 +234,6 @@ public class MapPanel extends Application
             System.out.println("Can't load new window");
         }
     }
-    
+
     
 }

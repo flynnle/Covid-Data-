@@ -39,7 +39,7 @@
                <children>
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
-                        <Circle fill="#c1d8c5f7" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                        <Circle id="cirENFI" fill="#c1d8c5f7" radius="21.0" stroke="BLACK" strokeType="INSIDE">
                            <StackPane.margin>
                               <Insets />
                            </StackPane.margin>
@@ -60,7 +60,7 @@
                <children>
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
-                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                        <Circle id="cirBARN" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
                            <StackPane.margin>
                               <Insets />
                            </StackPane.margin>
@@ -77,7 +77,7 @@
                   </StackPane>
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
-                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle id="cirHRGY" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
                         <Button fx:id="HRGY" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="HRGY">
                            <font>
                               <Font size="9.5" />
@@ -87,7 +87,7 @@
                   </StackPane>
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
-                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                        <Circle id="cirWALT" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
                            <StackPane.margin>
                               <Insets />
                            </StackPane.margin>
@@ -108,7 +108,7 @@
                <children>
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
-                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                        <Circle id="cirHRRW" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
                            <StackPane.margin>
                               <Insets />
                            </StackPane.margin>
@@ -125,7 +125,7 @@
                   </StackPane>
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
-                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle id="cirBREN" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
                         <Button fx:id="BREN" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="BREN">
                            <font>
                               <Font size="9.5" />
@@ -138,7 +138,7 @@
                   </StackPane>
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
-                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle id="cirCAMD" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
                         <Button fx:id="CAMD" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="CAMD">
                            <font>
                               <Font size="9.5" />
@@ -148,7 +148,7 @@
                   </StackPane>
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
-                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                        <Circle id="cirISLI" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
                            <StackPane.margin>
                               <Insets />
                            </StackPane.margin>
@@ -165,7 +165,7 @@
                   </StackPane>
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
-                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle id="cirHACK" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
                         <Button fx:id="HACK" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="HACK">
                            <font>
                               <Font size="9.5" />
@@ -178,7 +178,7 @@
                   </StackPane>
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
-                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                        <Circle id="cirREDB" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
                            <StackPane.margin>
                               <Insets />
                            </StackPane.margin>
@@ -195,7 +195,7 @@
                   </StackPane>
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
-                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                        <Circle id="cirHAVE" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
                            <StackPane.margin>
                               <Insets />
                            </StackPane.margin>
@@ -216,7 +216,7 @@
                <children>
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
-                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                        <Circle id="cirHILL" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
                            <StackPane.margin>
                               <Insets />
                            </StackPane.margin>
@@ -233,7 +233,7 @@
                   </StackPane>
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
-                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle id="cirEALI" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
                         <Button fx:id="EALI" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="EALI">
                            <font>
                               <Font size="9.5" />
@@ -246,7 +246,7 @@
                   </StackPane>
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
-                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle id="cirKENS" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
                         <Button fx:id="KENS" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="KENS">
                            <font>
                               <Font size="9.5" />
@@ -256,7 +256,7 @@
                   </StackPane>
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
-                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                        <Circle id="cirWSTM" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
                            <StackPane.margin>
                               <Insets />
                            </StackPane.margin>
@@ -273,7 +273,7 @@
                   </StackPane>
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
-                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle id="cirTOWH" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
                         <Button fx:id="TOWH" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="TOWH">
                            <font>
                               <Font size="9.5" />
@@ -286,7 +286,7 @@
                   </StackPane>
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
-                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                        <Circle id="cirNEWH" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
                            <StackPane.margin>
                               <Insets />
                            </StackPane.margin>
@@ -303,7 +303,7 @@
                   </StackPane>
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
-                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                        <Circle id="cirBARK" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
                            <StackPane.margin>
                               <Insets />
                            </StackPane.margin>
@@ -324,7 +324,7 @@
                <children>
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
-                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                        <Circle id="cirHOUN" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
                            <StackPane.margin>
                               <Insets />
                            </StackPane.margin>
@@ -341,10 +341,10 @@
                   </StackPane>
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
-                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle id="cirHAMM" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
                         <Button fx:id="HAMM" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="HAMM">
                            <font>
-                              <Font size="9.5" />
+                              <Font size="9.0" />
                            </font>
                         </Button>
                      </children>
@@ -354,7 +354,7 @@
                   </StackPane>
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
-                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle id="cirWAND" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE" />
                         <Button fx:id="WAND" mnemonicParsing="false" onAction="#popupButton" style="-fx-background-color: 0;" text="WAND">
                            <font>
                               <Font size="9.5" />
@@ -364,7 +364,7 @@
                   </StackPane>
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
-                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                        <Circle id="cirCITY" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
                            <StackPane.margin>
                               <Insets />
                            </StackPane.margin>
@@ -381,7 +381,7 @@
                   </StackPane>
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
-  			<Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+  			<Circle id="cirGWCH" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
                            <StackPane.margin>
                               <Insets />
                            </StackPane.margin>
@@ -398,7 +398,7 @@
                   </StackPane>
                   <StackPane accessibleRole="BUTTON" prefHeight="42.0" prefWidth="33.0">
                      <children>
-                        <Circle fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
+                        <Circle id="cirBEXL" fill="#c1d8c5" radius="21.0" stroke="BLACK" strokeType="INSIDE">
                            <StackPane.margin>
                               <Insets />
                            </StackPane.margin>

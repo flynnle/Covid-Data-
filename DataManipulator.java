@@ -17,7 +17,7 @@ public class DataManipulator
 {
     private CovidDataLoader cdl = new CovidDataLoader();
     private ArrayList<CovidData> records = new ArrayList<>();
-    private ArrayList<CovidData> data = new ArrayList<>();
+    private static ArrayList<CovidData> data = new ArrayList<>();
     private LocalDate start;
 
     public DataManipulator(){
@@ -79,7 +79,7 @@ public class DataManipulator
         return days;
     }
     
-    public int getTotalDeaths(){
+    public static int getTotalDeaths(){
         int total = 0;
         for (CovidData i : data){
             total += i.getNewDeaths();
