@@ -173,7 +173,7 @@ public class MapPanel extends Application
         for(Circle i : circles){
             i.setFill(Color.LIGHTGREEN);
 
-            if(DataManipulator.getTotalDeaths()> 3){
+            if(DataManipulator.getTotalDeaths()> 2){
                 Color originalColor = Color.LIGHTGREEN;
                 double darkenFactor = 0.5; // adjust this value to control darkness
                 Color darkerColor = originalColor.darker().darker().darker().darker(); // applying the darker method multiple times for significant darkening
