@@ -120,4 +120,8 @@ public class DataManipulator
     public ArrayList<CovidData> getData(){
         return data;
     }
+    
+    public LocalDate getStart(){
+        return start;
+    }
 }

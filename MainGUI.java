@@ -154,9 +154,14 @@ public class MainGUI extends Application
         stage.show();
     }
     
-    public void switchToGraph() throws java.io.IOException {
-        Stage stage = new Stage();
-        stats.start(stage);
+    public void switchToGraph(ActionEvent event) throws java.io.IOException {
+        URL url = getClass().getResource("graph.fxml"); 
+        Pane root = FXMLLoader.load(url); 
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Map"); 
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     
     @FXML
