@@ -62,7 +62,7 @@
                   <Insets bottom="25.0" left="150.0" top="120.0" />
                </VBox.margin>
             </Label>
-            <Button fx:id="statsLoad" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#statsGo" prefWidth="50.0" text="Load">
+            <Button fx:id="statsLoad" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#statsLoading" prefWidth="50.0" text="Load">
                <VBox.margin>
                   <Insets left="175.0" />
                </VBox.margin>
