@@ -90,10 +90,10 @@ public class MainGUI extends Application
             dm.filterDate(start, end); //load and select data for other classes (static list)
             
             data = dm.getData();
-            statNumbers.add(getTotalDeaths());
-            statNumbers.add(getAvgCases());
-            statNumbers.add(getAvgTransitGMR());
-            statNumbers.add(getAvgParksGMR());
+            statNumbers.add(dm.getTotalDeaths());
+            statNumbers.add(dm.getAvgCases());
+            statNumbers.add(dm.getAvgTransitGMR());
+            statNumbers.add(dm.getAvgParksGMR());
             
         }else if(dm.validDate(start, end) == -1){
             introPass = true;
@@ -109,7 +109,6 @@ public class MainGUI extends Application
             errorLabel.setText("set valid date dummy");
         }
     }
-    
     
     //stats
     @FXML
@@ -131,7 +130,6 @@ public class MainGUI extends Application
         statisticName.setText(statNames.get(statsCounter));
         statisticInfo.setText(String.valueOf(statNumbers.get(statsCounter)));
     }
-    
     
     //SWITCH METHODS
     @FXML
@@ -165,45 +163,6 @@ public class MainGUI extends Application
     public void switchToIntro() throws java.io.IOException {
         Stage stage = new Stage();
         start(stage);
-    }
-    
-    //calculation
-    public int getTotalDeaths(){
-        int total = 0;
-        for (CovidData i : data){
-            total += i.getNewDeaths();
-        }
-        return total;
-    }
-    
-    public int getAvgTransitGMR(){
-        int total = 0;
-        int count = 0;
-        for(CovidData i : data){
-            total += i.getTransitGMR();
-            count++;
-        }
-        return total/count;
-    }
-    
-    public int getAvgParksGMR(){
-        int total = 0;
-        int count = 0;
-        for (CovidData i : data){
-            total += i.getParksGMR();
-            count++;
-        } 
-        return total/count;
-    }
-
-    public int getAvgCases(){
-        int total = 0;
-        int count = 0;
-        for (CovidData i : data){
-            total += i.getTotalCases();
-            count++;
-        }
-        return total/count;
     }
     
     @FXML

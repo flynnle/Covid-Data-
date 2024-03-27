@@ -44,15 +44,15 @@ public class StatsPanel extends Application
         statNames.add("Average Transit GMR");
         statNames.add("Average Park GMR");
             
-            try{
-                statNumbers.add(dm.getTotalDeaths());
-                statNumbers.add(dm.getAvgCases());
-                statNumbers.add(dm.getAvgTransitGMR());
-                statNumbers.add(dm.getAvgParksGMR());
-            }
-            catch(ArithmeticException ae){
-                statisticInfo.setText("No available data");
-            }
+        try{
+            statNumbers.add(dm.getTotalDeaths());
+            statNumbers.add(dm.getAvgCases());
+            statNumbers.add(dm.getAvgTransitGMR());
+            statNumbers.add(dm.getAvgParksGMR());
+        }
+        catch(ArithmeticException ae){
+            statisticInfo.setText("No available data");
+        }
         statisticName.setText(statNames.get(0));
         statisticInfo.setText(String.valueOf(statNumbers.get(0)));
     }
@@ -68,7 +68,6 @@ public class StatsPanel extends Application
             stage.setTitle("Statistics"); 
             stage.setScene(scene);
             stage.show();
-            
             
         }
         
@@ -101,23 +100,4 @@ public class StatsPanel extends Application
         //statisticInfo.setText(String.valueOf(dm.getTotalDeaths(data)));
     }
     
-    @FXML
-    public void leftStat(ActionEvent event) throws IOException{
-        statsCounter = statsCounter + 1;
-        if (statsCounter > 3){
-            statsCounter = 0;
-        }
-        statisticName.setText(statNames.get(statsCounter));
-        statisticInfo.setText(String.valueOf(statNumbers.get(statsCounter)));
-    }
-    
-    @FXML
-    public void rightStat(ActionEvent event) throws IOException{
-        statsCounter = statsCounter - 1;
-        if (statsCounter < 0){
-            statsCounter = 3;
-        }
-        statisticName.setText(statNames.get(statsCounter));
-        statisticInfo.setText(String.valueOf(statNumbers.get(statsCounter)));
-    }
 }
