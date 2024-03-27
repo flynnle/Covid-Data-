@@ -129,17 +129,13 @@ public class MapPanel extends Application
     
     @FXML
     public void switchToStats(ActionEvent event) throws IOException{
-        try{
-            URL url = getClass().getResource("statsPanel.fxml"); 
-            Pane root = FXMLLoader.load(url); 
-        
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-        }
-        
-        catch(Exception e){
-            e.printStackTrace();
-        }
+        URL url = getClass().getResource("statsPanel.fxml"); 
+        Pane root = FXMLLoader.load(url); 
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Statistics Panel"); 
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     
     //general method to create new window for boroughs

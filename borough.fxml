@@ -35,11 +35,11 @@
          <children>
             <TableView fx:id="dataTable" prefHeight="315.0" prefWidth="600.0">
               <columns>
-                <TableColumn prefWidth="70.0" text="Date" />
-                <TableColumn prefWidth="130.0" text="Google Mobility Data" />
-                  <TableColumn prefWidth="130.0" text="New COVID Cases" />
-                  <TableColumn prefWidth="130.0" text="Total COVID cases" />
-                  <TableColumn prefWidth="140.0" text="Total COVID Deaths" />
+                <TableColumn fx:id="date" prefWidth="70.0" text="Date" />
+                <TableColumn fx:id="googleMobilityData" prefWidth="130.0" text="Google Mobility Data" />
+                  <TableColumn fx:id="newCovid" prefWidth="130.0" text="New COVID Cases" />
+                  <TableColumn fx:id="totalCovid" prefWidth="130.0" text="Total COVID cases" />
+                  <TableColumn fx:id="totalDeaths" prefWidth="140.0" text="Total COVID Deaths" />
               </columns>
             </TableView>
          </children>

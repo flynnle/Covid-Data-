@@ -10,11 +10,19 @@ import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 import javafx.scene.control.Label;
 import javafx.event.ActionEvent;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TableColumn;
 
 public class BoroughData extends Application {
     @FXML ChoiceBox<String> choicebox;
     @FXML Label display;
     @FXML Label borough;
+    @FXML TableView<CovidData> dataTable;
+    @FXML TableColumn<CovidData, String> date;
+    @FXML TableColumn<CovidData, String> googleMobilityData;
+    @FXML TableColumn<CovidData, String> newCovid;
+    @FXML TableColumn<CovidData, String> totalCovid;
+    @FXML TableColumn<CovidData, String> totalDeaths;
     private ObservableList<String> orderedBy;
     private String order;
     @FXML
