@@ -91,7 +91,7 @@ public class DataManipulator
         int total = 0;
         int count = 0;
         for(CovidData i : data){
-            total += i.getTransitGMR();
+            total = total + i.getTransitGMR();
             count++;
         }
         return total/count;
@@ -101,7 +101,7 @@ public class DataManipulator
         int total = 0;
         int count = 0;
         for (CovidData i : data){
-            total += i.getParksGMR();
+            total = total + i.getParksGMR();
             count++;
         } 
         return total/count;
@@ -111,7 +111,7 @@ public class DataManipulator
         int total = 0;
         int count = 0;
         for (CovidData i : data){
-            total += i.getTotalCases();
+            total = total + i.getTotalCases();
             count++;
         }
         return total/count;

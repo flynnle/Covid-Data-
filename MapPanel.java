@@ -159,4 +159,6 @@ public class MapPanel extends Application
             System.out.println("Can't load new window");
         }
     }
+    
+    
 }
