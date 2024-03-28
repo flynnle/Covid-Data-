@@ -105,7 +105,6 @@ public class MainGUI extends Application
             statNumbers.add(dm.getAvgCases());
             statNumbers.add(dm.getAvgTransitGMR());
             statNumbers.add(dm.getAvgParksGMR());
-            
         }else if(dm.validDate(start, end) == -1){
             introPass = true;
             leftArrow.setDisable(introPass);
@@ -242,7 +241,7 @@ public class MainGUI extends Application
         
             //System.out.println(totalDeaths);// Set the fill color based on the total deaths
             //double ratio = dm.getDeathRatio(start, end, boroughName);
-            double ratio = (dm.getMaxDeaths(start, end, boroughName) - dm.getMinDeaths(start, end, boroughName));;
+            double ratio = (dm.getMaxDeaths(start, end, boroughName) - dm.getMinDeaths(start, end, boroughName));
             Color colour = getColorForTotalDeaths(ratio);
             circle.setFill(colour);
             
