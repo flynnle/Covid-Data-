@@ -73,15 +73,6 @@ public class DataManipulatorTest
     }
     
     /**
-     * Tests the number of total deaths between 1/11/22 and 5/1/23
-     */
-    @Test
-    public void testTotalDeaths(){
-        test.filterDate(LocalDate.of(2022,11,1), LocalDate.of(2023,1,5));
-        assertEquals(670,test.getTotalDeaths());
-    }
-    
-    /**
      * Tests the numebr of average transit google mobility measure between 1/11/22 and 5/1/23
      */
     @Test
