@@ -16,6 +16,11 @@ import java.util.ArrayList;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;
 
+/**
+ * Camille Junique K23057058, Shrishaa Pathak K22051823, 
+Leila Flynn K23046238, Shankhi Sinha K23038624
+
+ */
 
 public class BoroughData extends Application {
     DataManipulator dm = new DataManipulator();
@@ -53,6 +58,9 @@ public class BoroughData extends Application {
         
     }
     
+    /**
+     * Displays borough pop up panel
+     */
     @FXML
     public void start(Stage stage) throws Exception{
         URL url = getClass().getResource("borough.fxml"); 
@@ -78,6 +86,9 @@ public class BoroughData extends Application {
         covidDataList.addAll(dm.filterBorough(borough));
     }
     
+    /**
+     * Loads data about a specific borough to the panel
+     */
     @FXML
     public void populate(){
         dateColumn.setCellValueFactory(cellData -> {
@@ -108,9 +119,11 @@ public class BoroughData extends Application {
         dataTable.setItems(covidDataList);
     }
     
+    /**
+     * Sorts data
+     */
     private void sortColumn(String name){
         ObservableList<CovidData> sortedData = dm.sortData(dataTable.getItems(), name);
         dataTable.setItems(sortedData);
     }
-
 }

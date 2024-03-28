@@ -7,8 +7,9 @@ import java.time.LocalDate;
 /**
  * The test class DataManipulatorTest.
  *
- * @author  (your name)
- * @version (a version number or a date)
+ * @Camille Junique K23057058, Shrishaa Pathak K22051823, 
+Leila Flynn K23046238, Shankhi Sinha K23038624
+
  */
 public class DataManipulatorTest
 {
@@ -31,6 +32,9 @@ public class DataManipulatorTest
          test = new DataManipulator();
     }
     
+    /**
+     * Tests for valid dates using the method validDate
+     */
     @Test
     public void testValidDate()
     {
@@ -43,6 +47,9 @@ public class DataManipulatorTest
         assertEquals(1,test.validDate(LocalDate.of(2020,2,3), LocalDate.of(2023,1,5)));
     }
     
+    /**
+     * Tests for invalid dates using the method validDate
+     */
     @Test
     public void testInvalidDate()
     {
@@ -54,32 +61,47 @@ public class DataManipulatorTest
 
         //end date is before start date
         assertEquals(-1,test.validDate(LocalDate.of(2023,1,5), LocalDate.of(2022,11,26)));
-            }
+    }
 
+    /**
+     * Tests the number of days between two dates using the method getDateDiff
+     */
     @Test
     public void testDateDiff(){
         assertEquals(4,test.getDateDiff(LocalDate.of(2023,1,1), LocalDate.of(2023,1,5)));        
         assertEquals(94,test.getDateDiff(LocalDate.of(2022,11,5), LocalDate.of(2023,2,7)));
     }
     
+    /**
+     * Tests the number of total deaths between 1/11/22 and 5/1/23
+     */
     @Test
     public void testTotalDeaths(){
         test.filterDate(LocalDate.of(2022,11,1), LocalDate.of(2023,1,5));
         assertEquals(670,test.getTotalDeaths());
     }
     
+    /**
+     * Tests the numebr of average transit google mobility measure between 1/11/22 and 5/1/23
+     */
     @Test
     public void testAvgTransitGMR(){
         test.filterDate(LocalDate.of(2022,11,1), LocalDate.of(2023,1,5));
         assertEquals(0,test.getAvgTransitGMR());
     }
 
+    /**
+     * Tests the number of average parks google mobility measure between 1/11/22 and 5/1/23
+     */
     @Test
     public void testAvgParksGMR(){
         test.filterDate(LocalDate.of(2022,11,1), LocalDate.of(2023,1,5));
         assertEquals(0,test.getAvgParksGMR());
     }
     
+    /**
+     * Tests the number of average cases between 1/11/22 and 5/1/23
+     */
     @Test
     public void testAvgCases(){
         test.filterDate(LocalDate.of(2022,11,1), LocalDate.of(2023,1,5));

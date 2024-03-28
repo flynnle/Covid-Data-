@@ -29,10 +29,11 @@ import java.time.LocalDate;
 import javafx.scene.chart.XYChart;*/
 
 /**
- * Write a description of class MainGUI here.
+ * Runs the entire program.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @Camille Junique K23057058, Shrishaa Pathak K22051823, 
+Leila Flynn K23046238, Shankhi Sinha K23038624
+
  */
 public class MainGUI extends Application
 {
