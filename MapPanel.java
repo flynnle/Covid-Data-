@@ -230,7 +230,7 @@ public class MapPanel extends Application
             Parent root = (Parent) fxmlLoader.load();
             BoroughData controller = fxmlLoader.getController();
             controller.setBoroughName(borough);
-            data = dm.filterBorough(borough);
+            controller.createList(borough);
             Stage stage = new Stage();
             stage.setTitle("Borough Data");
             stage.setScene(new Scene(root));
@@ -241,11 +241,6 @@ public class MapPanel extends Application
             e.printStackTrace();
             System.out.println("Can't load new window");
         }
-    }
-    
-    @FXML 
-    public ObservableList<CovidData> populateBorough() {
-        return data;
     }
         
     }

@@ -62,6 +62,7 @@ public class DataManipulator
             selected.add(i);
         }
     }
+    System.out.println(selected.isEmpty());
     return selected;
     }
     
@@ -109,9 +110,9 @@ public class DataManipulator
     public int getMinDeaths(LocalDate start, LocalDate end, String borough) {
         
         ObservableList<CovidData> filteredByDate = FXCollections.observableArrayList(data);
-        System.out.println(filteredByDate);
+        //System.out.println(filteredByDate);
         ObservableList<CovidData> filteredByBorough = filterBorough(borough);
-        System.out.println(filteredByBorough);
+        //System.out.println(filteredByBorough);
     
         // Find intersection of records filtered by date and borough
         filteredByDate.retainAll(filteredByBorough);
@@ -127,9 +128,9 @@ public class DataManipulator
     
     public int getMaxDeaths(LocalDate start, LocalDate end, String borough) {
         ObservableList<CovidData> filteredByDate = FXCollections.observableArrayList(data);
-        System.out.println(filteredByDate);
+        //System.out.println(filteredByDate);
         ObservableList<CovidData> filteredByBorough = filterBorough(borough);
-        System.out.println(filteredByBorough);
+        //System.out.println(filteredByBorough);
     
         // Find intersection of records filtered by date and borough
         filteredByDate.retainAll(filteredByBorough);

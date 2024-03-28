@@ -13,33 +13,57 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 import java.util.ArrayList;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.SimpleStringProperty;
+
 
 public class BoroughData extends Application {
+    DataManipulator dm = new DataManipulator();
+    
     @FXML ChoiceBox<String> choicebox;
     @FXML Label display;
     @FXML Label borough;
+    
     @FXML TableView<CovidData> dataTable;
-    @FXML TableColumn<CovidData, String> date;
-    @FXML TableColumn<CovidData, String> googleMobilityData;
-    @FXML TableColumn<CovidData, String> newCovid;
-    @FXML TableColumn<CovidData, String> totalCovid;
-    @FXML TableColumn<CovidData, String> totalDeaths;
+    
+    @FXML TableColumn<CovidData, String> dateColumn;
+    @FXML TableColumn<CovidData, String> transitColumn;
+    @FXML TableColumn<CovidData, String> newCovidColumn;
+    @FXML TableColumn<CovidData, String> totalCovidColumn;
+    @FXML TableColumn<CovidData, String> totalDeathsColumn;
+    
     private ArrayList<String> orderedBy;
     private String order;
+    
+    ObservableList<CovidData> covidDataList = FXCollections.observableArrayList();
+    
     MapPanel mp = new MapPanel();
     
     @FXML 
     public void initialize() {
         orderedBy = new ArrayList<>();
         orderedBy.add("Date");
-        orderedBy.add("Google Mobility Data");
+        orderedBy.add("Transit GMR");
         orderedBy.add("New COVID cases");
         orderedBy.add("Total COVID cases");
         orderedBy.add("New COVID Cases");
         choicebox.getItems().addAll(orderedBy);
         choicebox.setValue("Date");
-        dataTable.setItems(mp.populateBorough());
-        //date.setCellValueFactory(CovidData -> CovidData.getValue().getDate());
+        
+        dateColumn.setCellValueFactory(cellData -> {
+            String date = cellData.getValue().getDate();
+            return Bindings.createObjectBinding(() -> date);
+        });
+        
+        transitColumn.setCellValueFactory(cellData -> {
+            int gmr = cellData.getValue().getTransitGMR();
+            return new SimpleStringProperty(Integer.toString(gmr));
+        });
+        
+        
+         
+        dataTable.setItems(covidDataList);
+        
     }
     
     @FXML
@@ -60,6 +84,10 @@ public class BoroughData extends Application {
     
     public void setBoroughName(String name) {
         borough.setText("Borough Name: " + name);
+    }
+    
+    public void createList(String borough){
+        covidDataList.addAll(dm.filterBorough(borough));
     }
     
     @FXML
