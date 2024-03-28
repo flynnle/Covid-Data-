@@ -161,6 +161,9 @@ public class MainGUI extends Application
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("Map"); 
         Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        circles.clear();
         Circle cirENFI = (Circle) root.lookup("#cirENFI");
         circles.put(cirENFI, "Enfield"); 
         Circle cirBARN = (Circle) root.lookup("#cirBARN");
@@ -227,35 +230,39 @@ public class MainGUI extends Application
         circles.put(cirCROY, "Croydon");
         Circle cirBROM= (Circle) root.lookup("#cirBROM");
         circles.put(cirBROM, "Bromley");
+        System.out.println("Switching to MapPanel...");
         LocalDate start = startDate.getValue();
         LocalDate end = endDate.getValue();
         for (Map.Entry<Circle, String> entry : circles.entrySet()) {
-        Circle circle = entry.getKey();
-        String boroughName = entry.getValue();
-        // Get the total deaths for the borough from your data source
-        int totalDeaths = dm.getDeaths(start, end, boroughName); // You need to implement this method
-        // Set the fill color based on the total deaths
-        circle.setFill(getColorForTotalDeaths(totalDeaths));
+            Circle circle = entry.getKey();
+            System.out.println(circle);
+            String boroughName = entry.getValue();
+            // Get the total deaths for the borough from your data source
+            int totalDeaths = dm.getDeaths(start, end, boroughName);  // You need to implement this method
+        
+            System.out.println(totalDeaths);// Set the fill color based on the total deaths
+            double ratio = dm.getDeathRatio(start, end, boroughName);
+            Color colour = getColorForTotalDeaths(ratio);
+            circle.setFill(colour);
+            System.out.println(1);
         }
         //map.circleName();
-        stage.setScene(scene);
-        stage.show();
+    
     }
     
     
-    private Color getColorForTotalDeaths(int totalDeaths) {
-         //int minTotalDeaths = dm.getMinDeaths();
-         //int maxTotalDeaths = dm.getMaxDeaths();
-    // Define your logic to determine the color based on the total deaths
-    // For example, you can use a gradient or predefined thresholds to map total deaths to colors
-    // Here's a simple example:
-    if (totalDeaths < 1000) {
-       return Color.GREEN;
-    } else if (totalDeaths < 3000) {
-        return Color.YELLOW;
-    } else {
-        return Color.RED;
-    }
+    private Color getColorForTotalDeaths(double ratio) {
+    
+        // Define your logic to determine the color based on the total deaths
+        // For example, you can use a gradient or predefined thresholds to map total deaths to colors
+        // Here's a simple example:
+        if (ratio < 0.3) {
+            return Color.GREEN;
+        } else if (ratio < 0.6) {
+            return Color.YELLOW;
+        } else {
+            return Color.RED;
+        }
     }
     
     

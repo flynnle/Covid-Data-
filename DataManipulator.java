@@ -40,6 +40,7 @@ public class DataManipulator
      */
     public void filterDate(LocalDate start, LocalDate end)
     {
+        //data.clear();
         System.out.println(records.get(0));    
         for (CovidData i : records){
             LocalDate date = LocalDate.parse(i.getDate());
@@ -52,21 +53,32 @@ public class DataManipulator
         }
     }
     
-    public ObservableList<CovidData> filterBorough(String borough){
-        ObservableList<CovidData> selected = FXCollections.observableArrayList();
-        for (CovidData i : data){
-            String name = i.getBorough();
-            if(name.equals(borough)){
-                selected.add(i);
-            }
+    public ObservableList<CovidData> filterBorough(String borough) {
+    ObservableList<CovidData> selected = FXCollections.observableArrayList();
+    for (CovidData i : data) {
+        String name = i.getBorough();
+        LocalDate date = LocalDate.parse(i.getDate());
+        if (name.equals(borough)) {
+            selected.add(i);
         }
-        return selected;
+    }
+    return selected;
     }
     
+    /*public int getDeaths(ObservableList<CovidData> selectedData) {
+        int total = 0;
+        for(CovidData i : selectedData) {
+            total += i.getTotalDeaths();
+        }
+        return total;
+    }*/
+    
     public int getDeaths(LocalDate start, LocalDate end, String borough) {
-        filterDate(start, end);
+        //filterDate(start, end);
         ObservableList<CovidData> filteredByDate = FXCollections.observableArrayList(data);
+        System.out.println(filteredByDate);
         ObservableList<CovidData> filteredByBorough = filterBorough(borough);
+        System.out.println(filteredByBorough);
     
         // Find intersection of records filtered by date and borough
         filteredByDate.retainAll(filteredByBorough);
@@ -78,32 +90,24 @@ public class DataManipulator
         return totalDeaths;
     
     }
-    /**public int getDeaths(ObservableList<CovidData> selectedData) {
-        int total = 0;
-        for(CovidData i : selectedData) {
-            total += i.getTotalDeaths();
-        }
-        return total;
-    }*/
     
-    public int getMaxDeaths(ObservableList<CovidData> selectedData) {
-        max = 0;
-        for(CovidData i : selectedData) {
-            if(i.getTotalDeaths()>max){
-                max = i.getTotalDeaths();
-            }
+    public int getTotalCases(LocalDate start, LocalDate end, String borough) {
+        ObservableList<CovidData> filteredByDate = FXCollections.observableArrayList(data);
+        System.out.println(filteredByDate);
+        ObservableList<CovidData> filteredByBorough = filterBorough(borough);
+        System.out.println(filteredByBorough);
+    
+        // Find intersection of records filtered by date and borough
+        filteredByDate.retainAll(filteredByBorough);
+        int totalCases= 0;
+        for (CovidData i : filteredByDate) {
+            totalCases += i.getTotalCases();
         }
-        return max;
+        return totalCases;
     }
     
-    public int getMinDeaths(ObservableList<CovidData> selectedData) {
-        min = 0;
-        for(CovidData i : selectedData) {
-            if(i.getTotalDeaths()<min){
-                min = i.getTotalDeaths();
-            }
-        }
-        return min;
+    public double getDeathRatio(LocalDate start, LocalDate end, String borough) {
+        return (double)getDeaths(start, end, borough)/getTotalCases(start, end, borough);
     }
     
     public int validDate(LocalDate start, LocalDate end){

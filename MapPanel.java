@@ -178,6 +178,7 @@ public class MapPanel extends Application
         circleNames.put(CirSUTT, "Sutton");
         circleNames.put(CirCROY, "Croydon");
         circleNames.put(CirBROM, "Bromley");
+
         //updateColour();
     }
 
@@ -192,6 +193,8 @@ public class MapPanel extends Application
         stage.setTitle("Map"); 
         stage.setScene(scene); 
         stage.show(); 
+        
+        
     }
 
     @FXML

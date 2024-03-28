@@ -77,4 +77,20 @@ for (Map.Entry<Circle, String> entry : circles.entrySet()) \{\
         int totalDeaths = dm.getDeaths(start, end, boroughName); // You need to implement this method\
         // Set the fill color based on the total deaths\
         circle.setFill(getColorForTotalDeaths(totalDeaths));\
-        \}}
+        \}\
+\
+public int getDeaths(LocalDate start, LocalDate end, String borough) \{\
+        filterDate(start, end);\
+        ObservableList<CovidData> filteredByDate = FXCollections.observableArrayList(data);\
+        ObservableList<CovidData> filteredByBorough = filterBorough(borough);\
+    \
+        // Find intersection of records filtered by date and borough\
+        filteredByDate.retainAll(filteredByBorough);\
+    \
+        int totalDeaths = 0;\
+        for (CovidData i : filteredByDate) \{\
+            totalDeaths += i.getTotalDeaths();\
+        \}\
+        return totalDeaths;\
+    \
+    \}}
