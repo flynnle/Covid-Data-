@@ -19,6 +19,8 @@ public class DataManipulator
     private ArrayList<CovidData> records = new ArrayList<>();
     private static ArrayList<CovidData> data = new ArrayList<>();
     private LocalDate start;
+    private int min;
+    private int max;
 
     public DataManipulator(){
         //try{
@@ -59,6 +61,49 @@ public class DataManipulator
             }
         }
         return selected;
+    }
+    
+    public int getDeaths(LocalDate start, LocalDate end, String borough) {
+        filterDate(start, end);
+        ObservableList<CovidData> filteredByDate = FXCollections.observableArrayList(data);
+        ObservableList<CovidData> filteredByBorough = filterBorough(borough);
+    
+        // Find intersection of records filtered by date and borough
+        filteredByDate.retainAll(filteredByBorough);
+    
+        int totalDeaths = 0;
+        for (CovidData i : filteredByDate) {
+            totalDeaths += i.getTotalDeaths();
+        }
+        return totalDeaths;
+    
+    }
+    /**public int getDeaths(ObservableList<CovidData> selectedData) {
+        int total = 0;
+        for(CovidData i : selectedData) {
+            total += i.getTotalDeaths();
+        }
+        return total;
+    }*/
+    
+    public int getMaxDeaths(ObservableList<CovidData> selectedData) {
+        max = 0;
+        for(CovidData i : selectedData) {
+            if(i.getTotalDeaths()>max){
+                max = i.getTotalDeaths();
+            }
+        }
+        return max;
+    }
+    
+    public int getMinDeaths(ObservableList<CovidData> selectedData) {
+        min = 0;
+        for(CovidData i : selectedData) {
+            if(i.getTotalDeaths()<min){
+                min = i.getTotalDeaths();
+            }
+        }
+        return min;
     }
     
     public int validDate(LocalDate start, LocalDate end){

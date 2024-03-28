@@ -68,4 +68,13 @@
                 i.setFill(darkerColor);\
     \
             \};\
-        \}*/}
+        \}*/\
+\
+for (Map.Entry<Circle, String> entry : circles.entrySet()) \{\
+        Circle circle = entry.getKey();\
+        String boroughName = entry.getValue();\
+        // Get the total deaths for the borough from your data source\
+        int totalDeaths = dm.getDeaths(start, end, boroughName); // You need to implement this method\
+        // Set the fill color based on the total deaths\
+        circle.setFill(getColorForTotalDeaths(totalDeaths));\
+        \}}

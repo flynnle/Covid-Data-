@@ -53,7 +53,7 @@ public class MainGUI extends Application
     @FXML private Button statsLeftButton;
     @FXML private Button statsRightButton;
     private static boolean introPass = false;
-    private ArrayList<Circle> circles = new ArrayList<Circle>();
+    private HashMap<Circle, String> circles = new HashMap<Circle, String>();
     
     private ArrayList<CovidData> data;
     
@@ -162,77 +162,104 @@ public class MainGUI extends Application
         stage.setTitle("Map"); 
         Scene scene = new Scene(root);
         Circle cirENFI = (Circle) root.lookup("#cirENFI");
-        circles.add(cirENFI); 
+        circles.put(cirENFI, "Enfield"); 
         Circle cirBARN = (Circle) root.lookup("#cirBARN");
-        circles.add(cirBARN); 
+        circles.put(cirBARN, "Barnet"); 
         Circle cirHRGY = (Circle) root.lookup("#cirHRGY");
-        circles.add(cirHRGY); 
+        circles.put(cirHRGY, "Haringey"); 
         Circle cirWALT = (Circle) root.lookup("#cirWALT");
-        circles.add(cirWALT);         
+        circles.put(cirWALT, "Waltham Forest");         
         Circle cirHRRW = (Circle) root.lookup("#cirHRRW");
-        circles.add(cirHRRW); 
+        circles.put(cirHRRW, "Harrow"); 
         Circle cirBREN = (Circle) root.lookup("#cirBREN");
-        circles.add(cirBREN); 
+        circles.put(cirBREN, "Brent"); 
         Circle cirCAMD = (Circle) root.lookup("#cirCAMD");
-        circles.add(cirCAMD); 
+        circles.put(cirCAMD, "Camden"); 
         Circle cirISLI = (Circle) root.lookup("#cirISLI");
-        circles.add(cirISLI); 
+        circles.put(cirISLI, "Islington"); 
         Circle cirHACK = (Circle) root.lookup("#cirHACK");
-        circles.add(cirHACK); 
+        circles.put(cirHACK, "Hackney"); 
         Circle cirREDB = (Circle) root.lookup("#cirREDB");
-        circles.add(cirREDB); 
+        circles.put(cirREDB, "Redbridge"); 
         Circle cirHAVE= (Circle) root.lookup("#cirHAVE");
-        circles.add(cirHAVE);
+        circles.put(cirHAVE, "Havering");
         Circle cirHILL= (Circle) root.lookup("#cirHILL");
-        circles.add(cirHILL);
+        circles.put(cirHILL, "Hillingdon");
         Circle cirEALI= (Circle) root.lookup("#cirEALI");
-        circles.add(cirEALI);
+        circles.put(cirEALI, "Ealing");
         Circle cirKENS= (Circle) root.lookup("#cirKENS");
-        circles.add(cirKENS);
+        circles.put(cirKENS, "Kensington and Chelsea");
         Circle cirWSTM= (Circle) root.lookup("#cirWSTM");
-        circles.add(cirWSTM);
+        circles.put(cirWSTM, "Westminster");
         Circle cirTOWH= (Circle) root.lookup("#cirTOWH");
-        circles.add(cirTOWH);
+        circles.put(cirTOWH, "Tower Hamlets");
         Circle cirNEWH= (Circle) root.lookup("#cirNEWH");
-        circles.add(cirNEWH);
+        circles.put(cirNEWH, "Newham");
         Circle cirBARK= (Circle) root.lookup("#cirBARK");
-        circles.add(cirBARK);
+        circles.put(cirBARK, "Barking and Dagenham");
         Circle cirHOUN= (Circle) root.lookup("#cirHOUN");
-        circles.add(cirHOUN);
+        circles.put(cirHOUN, "Hounslow");
         Circle cirHAMM= (Circle) root.lookup("#cirHAMM");
-        circles.add(cirHAMM);
+        circles.put(cirHAMM, "Hammersmith and Fulham");
         Circle cirWAND= (Circle) root.lookup("#cirWAND");
-        circles.add(cirWAND);
+        circles.put(cirWAND, "Wandsworth");
         Circle cirCITY= (Circle) root.lookup("#cirCITY");
-        circles.add(cirCITY);
+        circles.put(cirCITY, "City of London");
         Circle cirGWCH= (Circle) root.lookup("#cirGWCH");
-        circles.add(cirGWCH);
+        circles.put(cirGWCH, "Greenwich");
         Circle cirBEXL= (Circle) root.lookup("#cirBEXL");
-        circles.add(cirBEXL);
+        circles.put(cirBEXL, "Bexley");
         Circle cirRICH= (Circle) root.lookup("#cirRICH");
-        circles.add(cirRICH);
+        circles.put(cirRICH, "Richmond Upon Thames");
         Circle cirMERT= (Circle) root.lookup("#cirMERT");
-        circles.add(cirMERT);
-         Circle cirLAMB= (Circle) root.lookup("#cirLAMB");
-        circles.add(cirLAMB); 
+        circles.put(cirMERT, "Merton");
+        Circle cirLAMB= (Circle) root.lookup("#cirLAMB");
+        circles.put(cirLAMB, "Lambeth"); 
         Circle cirSTHW= (Circle) root.lookup("#cirSTHW");
-        circles.add(cirSTHW);circles.add(cirBEXL);
+        circles.put(cirSTHW, "Southwark");;
         Circle cirLEWS= (Circle) root.lookup("#cirLEWS");
-        circles.add(cirLEWS);
-         Circle cirKING= (Circle) root.lookup("#cirKING");
-        circles.add(cirKING); 
+        circles.put(cirLEWS, "Lewisham");
+        Circle cirKING= (Circle) root.lookup("#cirKING");
+        circles.put(cirKING, "Kingston Upon Thames"); 
         Circle cirSUTT= (Circle) root.lookup("#cirSUTT");
-        circles.add(cirSUTT);circles.add(cirBEXL);
+        circles.put(cirSUTT, "Sutton");
         Circle cirCROY= (Circle) root.lookup("#cirCROY");
-        circles.add(cirCROY);
-         Circle cirBROM= (Circle) root.lookup("#cirBROM");
-        circles.add(cirBROM); 
-           
-    
+        circles.put(cirCROY, "Croydon");
+        Circle cirBROM= (Circle) root.lookup("#cirBROM");
+        circles.put(cirBROM, "Bromley");
+        LocalDate start = startDate.getValue();
+        LocalDate end = endDate.getValue();
+        for (Map.Entry<Circle, String> entry : circles.entrySet()) {
+        Circle circle = entry.getKey();
+        String boroughName = entry.getValue();
+        // Get the total deaths for the borough from your data source
+        int totalDeaths = dm.getDeaths(start, end, boroughName); // You need to implement this method
+        // Set the fill color based on the total deaths
+        circle.setFill(getColorForTotalDeaths(totalDeaths));
+        }
+        //map.circleName();
         stage.setScene(scene);
         stage.show();
     }
     
+    
+    private Color getColorForTotalDeaths(int totalDeaths) {
+         //int minTotalDeaths = dm.getMinDeaths();
+         //int maxTotalDeaths = dm.getMaxDeaths();
+    // Define your logic to determine the color based on the total deaths
+    // For example, you can use a gradient or predefined thresholds to map total deaths to colors
+    // Here's a simple example:
+    if (totalDeaths < 1000) {
+       return Color.GREEN;
+    } else if (totalDeaths < 3000) {
+        return Color.YELLOW;
+    } else {
+        return Color.RED;
+    }
+    }
+    
+    
+
     @FXML
     public void switchToStats(ActionEvent event) throws java.io.IOException {
         URL url = getClass().getResource("statsPanel.fxml"); 

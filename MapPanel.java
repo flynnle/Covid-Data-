@@ -129,7 +129,7 @@ public class MapPanel extends Application
         boroughNameMap.put(WSTM, "Westminster");
         boroughNameMap.put(TOWH, "Tower Hamlets");
         boroughNameMap.put(NEWH, "Newham");
-        boroughNameMap.put(BARK, "Barking and Dgaenham");
+        boroughNameMap.put(BARK, "Barking and Dagenham");
         boroughNameMap.put(HOUN, "Hounslow");
         boroughNameMap.put(HAMM, "Hammersmith and Fulham");
         boroughNameMap.put(WAND, "Wandsworth");
@@ -145,6 +145,39 @@ public class MapPanel extends Application
         boroughNameMap.put(SUTT, "Sutton");
         boroughNameMap.put(CROY, "Croydon");
         boroughNameMap.put(BROM, "Bromley");
+        circleNames.put(CirENFI, "Enfield");
+        circleNames.put(CirBARN, "Barnet");
+        circleNames.put(CirHRGY, "Haringey");
+        circleNames.put(CirWALT, "Waltham Forest");
+        circleNames.put(CirHRRW, "Harrow");
+        circleNames.put(CirBREN, "Brent");
+        circleNames.put(CirCAMD, "Camden");
+        circleNames.put(CirISLI, "Islington");
+        circleNames.put(CirHACK, "Hackney");
+        circleNames.put(CirREDB, "Redbridge");
+        circleNames.put(CirHAVE, "Havering");
+        circleNames.put(CirHILL, "Hillingdon");
+        circleNames.put(CirEALI, "Ealing");
+        circleNames.put(CirKENS, "Kensington and Chelsea");
+        circleNames.put(CirWSTM, "Westminster");
+        circleNames.put(CirTOWH, "Tower Hamlets");
+        circleNames.put(CirNEWH, "Newham");
+        circleNames.put(CirBARK, "Barking and Dgaenham");
+        circleNames.put(CirHOUN, "Hounslow");
+        circleNames.put(CirHAMM, "Hammersmith and Fulham");
+        circleNames.put(CirWAND, "Wandsworth");
+        circleNames.put(CirCITY, "City of London");
+        circleNames.put(CirGWCH, "Greenwich");
+        circleNames.put(CirBEXL, "Bexley");
+        circleNames.put(CirRICH, "Richmond Upon Thames");
+        circleNames.put(CirMERT, "Merton");
+        circleNames.put(CirLAMB, "Lambeth");
+        circleNames.put(CirSTHW, "Southwark");
+        circleNames.put(CirLEWS, "Lewisham");
+        circleNames.put(CirKING, "Kingston Upon Thames");
+        circleNames.put(CirSUTT, "Sutton");
+        circleNames.put(CirCROY, "Croydon");
+        circleNames.put(CirBROM, "Bromley");
         //updateColour();
     }
 
@@ -214,43 +247,30 @@ public class MapPanel extends Application
 
     @FXML
     public void circleName(){
-        circleNames.put(CirENFI, "Enfield");
-        circleNames.put(CirBARN, "Barnet");
-        circleNames.put(CirHRGY, "Haringey");
-        circleNames.put(CirWALT, "Waltham Forest");
-        circleNames.put(CirHRRW, "Harrow");
-        circleNames.put(CirBREN, "Brent");
-        circleNames.put(CirCAMD, "Camden");
-        circleNames.put(CirISLI, "Islington");
-        circleNames.put(CirHACK, "Hackney");
-        circleNames.put(CirREDB, "Redbridge");
-        circleNames.put(CirHAVE, "Havering");
-        circleNames.put(CirHILL, "Hillingdon");
-        circleNames.put(CirEALI, "Ealing");
-        circleNames.put(CirKENS, "Kensington and Chelsea");
-        circleNames.put(CirWSTM, "Westminster");
-        circleNames.put(CirTOWH, "Tower Hamlets");
-        circleNames.put(CirNEWH, "Newham");
-        circleNames.put(CirBARK, "Barking and Dgaenham");
-        circleNames.put(CirHOUN, "Hounslow");
-        circleNames.put(CirHAMM, "Hammersmith and Fulham");
-        circleNames.put(CirWAND, "Wandsworth");
-        circleNames.put(CirCITY, "City of London");
-        circleNames.put(CirGWCH, "Greenwich");
-        circleNames.put(CirBEXL, "Bexley");
-        circleNames.put(CirRICH, "Richmond Upon Thames");
-        circleNames.put(CirMERT, "Merton");
-        circleNames.put(CirLAMB, "Lambeth");
-        circleNames.put(CirSTHW, "Southwark");
-        circleNames.put(CirLEWS, "Lewisham");
-        circleNames.put(CirKING, "Kingston Upon Thames");
-        circleNames.put(CirSUTT, "Sutton");
-        circleNames.put(CirCROY, "Croydon");
-        circleNames.put(CirBROM, "Bromley");
+        for (Circle circle : circles) {
+        // Retrieve the borough name associated with the current circle
+        String boroughName = circleNames.get(circle);
         
-        circleNames.forEach((circle, name) ->{
-           circle.setFill(Color.RED); 
-        });
+        // Filter the data for the borough
+        ObservableList<CovidData> boroughData = dm.filterBorough(boroughName);
+        System.out.println(1);
+        // Calculate the total deaths for the borough
+        int totalDeaths = 0;
+        for (CovidData data : boroughData) {
+            totalDeaths += data.getTotalDeaths();
+        }
+        
+        // Set color based on total deaths
+        if (totalDeaths < 100) {
+            circle.setFill(Color.GREEN); 
+        } 
+        else if (totalDeaths < 500) {
+            circle.setFill(Color.YELLOW); 
+        } 
+        else {
+            circle.setFill(Color.RED); 
+        }
+    }
         
     }
 }
