@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <bottom>
       <HBox prefHeight="27.0" prefWidth="600.0" style="-fx-border-color: #aaaaaa;" BorderPane.alignment="CENTER">
@@ -24,7 +23,7 @@
                   <Font size="11.0" />
                </font>
                <HBox.margin>
-                  <Insets left="481.0" top="2.5" />
+                  <Insets left="479.0" top="2.5" />
                </HBox.margin>
             </Button>
          </children>
