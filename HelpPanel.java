@@ -11,6 +11,8 @@ import java.net.URL;
 import javafx.event.ActionEvent;
 import java.net.URISyntaxException;
 import java.io.IOException;
+import javafx.scene.control.Button;
+import javafx.scene.Node;
 
 /**
  * Displays the help and information panel
@@ -21,7 +23,13 @@ Leila Flynn K23046238, Shankhi Sinha K23038624
 public class HelpPanel extends Application
 {
     @FXML private Hyperlink nhslink;
-
+    @FXML private Hyperlink covidVaccine;
+    @FXML private Hyperlink testingServices;
+    @FXML private Hyperlink mentalHealth;
+    @FXML private Hyperlink finance;
+    @FXML private Hyperlink travel;
+    @FXML private Button leftButton; 
+    @FXML private Button rightButton;
     /**
      * An example of a method - replace this comment with your own
      *
@@ -41,5 +49,58 @@ public class HelpPanel extends Application
     public void openNHS(ActionEvent event) throws URISyntaxException, IOException{
         URI uri = new URI("https://www.nhs.uk/conditions/covid-19/covid-19-symptoms-and-what-to-do/");
         java.awt.Desktop.getDesktop().browse(uri);
+    }
+    
+    public void openVaccine(ActionEvent event) throws URISyntaxException, IOException{
+        URI uri = new URI("https://www.england.nhs.uk/london/our-work/covid-19-vaccination-programme-2/covid-19-vaccine-sites-in-london/");
+        java.awt.Desktop.getDesktop().browse(uri);
+    }
+    
+    public void openTesting(ActionEvent event) throws URISyntaxException, IOException{
+        URI uri = new URI("https://uk.usembassy.gov/covidtestingproviders/");
+        java.awt.Desktop.getDesktop().browse(uri);
+    }
+    
+    public void openMentalHealth(ActionEvent event) throws URISyntaxException, IOException{
+        URI uri = new URI("https://www.london.gov.uk/coronavirus/coronavirus-and-looking-after-your-mental-health");
+        java.awt.Desktop.getDesktop().browse(uri);
+    }
+    
+    public void openFinanceSupport(ActionEvent event) throws URISyntaxException, IOException{
+        URI uri = new URI("https://www.london.gov.uk/coronavirus/financial-support-during-coronavirus#:~:text=For%20information%20and%20online%20advice,on%20wellbeing%20during%20coronavirus%20helpful.");
+        java.awt.Desktop.getDesktop().browse(uri);
+    }
+    
+    public void openForeignTravel(ActionEvent event) throws URISyntaxException, IOException{
+        URI uri = new URI("https://www.gov.uk/foreign-travel-advice");
+        java.awt.Desktop.getDesktop().browse(uri);
+    }
+    
+    /**
+     * Method to switch scenes. Linked to left arrow button
+     */
+    @FXML
+    public void switchToStats(ActionEvent event) throws IOException{
+        URL url = getClass().getResource("statsPanel.fxml"); 
+        Pane root = FXMLLoader.load(url); 
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Statistics Panel"); 
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    
+    /**
+     * Method to switch scenes. Linked to right arrow button
+     */
+    @FXML
+    public void switchToCovid(ActionEvent event) throws IOException{
+        URL url = getClass().getResource("introPanel.fxml"); 
+        Pane root = FXMLLoader.load(url); 
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Covid Scene"); 
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }

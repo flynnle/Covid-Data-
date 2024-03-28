@@ -13,7 +13,7 @@
    <bottom>
       <HBox prefHeight="27.0" prefWidth="600.0" style="-fx-border-color: #aaaaaa;" BorderPane.alignment="CENTER">
          <children>
-            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="50.0" text="&lt;">
+            <Button fx:id="leftButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToStats" prefHeight="20.0" prefWidth="50.0" text="&lt;">
                <font>
                   <Font size="11.0" />
                </font>
@@ -21,7 +21,7 @@
                   <Insets left="10.0" top="2.5" />
                </HBox.margin>
             </Button>
-            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="50.0" text="&gt;">
+            <Button fx:id="rightButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToCovid" prefHeight="20.0" prefWidth="50.0" text="&gt;">
                <font>
                   <Font size="11.0" />
                </font>
@@ -35,7 +35,47 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Hyperlink fx:id="nhslink" onAction="#openNHS" text="1. NHS : COVID-19 symptoms and what to do">
+            <Hyperlink fx:id="nhslink" onAction="#openNHS" text="1. NHS : COVID-19 Symptoms and What To Do">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="2.5" />
+               </VBox.margin>
+            </Hyperlink>
+            <Hyperlink fx:id="covidVaccine" onAction="#openVaccine" text="2. NHS : Getting your COVID-19 Vaccine in London">
+               <VBox.margin>
+                  <Insets top="2.5" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="testingServices" onAction="#openTesting" text="3. US Embassy in UK : COVID-19 Testing Providers">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="2.5" />
+               </VBox.margin>
+            </Hyperlink>
+            <Hyperlink fx:id="mentalHealth" onAction="#openMentalHealth" text="4. London City Hall : Looking After Your Mental Health">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="2.5" />
+               </VBox.margin>
+            </Hyperlink>
+            <Hyperlink fx:id="finance" onAction="#openFinanceSupport" text="5. London City Hall : Financial Support During COVID-19">
+               <VBox.margin>
+                  <Insets top="2.5" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="travel" onAction="#openForeignTravel" text="6. NHS : Foreign Travel Advice ">
                <font>
                   <Font size="14.0" />
                </font>
