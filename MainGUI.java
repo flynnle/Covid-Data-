@@ -66,10 +66,6 @@ public class MainGUI extends Application
     XYChart.Series<LocalDate, Integer> seriesTotalCases = new XYChart.Series<>();
     XYChart.Series<LocalDate, Integer> seriesTotalDeaths = new XYChart.Series<>();
     
-    @FXML private LineChart<LocalDate, Integer> lineChart;
-    XYChart.Series<LocalDate, Integer> seriesTotalCases = new XYChart.Series<>();
-    XYChart.Series<LocalDate, Integer> seriesTotalDeaths = new XYChart.Series<>();
-    
     public void initialize(){
         statNames.add("Total Deaths");
         statNames.add("Average Cases per Day");
