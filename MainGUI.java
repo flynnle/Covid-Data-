@@ -40,7 +40,7 @@ public class MainGUI extends Application
     IntroPanel intro = new IntroPanel();
     MapPanel map = new MapPanel();
     StatsPanel stats = new StatsPanel();
-    GraphPanel graph = new GraphPanel();
+    
     
     @FXML private Button leftArrow;
     @FXML private Button rightArrow;
