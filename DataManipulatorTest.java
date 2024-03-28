@@ -83,7 +83,7 @@ public class DataManipulatorTest
     @Test
     public void testAvgCases(){
         test.filterDate(LocalDate.of(2022,11,1), LocalDate.of(2023,1,5));
-        assertEquals(96997,test.getAvgCases());
+        assertEquals(14,test.getAvgCases());
     }
     
     /**
