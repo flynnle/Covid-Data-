@@ -19,10 +19,11 @@ import javafx.scene.paint.*;
 import javafx.collections.ObservableList;
 
 /**
- * Write a description of class MapPanel here.
+ * Displays the map panel
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @Camille Junique K23057058, Shrishaa Pathak K22051823, 
+Leila Flynn K23046238, Shankhi Sinha K23038624
+
  */
 public class MapPanel extends Application 
 {
@@ -178,11 +179,12 @@ public class MapPanel extends Application
         circleNames.put(CirSUTT, "Sutton");
         circleNames.put(CirCROY, "Croydon");
         circleNames.put(CirBROM, "Bromley");
-        
         //updateColour();
     }
 
-
+    /**
+     * Displays map panel
+     */
     @FXML
     public void start(Stage stage) throws IOException{
         URL url = getClass().getResource("MapPanel.fxml"); 
@@ -193,12 +195,10 @@ public class MapPanel extends Application
         stage.setTitle("Map"); 
         stage.setScene(scene); 
         stage.show(); 
-        
-        
     }
 
     /**
-     * method to switch scenes. left button
+     * Method to switch scenes. Linked to left arrow button
      */
     @FXML
     public void switchToCovid(ActionEvent event) throws IOException{
@@ -212,7 +212,7 @@ public class MapPanel extends Application
     }
 
     /**
-     * method to switch scenes. right button
+     * Method to switch scenes. Linked to right arrow button
      */
     @FXML
     public void switchToStats(ActionEvent event) throws IOException{
@@ -225,9 +225,8 @@ public class MapPanel extends Application
         stage.show();
     }
 
-    //general method to create new window for boroughs
     /**
-     * method to create a new window when a borough is pressed
+     * Method to create a new window when a borough is pressed
      */
     @FXML 
     public void popupButton(ActionEvent event) {
@@ -251,5 +250,4 @@ public class MapPanel extends Application
             System.out.println("Can't load new window");
         }
     }
-        
-    }
+}

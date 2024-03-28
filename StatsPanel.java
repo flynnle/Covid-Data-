@@ -14,10 +14,10 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 
 /**
- * Write a description of class SceneGUI here.
+ * Displays the statistic panel
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @Camille Junique K23057058, Shrishaa Pathak K22051823, 
+Leila Flynn K23046238, Shankhi Sinha K23038624
  */
 public class StatsPanel extends Application
 {
@@ -33,10 +33,13 @@ public class StatsPanel extends Application
     
     private int statsCounter;
     
-    private ArrayList <String> statNames = new ArrayList<>();
-    private ArrayList <Integer> statNumbers = new ArrayList<>();
-    //private String[] statNames = {"Total Deaths", "Average Cases per Day", "Average Transit GMR", "Average Park GMR"};
-    //private Integer [] statNumbers = {dm.getTotalDeaths(), dm.getAvgCases(), dm.getAvgTransitGMR(), dm.getAvgParksGMR()};
+    private ArrayList <String> statNames = new ArrayList<>(); //stores 4 statistic names
+    private ArrayList <Integer> statNumbers = new ArrayList<>(); //stores 4 statistics
+    
+    /**
+     * Adds statistic names and info to the arrays
+     * Uses exception handling in case there is no available data
+     */
     @FXML
     public void initialize(){
         statNames.add("Total Deaths");
@@ -53,10 +56,13 @@ public class StatsPanel extends Application
         catch(ArithmeticException ae){
             statisticInfo.setText("No available data");
         }
-        statisticName.setText(statNames.get(0));
-        statisticInfo.setText(String.valueOf(statNumbers.get(0)));
+        //statisticName.setText(statNames.get(0));
+        //statisticInfo.setText(String.valueOf(statNumbers.get(0)));
     }
     
+    /**
+     * Displays the statistic panel
+     */
     @FXML
     public void start(Stage stage){
         try{
@@ -76,6 +82,9 @@ public class StatsPanel extends Application
         }
     }
     
+    /**
+     * Displays the map panel
+     
     @FXML
     public void switchToMap(ActionEvent event) throws IOException{
         URL url = getClass().getResource("MapPanel.fxml"); 
@@ -86,7 +95,11 @@ public class StatsPanel extends Application
         stage.setScene(scene);
         stage.show();
     }
+    */
     
+    /**
+     * Displays the graph panel
+     
     @FXML
     public void switchToGraph(ActionEvent event) throws IOException{
         URL url = getClass().getResource("graph.fxml");
@@ -99,5 +112,6 @@ public class StatsPanel extends Application
         //statisticName.setText("Total Deaths");
         //statisticInfo.setText(String.valueOf(dm.getTotalDeaths(data)));
     }
+    */
     
 }
