@@ -61,7 +61,10 @@ public class MainGUI extends Application
     private ArrayList <String> statNames = new ArrayList<>();
     private static ArrayList <Integer> statNumbers = new ArrayList<>();
     @FXML private Label statisticName;
-    @FXML private Label statisticInfo;
+    @FXML private Label statisticInfo;    
+    @FXML private LineChart<LocalDate, Integer> lineChart;
+    XYChart.Series<LocalDate, Integer> seriesTotalCases = new XYChart.Series<>();
+    XYChart.Series<LocalDate, Integer> seriesTotalDeaths = new XYChart.Series<>();
     
     /**@FXML private LineChart<LocalDate, Integer> lineChart;
     XYChart.Series<LocalDate, Integer> seriesTotalCases = new XYChart.Series<>();
@@ -244,6 +247,7 @@ public class MainGUI extends Application
         
             //System.out.println(totalDeaths);// Set the fill color based on the total deaths
             double ratio = dm.getDeathRatio(start, end, boroughName);
+            
             //double ratio = (dm.getMaxDeaths(start, end, boroughName) - dm.getMinDeaths(start, end, boroughName));
             Color colour = getColorForTotalDeaths(ratio);
             circle.setFill(colour);
