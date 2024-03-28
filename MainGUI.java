@@ -25,8 +25,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import java.time.LocalDate;
 
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.XYChart;
+/*import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;*/
 
 /**
  * Write a description of class MainGUI here.
@@ -63,9 +63,9 @@ public class MainGUI extends Application
     @FXML private Label statisticName;
     @FXML private Label statisticInfo;
     
-    @FXML private LineChart<LocalDate, Integer> lineChart;
+    /**@FXML private LineChart<LocalDate, Integer> lineChart;
     XYChart.Series<LocalDate, Integer> seriesTotalCases = new XYChart.Series<>();
-    XYChart.Series<LocalDate, Integer> seriesTotalDeaths = new XYChart.Series<>();
+    XYChart.Series<LocalDate, Integer> seriesTotalDeaths = new XYChart.Series<>();*/
     
     public void initialize(){
         statNames.add("Total Deaths");
@@ -299,7 +299,7 @@ public class MainGUI extends Application
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        lineChart.setTitle("Total Cases Over Time");
+        /**lineChart.setTitle("Total Cases Over Time");
         lineChart.getXAxis().setLabel("Date");
         lineChart.getYAxis().setLabel("Total Cases");
         
@@ -309,7 +309,7 @@ public class MainGUI extends Application
             int totalCases = i.getTotalCases();
             seriesTotalCases.getData().add(new XYChart.Data<>(date, totalCases));
         }
-        lineChart.getData().add(seriesTotalCases);
+        lineChart.getData().add(seriesTotalCases);*/
     }
     
     @FXML

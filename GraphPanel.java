@@ -17,6 +17,9 @@ import javafx.scene.chart.XYChart;
 import java.util.ArrayList;
 import java.time.LocalDate;
 
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
+
 public class GraphPanel extends Application  {
     
     @FXML private ChoiceBox<String> graphChoice;
@@ -28,8 +31,23 @@ public class GraphPanel extends Application  {
     DataManipulator dm = new DataManipulator();
     ArrayList<CovidData> data = dm.getData();
     
+    @FXML private LineChart<LocalDate, Integer> lineChart;
+    XYChart.Series<LocalDate, Integer> seriesTotalCases = new XYChart.Series<>();
+    XYChart.Series<LocalDate, Integer> seriesTotalDeaths = new XYChart.Series<>();
+    
     @FXML 
     public void initialize() {
+        lineChart.setTitle("Total Cases Over Time");
+        lineChart.getXAxis().setLabel("Date");
+        lineChart.getYAxis().setLabel("Total Cases");
+        
+        seriesTotalCases.setName("Total Cases");
+        for (CovidData i : data){
+            LocalDate date = LocalDate.parse(i.getDate());
+            int totalCases = i.getTotalCases();
+            seriesTotalCases.getData().add(new XYChart.Data<>(date, totalCases));
+        }
+        lineChart.getData().add(seriesTotalCases);
     }
     
     @FXML
