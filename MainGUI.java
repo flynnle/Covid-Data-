@@ -25,7 +25,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import java.time.LocalDate;
 
-import javafx.scene.chart.BarChart;
+import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 
 /**
@@ -61,8 +61,11 @@ public class MainGUI extends Application
     private ArrayList <String> statNames = new ArrayList<>();
     private static ArrayList <Integer> statNumbers = new ArrayList<>();
     @FXML private Label statisticName;
-    @FXML private Label statisticInfo;
-        
+    @FXML private Label statisticInfo;    
+    @FXML private LineChart<LocalDate, Integer> lineChart;
+    XYChart.Series<LocalDate, Integer> seriesTotalCases = new XYChart.Series<>();
+    XYChart.Series<LocalDate, Integer> seriesTotalDeaths = new XYChart.Series<>();
+    
     public void initialize(){
         statNames.add("Total Deaths");
         statNames.add("Average Cases per Day");
@@ -296,6 +299,17 @@ public class MainGUI extends Application
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        lineChart.setTitle("Total Cases Over Time");
+        lineChart.getXAxis().setLabel("Date");
+        lineChart.getYAxis().setLabel("Total Cases");
+        
+        seriesTotalCases.setName("Total Cases");
+        for (CovidData i : data){
+            LocalDate date = LocalDate.parse(i.getDate());
+            int totalCases = i.getTotalCases();
+            seriesTotalCases.getData().add(new XYChart.Data<>(date, totalCases));
+        }
+        lineChart.getData().add(seriesTotalCases);
     }
     
     @FXML
