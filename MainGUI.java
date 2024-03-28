@@ -239,8 +239,8 @@ public class MainGUI extends Application
             //int totalDeaths = dm.getDeaths(start, end, boroughName);  // You need to implement this method
         
             //System.out.println(totalDeaths);// Set the fill color based on the total deaths
-            //double ratio = dm.getDeathRatio(start, end, boroughName);
-            double ratio = (dm.getMaxDeaths(start, end, boroughName) - dm.getMinDeaths(start, end, boroughName));
+            double ratio = dm.getDeathRatio(start, end, boroughName);
+            //double ratio = (dm.getMaxDeaths(start, end, boroughName) - dm.getMinDeaths(start, end, boroughName));
             Color colour = getColorForTotalDeaths(ratio);
             circle.setFill(colour);
             
@@ -255,12 +255,15 @@ public class MainGUI extends Application
         // Define your logic to determine the color based on the total deaths
         // For example, you can use a gradient or predefined thresholds to map total deaths to colors
         // Here's a simple example:
-        if (ratio < 0.3) {
+        if (ratio <0.025) {
             return Color.LIGHTGREEN;
-        } else if (ratio < 0.6) {
+        } else if (ratio < 0.035) {
             return Color.KHAKI;
-        } else {
+        } else if (ratio < 1){
             return Color.TOMATO;
+        }
+        else{
+            return Color.LIGHTGRAY; 
         }
         /*if (totalDeaths < 1000) {
             return Color.GREEN;
@@ -269,8 +272,8 @@ public class MainGUI extends Application
         } else {
             return Color.RED;
         }*/
-    }
     
+    }
     
 
     @FXML
@@ -285,7 +288,6 @@ public class MainGUI extends Application
     }
     
     public void switchToGraph(ActionEvent event) throws java.io.IOException {
-        //graph.initialize();
         URL url = getClass().getResource("graph.fxml"); 
         Pane root = FXMLLoader.load(url); 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
