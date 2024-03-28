@@ -197,6 +197,9 @@ public class MapPanel extends Application
         
     }
 
+    /**
+     * method to switch scenes. left button
+     */
     @FXML
     public void switchToCovid(ActionEvent event) throws IOException{
         URL url = getClass().getResource("introPanel.fxml"); 
@@ -208,6 +211,9 @@ public class MapPanel extends Application
         stage.show();
     }
 
+    /**
+     * method to switch scenes. right button
+     */
     @FXML
     public void switchToStats(ActionEvent event) throws IOException{
         URL url = getClass().getResource("statsPanel.fxml"); 
@@ -220,6 +226,9 @@ public class MapPanel extends Application
     }
 
     //general method to create new window for boroughs
+    /**
+     * method to create a new window when a borough is pressed
+     */
     @FXML 
     public void popupButton(ActionEvent event) {
         try {

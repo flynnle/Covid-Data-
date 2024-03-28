@@ -53,12 +53,17 @@ public class IntroPanel extends Application
         stage.show();  
     }
     
+    /**
+     * method for go button
+     */
     @FXML
     public void go(){
         start = startDate.getValue();
         end = endDate.getValue();
+        
+        //date validation 
         if (dm.validDate(start, end) == 0){
-            valid = true;
+            valid = true; //disable button and show error message for bad dates
             leftArrow.setDisable(valid);
             rightArrow.setDisable(valid);
             errorLabel.setVisible(valid);
@@ -69,7 +74,7 @@ public class IntroPanel extends Application
             rightArrow.setDisable(valid);
             errorLabel.setVisible(valid); 
             errorLabel.setVisible(valid);
-            dm.filterDate(start, end); //load and select data for other classes (static list)
+            dm.filterDate(start, end); //load and select data for other classes 
         }else if(dm.validDate(start, end) == -1){
             valid = false;
             leftArrow.setDisable(valid);
@@ -85,50 +90,24 @@ public class IntroPanel extends Application
         }
     }
     
+    /**
+     * @return LocalDate start which is the date inside from datepicker
+     */
     public LocalDate getStart(){
         return start;
     }
     
+    /**
+     * @return LocalDate end which is the date inside from datepicker
+     */
     public LocalDate getEnd(){
         return end;
     }
     
+    /**
+     * @return arraylist which has been filtered by date already
+     */
     public ArrayList<CovidData> getList(){
         return data;
-    }
-    
-    @FXML
-    public void switchToMap(ActionEvent event) throws IOException{
-        URL url = getClass().getResource("MapPanel.fxml"); 
-        Pane root = FXMLLoader.load(url); 
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("Map"); 
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-    
-    /**@FXML
-    public void switchToStats(ActionEvent event) throws IOException{
-        URL url = getClass().getResource("statisticsPanel.fxml"); 
-        Pane root = FXMLLoader.load(url); 
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("Statistics"); 
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }**/
-    
-    @FXML
-    public void switchToGraph(ActionEvent event) throws IOException{
-        URL url = getClass().getResource("graph.fxml");
-        Pane root = FXMLLoader.load(url);
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("Graph"); 
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-        //statisticName.setText("Total Deaths");
-        //statisticInfo.setText(String.valueOf(dm.getTotalDeaths(data)));
     }
 }
