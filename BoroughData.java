@@ -30,7 +30,7 @@ public class BoroughData extends Application {
     @FXML TableColumn<CovidData, String> transitColumn;
     @FXML TableColumn<CovidData, String> newCovidColumn;
     @FXML TableColumn<CovidData, String> totalCovidColumn;
-    @FXML TableColumn<CovidData, String> totalDeathsColumn;
+    @FXML TableColumn<CovidData, String> newDeathsColumn;
     
     private ArrayList<String> orderedBy;
     private String order;
@@ -46,23 +46,11 @@ public class BoroughData extends Application {
         orderedBy.add("Transit GMR");
         orderedBy.add("New COVID cases");
         orderedBy.add("Total COVID cases");
-        orderedBy.add("New COVID Cases");
+        orderedBy.add("New Deaths");
         choicebox.getItems().addAll(orderedBy);
         choicebox.setValue("Date");
         
-        dateColumn.setCellValueFactory(cellData -> {
-            String date = cellData.getValue().getDate();
-            return Bindings.createObjectBinding(() -> date);
-        });
-        
-        transitColumn.setCellValueFactory(cellData -> {
-            int gmr = cellData.getValue().getTransitGMR();
-            return new SimpleStringProperty(Integer.toString(gmr));
-        });
-        
-        
-         
-        dataTable.setItems(covidDataList);
+        populate();
         
     }
     
@@ -92,6 +80,32 @@ public class BoroughData extends Application {
     
     @FXML
     public void populate(){
+        dateColumn.setCellValueFactory(cellData -> {
+            String date = cellData.getValue().getDate();
+            return Bindings.createObjectBinding(() -> date);
+        });
+        
+        transitColumn.setCellValueFactory(cellData -> {
+            int gmr = cellData.getValue().getTransitGMR();
+            return new SimpleStringProperty(Integer.toString(gmr));
+        });
+        
+        newCovidColumn.setCellValueFactory(cellData -> {
+            int newCases = cellData.getValue().getNewCases();
+            return new SimpleStringProperty(Integer.toString(newCases));
+        });
+        
+        totalCovidColumn.setCellValueFactory(cellData -> {
+            int totalCases = cellData.getValue().getTotalCases();
+            return new SimpleStringProperty(Integer.toString(totalCases));
+        });
+        
+        newDeathsColumn.setCellValueFactory(cellData -> {
+            int newDeaths = cellData.getValue().getNewDeaths();
+            return new SimpleStringProperty(Integer.toString(newDeaths));
+        });
+         
+        dataTable.setItems(covidDataList);
     }
 
 }
