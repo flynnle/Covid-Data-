@@ -31,10 +31,10 @@ public class HelpPanel extends Application
     @FXML private Button leftButton; 
     @FXML private Button rightButton;
     /**
-     * An example of a method - replace this comment with your own
+     * Displays the help panel
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @Camille Junique K23057058, Shrishaa Pathak K22051823, 
+        Leila Flynn K23046238, Shankhi Sinha K23038624
      */
     public void start(Stage stage) throws Exception
     {
@@ -46,31 +46,49 @@ public class HelpPanel extends Application
         stage.show();  
     }
     
+    /**
+     * Open link to Covid-19 Symptoms and What To Do
+     */
     public void openNHS(ActionEvent event) throws URISyntaxException, IOException{
         URI uri = new URI("https://www.nhs.uk/conditions/covid-19/covid-19-symptoms-and-what-to-do/");
         java.awt.Desktop.getDesktop().browse(uri);
     }
     
+    /**
+     * Open link to Vaccine Sites In London
+     */
     public void openVaccine(ActionEvent event) throws URISyntaxException, IOException{
         URI uri = new URI("https://www.england.nhs.uk/london/our-work/covid-19-vaccination-programme-2/covid-19-vaccine-sites-in-london/");
         java.awt.Desktop.getDesktop().browse(uri);
     }
     
+    /**
+     * Open link to Covid-19 Testing Providers
+     */
     public void openTesting(ActionEvent event) throws URISyntaxException, IOException{
         URI uri = new URI("https://uk.usembassy.gov/covidtestingproviders/");
         java.awt.Desktop.getDesktop().browse(uri);
     }
     
+    /**
+     * Open link to Covid-19 Mental Health Services
+     */
     public void openMentalHealth(ActionEvent event) throws URISyntaxException, IOException{
         URI uri = new URI("https://www.london.gov.uk/coronavirus/coronavirus-and-looking-after-your-mental-health");
         java.awt.Desktop.getDesktop().browse(uri);
     }
     
+    /**
+     * Open link to Covid-19 Financial Support 
+     */
     public void openFinanceSupport(ActionEvent event) throws URISyntaxException, IOException{
         URI uri = new URI("https://www.london.gov.uk/coronavirus/financial-support-during-coronavirus#:~:text=For%20information%20and%20online%20advice,on%20wellbeing%20during%20coronavirus%20helpful.");
         java.awt.Desktop.getDesktop().browse(uri);
     }
     
+    /**
+     * Open link to Foreign Travel guidelines including lastest information on coronavirus
+     */
     public void openForeignTravel(ActionEvent event) throws URISyntaxException, IOException{
         URI uri = new URI("https://www.gov.uk/foreign-travel-advice");
         java.awt.Desktop.getDesktop().browse(uri);
