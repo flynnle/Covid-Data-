@@ -57,7 +57,6 @@ public class MainGUI extends Application
     
     private ArrayList<CovidData> data;
     
-    
     private int statsCounter;
     private ArrayList <String> statNames = new ArrayList<>();
     private static ArrayList <Integer> statNumbers = new ArrayList<>();
