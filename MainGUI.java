@@ -257,11 +257,11 @@ public class MainGUI extends Application
         // For example, you can use a gradient or predefined thresholds to map total deaths to colors
         // Here's a simple example:
         if (ratio < 0.3) {
-            return Color.GREEN;
+            return Color.LIGHTGREEN;
         } else if (ratio < 0.6) {
-            return Color.YELLOW;
+            return Color.KHAKI;
         } else {
-            return Color.RED;
+            return Color.TOMATO;
         }
         /*if (totalDeaths < 1000) {
             return Color.GREEN;
