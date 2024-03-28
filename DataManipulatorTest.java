@@ -126,5 +126,6 @@ public class DataManipulatorTest
     @AfterEach
     public void tearDown()
     {
+        test = null;
     }
 }
