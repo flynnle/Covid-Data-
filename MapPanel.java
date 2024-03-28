@@ -96,7 +96,7 @@ public class MapPanel extends Application
     @FXML private Circle CirSUTT;
     @FXML private Circle CirCROY;
     @FXML private Circle CirBROM;
-    //@FXML private Circle CirENFI;
+    
     private Map<Button, String> boroughNameMap = new HashMap<>();
     private HashMap<Circle, String> circles = new HashMap<Circle, String>();
     private HashMap<Circle, String> circleNames = new HashMap<>();
@@ -179,7 +179,7 @@ public class MapPanel extends Application
         circleNames.put(CirSUTT, "Sutton");
         circleNames.put(CirCROY, "Croydon");
         circleNames.put(CirBROM, "Bromley");
-        //updateColour();
+        
     }
 
     /**
