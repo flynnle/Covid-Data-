@@ -289,7 +289,6 @@ public class MainGUI extends Application
     }
     
     public void switchToGraph(ActionEvent event) throws java.io.IOException {
-        //graph.initialize();
         URL url = getClass().getResource("graph.fxml"); 
         Pane root = FXMLLoader.load(url); 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
