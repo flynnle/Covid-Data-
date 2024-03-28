@@ -62,9 +62,6 @@ public class MainGUI extends Application
     private static ArrayList <Integer> statNumbers = new ArrayList<>();
     @FXML private Label statisticName;
     @FXML private Label statisticInfo;    
-    @FXML private LineChart<LocalDate, Integer> lineChart;
-    XYChart.Series<LocalDate, Integer> seriesTotalCases = new XYChart.Series<>();
-    XYChart.Series<LocalDate, Integer> seriesTotalDeaths = new XYChart.Series<>();
     
     /**@FXML private LineChart<LocalDate, Integer> lineChart;
     XYChart.Series<LocalDate, Integer> seriesTotalCases = new XYChart.Series<>();
