@@ -87,7 +87,7 @@
                </HBox.margin></Button>
             <Button fx:id="rightButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToGraph" prefHeight="20.0" prefWidth="50.0" text="&gt;">
                <HBox.margin>
-                  <Insets left="477.0" top="2.5" />
+                  <Insets left="479.0" top="2.5" />
                </HBox.margin>
                <font>
                   <Font size="11.0" />

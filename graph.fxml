@@ -12,7 +12,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainGUI">
    <bottom>
-      <HBox prefHeight="29.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="27.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="leftButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToStats" prefHeight="20.0" prefWidth="50.0" text="&lt;">
                <HBox.margin>

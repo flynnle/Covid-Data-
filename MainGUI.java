@@ -71,6 +71,9 @@ public class MainGUI extends Application
         statNames.add("Average Park GMR");
     }
     
+    /**
+     * Displays the welcome page
+     */
     public void start(Stage first) throws java.io.IOException
     {
         URL url = getClass().getResource("IntroPanel.fxml");
@@ -81,7 +84,12 @@ public class MainGUI extends Application
         first.show();    
     }
     
-    //intro
+    /**
+     * Method that is called when the Go button is pressed on IntroPanel
+     * Checks that the dates from the date picker is in range. If they are in range, it 
+     * enables the left and right arrows to switch panels. If they are not in range or if the 
+     * end date is before the start date, it displays an error message. 
+     */
     @FXML
     public void goMethod(){
         LocalDate start = startDate.getValue();
@@ -120,7 +128,10 @@ public class MainGUI extends Application
         }
     }
     
-    //stats
+    /**
+     * Shows previous statistic when left arrow button is clicked on the statistic panel. Loops
+     * back to the last panel. 
+     */
     @FXML
     public void leftStat(ActionEvent event) throws IOException{
         statsCounter = statsCounter + 1;
@@ -131,6 +142,10 @@ public class MainGUI extends Application
         statisticInfo.setText(String.valueOf(statNumbers.get(statsCounter)));
     }
     
+    /**
+     * Shows next statistic when right arrow button is click on the statistic panel. Loops back
+     * to the first statistic after the last one.
+     */
     @FXML
     public void rightStat(ActionEvent event) throws IOException{
         statsCounter = statsCounter - 1;
@@ -141,6 +156,10 @@ public class MainGUI extends Application
         statisticInfo.setText(String.valueOf(statNumbers.get(statsCounter)));
     }
     
+    /**
+     * Method that is called when the Load button is pressed on the statistics panel. It hides
+     * the Load button and shows the left and right button, as well as the statistic.
+     */
     @FXML 
     public void statsLoading() {
         statsLoad.setVisible(false); 
@@ -153,6 +172,10 @@ public class MainGUI extends Application
     }
     
     //SWITCH METHODS
+    /**
+     * Switches to the map panel and colour codes each borough according to the number of 
+     * deaths in each borough relative to the time period given
+     */
     @FXML
     public void switchToMap(ActionEvent event) throws java.io.IOException {
         URL url = getClass().getResource("MapPanel.fxml"); 
@@ -251,7 +274,9 @@ public class MainGUI extends Application
     
     }
     
-    
+    /**
+     * 
+     */
     private Color getColorForTotalDeaths(double ratio) {
     
         // Define your logic to determine the color based on the total deaths
@@ -277,7 +302,9 @@ public class MainGUI extends Application
     
     }
     
-
+    /**
+     * Displays statistic panel
+     */
     @FXML
     public void switchToStats(ActionEvent event) throws java.io.IOException {
         URL url = getClass().getResource("statsPanel.fxml"); 
@@ -289,6 +316,9 @@ public class MainGUI extends Application
         stage.show();
     }
     
+    /**
+     * Displays graph panel
+     */
     public void switchToGraph(ActionEvent event) throws java.io.IOException {
         URL url = getClass().getResource("graph.fxml"); 
         Pane root = FXMLLoader.load(url); 
@@ -310,6 +340,9 @@ public class MainGUI extends Application
         lineChart.getData().add(seriesTotalCases);*/
     }
     
+    /**
+     * Displays intro page
+     */
     @FXML
     public void switchToIntro(ActionEvent event) throws java.io.IOException {
         URL url = getClass().getResource("IntroPanel.fxml"); 
@@ -321,10 +354,12 @@ public class MainGUI extends Application
         stage.show();
     }
     
+    /**
+     * Calls the popupButton method in the MapPanel class when a borough button is pressed on 
+     * the map panel
+     */
     @FXML
     public void popupButton(ActionEvent event){
         map.popupButton(event);
     }
-    
-    
 }
