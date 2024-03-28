@@ -62,7 +62,7 @@ public class MainGUI extends Application
     private static ArrayList <Integer> statNumbers = new ArrayList<>();
     @FXML private Label statisticName;
     @FXML private Label statisticInfo;
-    
+        
     public void initialize(){
         statNames.add("Total Deaths");
         statNames.add("Average Cases per Day");
@@ -240,6 +240,7 @@ public class MainGUI extends Application
         
             //System.out.println(totalDeaths);// Set the fill color based on the total deaths
             double ratio = dm.getDeathRatio(start, end, boroughName);
+            
             //double ratio = (dm.getMaxDeaths(start, end, boroughName) - dm.getMinDeaths(start, end, boroughName));
             Color colour = getColorForTotalDeaths(ratio);
             circle.setFill(colour);
