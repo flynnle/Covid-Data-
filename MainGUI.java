@@ -293,14 +293,7 @@ public class MainGUI extends Application
         else{
             return Color.LIGHTGRAY; 
         }
-        /*if (totalDeaths < 1000) {
-            return Color.GREEN;
-        } else if (totalDeaths < 3000) {
-            return Color.YELLOW;
-        } else {
-            return Color.RED;
-        }*/
-    
+        
     }
     
     /**
