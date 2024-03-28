@@ -42,15 +42,14 @@ public class BoroughData extends Application {
     @FXML 
     public void initialize() {
         orderedBy = new ArrayList<>();
-        orderedBy.add("Date");
-        orderedBy.add("Transit GMR");
-        orderedBy.add("New COVID cases");
-        orderedBy.add("Total COVID cases");
-        orderedBy.add("New Deaths");
-        choicebox.getItems().addAll(orderedBy);
+        choicebox.getItems().addAll("Date", "Transit GMR", "New COVID cases", "Total COVID cases", "New COVID deaths");
         choicebox.setValue("Date");
         
         populate();
+        
+        choicebox.getSelectionModel().selectedItemProperty().addListener((observable, oldVal, newVal) -> {
+            sortColumn(newVal);
+        });
         
     }
     
@@ -75,6 +74,7 @@ public class BoroughData extends Application {
     }
     
     public void createList(String borough){
+        covidDataList.clear();
         covidDataList.addAll(dm.filterBorough(borough));
     }
     
@@ -106,6 +106,11 @@ public class BoroughData extends Application {
         });
          
         dataTable.setItems(covidDataList);
+    }
+    
+    private void sortColumn(String name){
+        ObservableList<CovidData> sortedData = dm.sortData(dataTable.getItems(), name);
+        dataTable.setItems(sortedData);
     }
 
 }

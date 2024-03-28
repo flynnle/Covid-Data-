@@ -6,6 +6,7 @@ import java.time.Period;
 import java.time.LocalDateTime;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
+import java.util.Comparator;
 
 /**
  * Write a description of class DataManipulator here.
@@ -62,17 +63,35 @@ public class DataManipulator
             selected.add(i);
         }
     }
-    System.out.println(selected.isEmpty());
     return selected;
     }
     
-    /*public int getDeaths(ObservableList<CovidData> selectedData) {
-        int total = 0;
-        for(CovidData i : selectedData) {
-            total += i.getTotalDeaths();
+    public ObservableList<CovidData> sortData(ObservableList<CovidData> list,String sortBy){
+        Comparator<CovidData> comparator = null;
+        switch (sortBy){
+            case "Date":
+                comparator = Comparator.comparing(CovidData::getDate);
+                break;
+            case "Transit GMR":
+                comparator = Comparator.comparingInt(CovidData::getTransitGMR);
+                break;    
+            case "New COVID cases":
+                comparator = Comparator.comparingInt(CovidData::getNewCases);
+                break;
+            case "New COVID deaths":
+                comparator = Comparator.comparingInt(CovidData::getNewDeaths);
+                break;
+            case "Total COVID cases":
+                comparator = Comparator.comparing(CovidData::getTotalCases);
+                break;
+            }
+            
+        if(comparator != null){
+                FXCollections.sort(list, comparator);
+            }
+        return list; 
         }
-        return total;
-    }*/
+    
     
     public int getDeaths(LocalDate start, LocalDate end, String borough) {
         //filterDate(start, end);
