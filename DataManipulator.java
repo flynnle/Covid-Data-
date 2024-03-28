@@ -103,7 +103,7 @@ public class DataManipulator
         filteredByDate.retainAll(filteredByBorough);
     
         int totalDeaths = 0;
-        for (CovidData i : filteredByBorough){
+        for (CovidData i : filteredByDate){
             totalDeaths += i.getNewDeaths();
         }
         return totalDeaths;
