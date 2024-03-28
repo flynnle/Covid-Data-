@@ -85,7 +85,7 @@ public class DataManipulator
     
         int totalDeaths = 0;
         for (CovidData i : filteredByDate) {
-            totalDeaths += i.getTotalDeaths();
+            totalDeaths += i.getNewDeaths();
         }
         return totalDeaths;
     
@@ -101,9 +101,46 @@ public class DataManipulator
         filteredByDate.retainAll(filteredByBorough);
         int totalCases= 0;
         for (CovidData i : filteredByDate) {
-            totalCases += i.getTotalCases();
+            totalCases += i.getNewCases();
         }
         return totalCases;
+    }
+    
+    public int getMinDeaths(LocalDate start, LocalDate end, String borough) {
+        
+        ObservableList<CovidData> filteredByDate = FXCollections.observableArrayList(data);
+        System.out.println(filteredByDate);
+        ObservableList<CovidData> filteredByBorough = filterBorough(borough);
+        System.out.println(filteredByBorough);
+    
+        // Find intersection of records filtered by date and borough
+        filteredByDate.retainAll(filteredByBorough);
+        min = 0;
+        for (CovidData i : filteredByDate) {
+            if(min > i.getNewDeaths())
+            {
+                min = i.getNewDeaths();
+            }
+        }
+        return min;
+    }
+    
+    public int getMaxDeaths(LocalDate start, LocalDate end, String borough) {
+        ObservableList<CovidData> filteredByDate = FXCollections.observableArrayList(data);
+        System.out.println(filteredByDate);
+        ObservableList<CovidData> filteredByBorough = filterBorough(borough);
+        System.out.println(filteredByBorough);
+    
+        // Find intersection of records filtered by date and borough
+        filteredByDate.retainAll(filteredByBorough);
+        max= 0;
+        for (CovidData i : filteredByDate) {
+            if(max < i.getNewDeaths())
+            {
+                max = i.getNewDeaths();
+            }
+        }
+        return max;
     }
     
     public double getDeathRatio(LocalDate start, LocalDate end, String borough) {

@@ -238,11 +238,12 @@ public class MainGUI extends Application
             
             String boroughName = entry.getValue();
             // Get the total deaths for the borough from your data source
-            int totalDeaths = dm.getDeaths(start, end, boroughName);  // You need to implement this method
+            //int totalDeaths = dm.getDeaths(start, end, boroughName);  // You need to implement this method
         
             //System.out.println(totalDeaths);// Set the fill color based on the total deaths
             //double ratio = dm.getDeathRatio(start, end, boroughName);
-            Color colour = getColorForTotalDeaths(totalDeaths);
+            double ratio = (dm.getMaxDeaths(start, end, boroughName) - dm.getMinDeaths(start, end, boroughName));;
+            Color colour = getColorForTotalDeaths(ratio);
             circle.setFill(colour);
             
         }
@@ -251,25 +252,25 @@ public class MainGUI extends Application
     }
     
     
-    private Color getColorForTotalDeaths(int totalDeaths) {
+    private Color getColorForTotalDeaths(double ratio) {
     
         // Define your logic to determine the color based on the total deaths
         // For example, you can use a gradient or predefined thresholds to map total deaths to colors
         // Here's a simple example:
-        /**if (ratio < 0.3) {
+        if (ratio < 0.3) {
             return Color.GREEN;
         } else if (ratio < 0.6) {
             return Color.YELLOW;
         } else {
             return Color.RED;
-        }*/
-        if (totalDeaths < 1000) {
+        }
+        /*if (totalDeaths < 1000) {
             return Color.GREEN;
         } else if (totalDeaths < 3000) {
             return Color.YELLOW;
         } else {
             return Color.RED;
-        }
+        }*/
     }
     
     
