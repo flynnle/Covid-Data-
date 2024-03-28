@@ -35,8 +35,8 @@
          <children>
             <TableView fx:id="dataTable" prefHeight="315.0" prefWidth="600.0">
               <columns>
-                <TableColumn fx:id="dateColumn" prefWidth="70.0" text="Date" />
-                <TableColumn fx:id="transitColumn" prefWidth="130.0" text="Transit GMR" />
+                <TableColumn fx:id="dateColumn" prefWidth="100.0" text="Date" />
+                <TableColumn fx:id="transitColumn" prefWidth="100.0" text="Transit GMR" />
                   <TableColumn fx:id="newCovidColumn" prefWidth="130.0" text="New COVID Cases" />
                   <TableColumn fx:id="totalCovidColumn" prefWidth="130.0" text="Total COVID cases" />
                   <TableColumn fx:id="newDeathsColumn" prefWidth="140.0" text="New COVID Deaths" />
