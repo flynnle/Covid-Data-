@@ -23,7 +23,7 @@
             </Button>
             <Button fx:id="rightArrow" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#switchToStats" prefHeight="20.0" prefWidth="50.0" text="&gt;">
                <HBox.margin>
-                  <Insets left="477.0" top="2.5" />
+                  <Insets left="479.0" top="2.5" />
                </HBox.margin>
                <font>
                   <Font size="10.0" />
