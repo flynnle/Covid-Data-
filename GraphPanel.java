@@ -12,7 +12,7 @@ import javafx.scene.Node;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
 import javafx.collections.FXCollections;
-import javafx.scene.chart.BarChart;
+import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import java.util.ArrayList;
 import java.time.LocalDate;
@@ -20,20 +20,30 @@ import java.time.LocalDate;
 public class GraphPanel extends Application  {
     
     @FXML private ChoiceBox<String> graphChoice;
-    @FXML private BarChart<Integer, LocalDate> barChart;
+    @FXML private LineChart<LocalDate, Integer> lineChart;
     @FXML private Button leftButton;
     @FXML private Button rightButton;
     //private ObservableList<String> orderedBy;
     //private String order;
     
     DataManipulator dm = new DataManipulator();
+    ArrayList<CovidData> data = dm.getData();
+    XYChart.Series<LocalDate, Integer> seriesTotalCases = new XYChart.Series<>();
+    XYChart.Series<LocalDate, Integer> seriesTotalDeaths = new XYChart.Series<>();
     
     @FXML 
     public void initialize() {
+        lineChart.setTitle("Total Cases Over Time");
+        lineChart.getXAxis().setLabel("Date");
+        lineChart.getYAxis().setLabel("Total Cases");
         
-        
-        
-        
+        seriesTotalCases.setName("Total Cases");
+        for (CovidData i : data){
+            LocalDate date = LocalDate.parse(i.getDate());
+            int totalCases = i.getTotalCases();
+            seriesTotalCases.getData().add(new XYChart.Data<>(date, totalCases));
+        }
+        lineChart.getData().add(seriesTotalCases);
     }
     
     @FXML
@@ -43,8 +53,11 @@ public class GraphPanel extends Application  {
         Scene scene = new Scene(root); 
         stage.setTitle("Graph"); 
         stage.setScene(scene);
-        
     }
+    
+    
+    
+    
     
     @FXML
     public void switchToStats(ActionEvent event) throws java.io.IOException {
