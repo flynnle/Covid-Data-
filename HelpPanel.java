@@ -13,10 +13,10 @@ import java.net.URISyntaxException;
 import java.io.IOException;
 
 /**
- * Write a description of class HelpPanel here.
+ * Displays the help and information panel
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @Camille Junique K23057058, Shrishaa Pathak K22051823, 
+Leila Flynn K23046238, Shankhi Sinha K23038624
  */
 public class HelpPanel extends Application
 {

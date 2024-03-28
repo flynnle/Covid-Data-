@@ -82,36 +82,5 @@ public class StatsPanel extends Application
         }
     }
     
-    /**
-     * Displays the map panel
-     
-    @FXML
-    public void switchToMap(ActionEvent event) throws IOException{
-        URL url = getClass().getResource("MapPanel.fxml"); 
-        Pane root = FXMLLoader.load(url); 
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("Map"); 
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-    */
-    
-    /**
-     * Displays the graph panel
-     
-    @FXML
-    public void switchToGraph(ActionEvent event) throws IOException{
-        URL url = getClass().getResource("graph.fxml");
-        Pane root = FXMLLoader.load(url);
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("Graph"); 
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-        //statisticName.setText("Total Deaths");
-        //statisticInfo.setText(String.valueOf(dm.getTotalDeaths(data)));
-    }
-    */
     
 }

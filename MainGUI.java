@@ -318,27 +318,16 @@ public class MainGUI extends Application
     }
     
     /**
-     * Displays graph panel
+     * Displays help panel
      */
-    public void switchToGraph(ActionEvent event) throws java.io.IOException {
-        URL url = getClass().getResource("graph.fxml"); 
+    public void switchToHelp(ActionEvent event) throws java.io.IOException {
+        URL url = getClass().getResource("helpPanel.fxml"); 
         Pane root = FXMLLoader.load(url); 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("Graph"); 
+        stage.setTitle("Information"); 
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        /**lineChart.setTitle("Total Cases Over Time");
-        lineChart.getXAxis().setLabel("Date");
-        lineChart.getYAxis().setLabel("Total Cases");
-        
-        seriesTotalCases.setName("Total Cases");
-        for (CovidData i : data){
-            LocalDate date = LocalDate.parse(i.getDate());
-            int totalCases = i.getTotalCases();
-            seriesTotalCases.getData().add(new XYChart.Data<>(date, totalCases));
-        }
-        lineChart.getData().add(seriesTotalCases);*/
     }
     
     /**
