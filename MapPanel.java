@@ -97,13 +97,13 @@ public class MapPanel extends Application
     @FXML private Circle CirBROM;
     //@FXML private Circle CirENFI;
     private Map<Button, String> boroughNameMap = new HashMap<>();
-    private ArrayList<Circle> circles = new ArrayList<Circle>();
+    private HashMap<Circle, String> circles = new HashMap<Circle, String>();
     private HashMap<Circle, String> circleNames = new HashMap<>();
     private ObservableList<CovidData> data;
     DataManipulator dm = new DataManipulator();
     public MapPanel() {
         boroughNameMap = new HashMap<>();
-        circles = new ArrayList<Circle>();
+
         initialize();
 
     }
@@ -178,7 +178,7 @@ public class MapPanel extends Application
         circleNames.put(CirSUTT, "Sutton");
         circleNames.put(CirCROY, "Croydon");
         circleNames.put(CirBROM, "Bromley");
-
+        
         //updateColour();
     }
 
@@ -247,33 +247,5 @@ public class MapPanel extends Application
     public ObservableList<CovidData> populateBorough() {
         return data;
     }
-
-    @FXML
-    public void circleName(){
-        for (Circle circle : circles) {
-        // Retrieve the borough name associated with the current circle
-        String boroughName = circleNames.get(circle);
-        
-        // Filter the data for the borough
-        ObservableList<CovidData> boroughData = dm.filterBorough(boroughName);
-        System.out.println(1);
-        // Calculate the total deaths for the borough
-        int totalDeaths = 0;
-        for (CovidData data : boroughData) {
-            totalDeaths += data.getTotalDeaths();
-        }
-        
-        // Set color based on total deaths
-        if (totalDeaths < 100) {
-            circle.setFill(Color.GREEN); 
-        } 
-        else if (totalDeaths < 500) {
-            circle.setFill(Color.YELLOW); 
-        } 
-        else {
-            circle.setFill(Color.RED); 
-        }
-    }
         
     }
-}
