@@ -163,7 +163,7 @@ public class DataManipulator
         return max;
     }
     
-    public static int getTotalDeaths(){
+    public int getTotalDeaths(){
         int total = 0;
         for (CovidData i : data){
             total += i.getNewDeaths();

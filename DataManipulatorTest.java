@@ -108,6 +108,16 @@ public class DataManipulatorTest
         assertEquals(14,test.getAvgCases());
     }
     
+    @Test
+    public void testgetMaxDeaths(){
+        assertEquals(3,test.getMaxDeaths(LocalDate.of(2022,3,1), LocalDate.of(2023,3,22),"Barnet"));
+    }
+    
+    @Test
+    public void testgetMinDeaths(){
+        assertEquals(0,test.getMinDeaths(LocalDate.of(2022,3,1), LocalDate.of(2023,3,22),"Barnet"));
+    }
+    
     /**
      * Tears down the test fixture.
      *
