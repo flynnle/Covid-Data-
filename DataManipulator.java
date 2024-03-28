@@ -93,9 +93,8 @@ public class DataManipulator
         return list; 
         }
     
-    
+        
     public int getDeaths(LocalDate start, LocalDate end, String borough) {
-        //filterDate(start, end);
         ObservableList<CovidData> filteredByDate = FXCollections.observableArrayList(data);
         ObservableList<CovidData> filteredByBorough = filterBorough(borough);
 
