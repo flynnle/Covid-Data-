@@ -56,22 +56,19 @@ public class GraphPanel extends Application  {
     }
     
     
-    
-    
-    
     @FXML
-    public void switchToStats(ActionEvent event) throws java.io.IOException {
-        URL url = getClass().getResource("StatsPanel.fxml"); 
+    public void switchToStats(ActionEvent event) throws IOException{
+        URL url = getClass().getResource("statsPanel.fxml"); 
         Pane root = FXMLLoader.load(url); 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("Map"); 
+        stage.setTitle("Statistics Panel"); 
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
     
     @FXML
-    public void switchToCovid(ActionEvent event) throws IOException{
+    public void switchToIntro(ActionEvent event) throws IOException{
         URL url = getClass().getResource("IntroPanel.fxml"); 
         Pane root = FXMLLoader.load(url); 
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
