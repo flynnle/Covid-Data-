@@ -103,12 +103,13 @@ public class DataManipulator
         filteredByDate.retainAll(filteredByBorough);
     
         int totalDeaths = 0;
-        for (CovidData i : filteredByDate) {
+        for (CovidData i : filteredByBorough){
             totalDeaths += i.getNewDeaths();
         }
         return totalDeaths;
     
     }
+    
     
     public int getTotalCases(LocalDate start, LocalDate end, String borough) {
         ObservableList<CovidData> filteredByDate = FXCollections.observableArrayList(data);
